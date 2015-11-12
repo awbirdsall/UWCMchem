@@ -12,7 +12,7 @@ pathways of the chemistry being changed.
 (1) Create a Github account and set up Git on your computer (github.com, https://help.github.com/articles/set-up-git/)
 
 (2) Replace the existing UWCMchem folder you have with the version-controlled repository hosted on Github:
-- remove the existing UWCMchem folder you are using (or the folder move to a backup location)
+- remove the existing UWCMchem folder you are using (or move the folder to a backup location)
 - from a command line that lets you use git commands (Git Bash for Windows), navigate to the UWCMv2 folder where UWCMchem should be located, and clone the repository from github using the command:
 
 `git clone https://github.com/awbirdsall/UWCMchem.git`
