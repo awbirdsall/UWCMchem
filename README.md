@@ -19,7 +19,7 @@ pathways of the chemistry being changed.
 
 You now have a local version of the UWCMchem repository!
 
-(3) Working with git. There is some helpful information in [Sections 2.1-2.5 and 3.1-3.2 of the official documentation](http://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository), as well as via online search, but a few simple instructions:
+(3) Working with git. There is some helpful information in [Sections 2.1-2.5 and 3.1-3.2 of the official documentation](http://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository), as well as via online search, but the basic command line instructions you need are below. It's also possible to use the graphical interface of Github Desktop.
 
 Create a new branch and change it to your current branch:
 `git checkout -b branchname`
