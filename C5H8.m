@@ -1,74 +1,85 @@
-% c5h8.m
+% c5h8_v33_slow.m
 % generated from c5h8.txt
-% 20151112
-% # of species = 496
-% # of reactions = 1752
+% 20151116
+% # of species = 602
+% # of reactions = 1926
 
 SpeciesToAdd = {...
-'C4PAN5'; 'C4PAN6'; 'C535OOH'; 'NC3OO'; 'IEB1CHO'; 'CHOPRNO3'; 'C524CO'; 'ISOPDOOH'; 'MVK'; 'IPRHOCO2H'; ...
-'ETHGLY'; 'MACROH'; 'MACROO'; 'C3MCODBPAN'; 'ETHO2HNO3'; 'DHPMPAL'; 'INB1NBCO2H'; 'CO24C4CHO'; 'MACRO2'; 'ACO3H'; ...
-'INAHCO3'; 'C525OOH'; 'INAHCHO'; 'C534OOH'; 'ISOPAOOH'; 'MAE'; 'ISOPCOOH'; 'HYPERACET'; 'INB1NACO3H'; 'IEACO3H'; ...
-'C3DIOLOOH'; 'INAHPCO3'; 'MMALANHYO2'; 'NO2'; 'NO3'; 'C58OOH'; 'H2O2'; 'C58NO3'; 'INCCO'; 'PAN'; ...
-'INB1GLYOX'; 'PRONO3AO2'; 'C527OOH'; 'CONM2CO3H'; 'C537O2'; 'CO2H3CO3H'; 'CH3CHO'; 'C531O2'; 'HMML'; 'NOA'; ...
-'C530NO3'; 'BIACETOOH'; 'INCOOH'; 'ISOPBOOH'; 'CH2CHCH2OOH'; 'INAOOH'; 'C533O2'; 'IEPOXC'; 'NOAOO'; 'IEPOXA'; ...
-'C58NO3CO3'; 'MACROOH'; 'INAHPCO3H'; 'CO2N3CHO'; 'C510OH'; 'INANCOCO2H'; 'CO2N3CO3'; 'PHAN'; 'PXYFUO2'; 'HOCH2COCHO'; ...
-'C535O2'; 'MACO2H'; 'CO2C3OO'; 'ACRPAN'; 'HMACROH'; 'ISOPCNO3'; 'MACRNCO2H'; 'C510O2'; 'ISOP34NO3'; 'INDO2'; ...
-'DHPMEK'; 'NC526OOH'; 'INB1NACHO'; 'MACRNBPAN'; 'COHM2CO3H'; 'NC524OOH'; 'HOCH2CHO'; 'ISOPANO3'; 'INANCOCHO'; 'PRNO3CO3H'; ...
-'INB1OOH'; 'CHOMOHCO3'; 'C31CO3'; 'INANCO3H'; 'H14CO23C4'; 'INAOH'; 'C531CO'; 'C3MCODBCO3'; 'IECCO3'; 'PRNO3PAN'; ...
-'C23O3CCO2H'; 'HPC52CO3'; 'HYPROPO2H'; 'HVMK'; 'INCOH'; 'MMALNBCO3H'; 'IPRHOCO3'; 'INCO2'; 'INANCOCO3'; 'HC4CO3'; ...
-'INCNO3'; 'CH3CHOO'; 'INB2OOH'; 'INCNCHO'; 'INANPAN'; 'NPXYFUO2'; 'INAO2'; 'INCNCO3'; 'ISOPDNO3'; 'IBUTALOH'; ...
-'C32OH13CO'; 'CH3CO3H'; 'HIEB1O2'; 'H1CO23CHO'; 'INANO3'; 'INB1HPCHO'; 'ACO2H'; 'CH3COPAN'; 'CO2N3PAN'; 'ISOPBNO3'; ...
-'ACRO2'; 'MMALNACO3'; 'C533OOH'; 'IECCO3H'; 'HC4ACHO'; 'CH4'; 'HMGLYOO'; 'HCOCO3'; 'NC4CO3'; 'HC4PAN'; ...
-'HCOCH2O2'; 'MMALNACO3H'; 'ACLOO'; 'NC524NO3'; 'CONM2CO3'; 'PRONO3BO2'; 'HCOOH'; 'HCOCO2H'; 'ETHENO3O2'; 'HIEPOXB'; ...
-'HCHO'; 'HMVKAO2'; 'CONM2CO2H'; 'MACRNO3'; 'ISOP34OOH'; 'HMACRO2'; 'IPROPOLPER'; 'C4M2AL2OH'; 'ALLYLOH'; 'IECCHO'; ...
-'HOCH2CO3'; 'MC3CODBPAN'; 'HMVKNO3'; 'CHOOCHO'; 'A2PAN'; 'IPROPOLO2H'; 'CONM2CHO'; 'HOCH2CO2H'; 'MACRNB'; 'IPRHOCO3H'; ...
-'INB1NBCHO'; 'C47CO3'; 'MACRNOO'; 'C5PACALD2'; 'C5PACALD1'; 'CH3OOH'; 'HPC52CO3H'; 'OCCOHCOOH'; 'PROPGLY'; 'ISOP34O2'; ...
+'C4PAN5'; 'C4PAN6'; 'C535OOH'; 'NC3OO'; 'IEB1CHO'; 'CHOPRNO3'; 'CHOCOHCO'; 'C524CO'; 'ISOPDOOH'; 'MVK'; ...
+'IPRHOCO2H'; 'ETHGLY'; 'MACROH'; 'MACROO'; 'C3MCODBPAN'; 'ETHO2HNO3'; 'HMGLOOA'; 'ETHENO3O'; 'DHPMPAL'; 'INB1NBCO2H'; ...
+'CO24C4CHO'; 'MACRO2'; 'C57AO'; 'ACO3H'; 'INAHCO3'; 'PXYFUO'; 'C525OOH'; 'INAHCHO'; 'C534OOH'; 'ISOPAOOH'; ...
+'IPROPOLO'; 'MAE'; 'ISOPCOOH'; 'HYPERACET'; 'INB1NACO3H'; 'IEACO3H'; 'C3DIOLOOH'; 'INAHPCO3'; 'CISOPA'; 'CISOPC'; ...
+'MMALANHYO2'; 'NO2'; 'NO3'; 'C536O'; 'C58OOH'; 'H2O2'; 'C58NO3'; 'C59O'; 'INCCO'; 'PAN'; ...
+'CISOPCO'; 'C524O'; 'INB1GLYOX'; 'CH2CHCH2O'; 'PRONO3AO2'; 'C527OOH'; 'CONM2CO3H'; 'C537O2'; 'CO2H3CO3H'; 'CH3CHO'; ...
+'C531O2'; 'HMML'; 'C526O'; 'PRONO3BO'; 'NOA'; 'C530NO3'; 'BIACETOOH'; 'INCOOH'; 'ISOPBOOH'; 'CH2CHCH2OOH'; ...
+'INAOOH'; 'C533O2'; 'IEPOXC'; 'NOAOO'; 'IEPOXA'; 'MACROOA'; 'C58NO3CO3'; 'MACROOH'; 'INAHPCO3H'; 'CO2N3CHO'; ...
+'C510OH'; 'INANCOCO2H'; 'CO2N3CO3'; 'PHAN'; 'PXYFUO2'; 'HOCH2COCHO'; 'C535O2'; 'HMVKAO'; 'MACO2H'; 'CO2C3OO'; ...
+'MGLOOA'; 'ACRPAN'; 'HMACROH'; 'ISOPCNO3'; 'NC51O'; 'MACRNCO2H'; 'C510O2'; 'ISOP34NO3'; 'INDO2'; 'DHPMEK'; ...
+'NC526OOH'; 'INB1NACHO'; 'MACRNBPAN'; 'COHM2CO3H'; 'NC524OOH'; 'HOCH2CHO'; 'ISOPANO3'; 'INANCOCHO'; 'PRNO3CO3H'; 'INB1OOH'; ...
+'CHOMOHCO3'; 'C31CO3'; 'INANCO3H'; 'H14CO23C4'; 'INAOH'; 'C531CO'; 'C3MCODBCO3'; 'PRONO3AO'; 'IECCO3'; 'PRNO3PAN'; ...
+'C23O3CCO2H'; 'HPC52CO3'; 'HYPROPO2H'; 'ISOPAO'; 'C3DIOLO'; 'HVMK'; 'C3MCODBCO2'; 'INCOH'; 'INCO'; 'MMALNBCO3H'; ...
+'IPRHOCO3'; 'INCO2'; 'MACRO'; 'INANCOCO3'; 'C510O'; 'MGLYOOB'; 'MGLYOOA'; 'HC4CO3'; 'INCNO3'; 'INB1O'; ...
+'CH3CHOO'; 'C3MDIALO'; 'INB2OOH'; 'INCNCHO'; 'INANPAN'; 'NPXYFUO2'; 'INAO2'; 'INCNCO3'; 'ISOPDNO3'; 'IBUTALOH'; ...
+'C32OH13CO'; 'CH3CO3H'; 'HIEB1O2'; 'C57O'; 'CH3C2H2O2'; 'MVKOHAO'; 'H1CO23CHO'; 'INANO3'; 'INB1HPCHO'; 'ACO2H'; ...
+'CH3COPAN'; 'CO2N3PAN'; 'ISOPBNO3'; 'CH3CHOOA'; 'ACRO2'; 'MMALNACO3'; 'C533OOH'; 'C4CO2O'; 'IECCO3H'; 'HC4ACHO'; ...
+'CH4'; 'HMGLYOO'; 'HCOCO3'; 'NC4CO3'; 'HC4PAN'; 'HCOCH2O2'; 'MVKO'; 'MMALNACO3H'; 'ACLOO'; 'NC524NO3'; ...
+'CONM2CO3'; 'C535O'; 'PROPALO'; 'PRONO3BO2'; 'HCOOH'; 'TISOPA'; 'HCOCO2H'; 'TISOPC'; 'ETHENO3O2'; 'HIEPOXB'; ...
+'HCHO'; 'HMVKAO2'; 'M3FOOA'; 'CONM2CO2H'; 'MACRNO3'; 'ISOP34OOH'; 'HMACRO2'; 'IPROPOLPER'; 'C4M2AL2OH'; 'NC526O'; ...
+'ALLYLOH'; 'IECCHO'; 'HOCH2CO3'; 'MC3CODBPAN'; 'HMVKNO3'; 'CHOOCHO'; 'CH2OOG'; 'CH2OOE'; 'A2PAN'; 'CH2OOC'; ...
+'CH2OOB'; 'IPROPOLO2H'; 'CONM2CHO'; 'HMGLYOOA'; 'CH3O'; 'HOCH2CO2H'; 'MACRNB'; 'IPRHOCO3H'; 'INB1NBCHO'; 'NC4OOA'; ...
+'C47CO3'; 'MACRNOO'; 'C5PACALD2'; 'C5PACALD1'; 'CH3OOH'; 'HPC52CO3H'; 'OCCOHCOOH'; 'HCOCO'; 'PROPGLY'; 'ISOP34O2'; ...
 'NO3CH2CO3'; 'NC4CHO'; 'HMVKNGLYOX'; 'C57NO3CO3H'; 'C526O2'; 'CH3CHOHCHO'; 'NISOPNO3'; 'IEC2OOH'; 'MVKOHAOH'; 'MVKOHBO2'; ...
-'MGLOO'; 'PXYFUOH'; 'INDHPCO3'; 'C23O3CCO3'; 'INDOH'; 'MVKOHAOOH'; 'MGLYOO'; 'C58NO3CO2H'; 'C524O2'; 'H13CO2CO3H'; ...
-'INB1NACO2H'; 'CO2H3CHO'; 'IEAPAN'; 'IEB4CHO'; 'MMALNHYOOH'; 'MGLYOX'; 'C524OH'; 'HMACO3H'; 'MVKOHAO2'; 'INANCOPAN'; ...
-'HC4CCHO'; 'MPAN'; 'INDOOH'; 'CH3O2NO2'; 'MACRNBCO3H'; 'HCOC5'; 'CH3COCO3'; 'INDHCO3H'; 'MMALNBCO2H'; 'C51NO3'; ...
-'GAOO'; 'NC41OO'; 'MACRNBCO3'; 'IEACO3'; 'HMGLOO'; 'C23O3CPAN'; 'CH3COCO2H'; 'IEPOXB'; 'C57O2'; 'INCGLYOX'; ...
-'DNC524CO'; 'OCCOHCOH'; 'C51O2'; 'IECPAN'; 'C2OHOCOOH'; 'INB1HPCO3H'; 'C510OOH'; 'C5H8'; 'C51OH'; 'C59O2'; ...
-'ACETOL'; 'INB1HPCO2H'; 'VGLYOX'; 'IPROPOLO2'; 'CONM2PAN'; 'CH3CO3'; 'INB1HPPAN'; 'CO2C3CO2H'; 'MMALNBPAN'; 'HIEB2O2'; ...
-'C3MDIALOOH'; 'HPNC524CO'; 'C47CO3H'; 'C45OOH'; 'INAHPCO2H'; 'CH3COCH2O2'; 'MACO3H'; 'HMAC'; 'CH3NO3'; 'ISOPAOH'; ...
-'HMVKANO3'; 'MACROHO2'; 'HMVKBO2'; 'INB1NBCO3H'; 'H13CO2CHO'; 'COHM2CO3'; 'HCOCO3H'; 'HC4CCO2H'; 'C57NO3CO3'; 'ISOPCO2'; ...
-'INANCOCO3H'; 'IPROPOLPAN'; 'HNO3'; 'C57AOOH'; 'MACRNCO3'; 'HYETHO2H'; 'INB1NO3'; 'ETHOHNO3'; 'GLYOO'; 'C524NO3'; ...
-'ISOPAO2'; 'HOCHOCOOH'; 'HC4CHO'; 'A2PANOO'; 'HIEB1OOH'; 'GLYOX'; 'HC4CCO3'; 'HMACR'; 'INCNCO2H'; 'C3H6'; ...
-'CO2N3CO3H'; 'HC4ACO3'; 'MACROHOOH'; 'C527O2'; 'CO23C4NO3'; 'C57OOH'; 'CH2OO'; 'COHM2PAN'; 'CH3CHOHCO3'; 'COHM2CO2H'; ...
-'INB1HPCO3'; 'C23O3CCHO'; 'C5PAN19'; 'C5PAN18'; 'PXYFUOOH'; 'C5PAN17'; 'C525O2'; 'C2H4'; 'HCOCOHCO3'; 'INB1NBCO3'; ...
-'C57NO3'; 'NISOPOOH'; 'C57AO2'; 'HO12CO3C4'; 'C31PAN'; 'H13CO2CO3'; 'INANCO'; 'C5HPALD2'; 'C5HPALD1'; 'CO2C3PAN'; ...
-'C3DIOLO2'; 'NO3CH2CHO'; 'INB2O2'; 'MVKOHANO3'; 'NO3CH2CO2H'; 'CO'; 'CL'; 'HPC52OOH'; 'INAHPPAN'; 'MCOCOMOXO2'; ...
-'MMALNACO2H'; 'C42AOH'; 'C51OOH'; 'HC4ACO2H'; 'C45NO3'; 'NPXYFUOOH'; 'C58AOOH'; 'HIEB2OOH'; 'C4M2ALOHO2'; 'HMACO2H'; ...
-'HNC524CO'; 'HPC52PAN'; 'HCOCH2OOH'; 'MCOCOMOOOH'; 'CO2C3CO3H'; 'MVKNO3'; 'C2OHOCO2H'; 'ISOPBOH'; 'ISOPDOH'; 'C58O2'; ...
-'HC4CO3H'; 'MC3CODBCO3'; 'INDHPPAN'; 'NO3CH2CO3H'; 'M3BU3ECO3H'; 'HPC52O2'; 'C58OH'; 'ISOPDO2'; 'SO3'; 'SO2'; ...
-'C47PAN'; 'ISOPBO2'; 'C57NO3CO2H'; 'HOCH2CO3H'; 'PR2O2HNO3'; 'HMVKAOOH'; 'INAHCO3H'; 'NC4CO3H'; 'HCOCOHCO3H'; 'C58NO3CO3H'; ...
-'C526NO3'; 'CH3OH'; 'INDHCO3'; 'BIACETO2'; 'INDHCHO'; 'HMACO3'; 'O3'; 'INDHPCHO'; 'INAHPAN'; 'INB1NAPAN'; ...
-'M3BU3ECO3'; 'CISOPCO2'; 'INAHPCHO'; 'INANCHO'; 'INCNPAN'; 'C4CO2O2'; 'C4CO2OOH'; 'HCOCOHPAN'; 'CH3COCO3H'; 'OH'; ...
-'CH3O2'; 'C4MDIAL'; 'HMVKBOOH'; 'BIACETOH'; 'PR1O2HNO3'; 'PXYFUONE'; 'HYPROPO2'; 'MVKO2'; 'PE4E2CO'; 'MMALANHY'; ...
-'ME3BU3ECHO'; 'C59OOH'; 'NC4OO'; 'HOCH2CH2O2'; 'IEACHO'; 'C536OOH'; 'C58NO3PAN'; 'HO1CO24C5'; 'INCNCO3H'; 'OCCOHCO2'; ...
-'H13CO2C3'; 'INB1NACO3'; 'C58AO2'; 'MVKOH'; 'ACO3'; 'C57NO3PAN'; 'PROLNO3'; 'MVKOO'; 'INB1O2'; 'H2'; ...
-'C532CO'; 'NC51OOH'; 'NC2OO'; 'HC4CCO3H'; 'M3F'; 'NMGLYOX'; 'C530OOH'; 'CO2C3CO3'; 'CH2CHCH2NO3'; 'MMALNBCO3'; ...
-'HOCH2COCO2H'; 'ACR'; 'INDHPAN'; 'MMALNHY2OH'; 'INB1NBPAN'; 'CH2CHCH2O2'; 'NO'; 'HMACROOH'; 'HC4ACO3H'; 'MC3ODBCO2H'; ...
-'C527NO3'; 'C57OH'; 'C531OOH'; 'NC524OH'; 'CH3CO2H'; 'MVKOOH'; 'NC524O2'; 'C4M2ALOHNO3'; 'C536O2'; 'CO2C3CHO'; ...
-'MMALNAPAN'; 'C537OOH'; 'C530O2'; 'CO23C3CHO'; 'CH3COCH3'; 'PRNO3CO3'; 'MACRNBCO2H'; 'NC526O2'; 'C58ANO3'; 'INDHPCO3H'; ...
-'C23O3CCO3H'; 'CO2H3CO3'; 'INANCO3'; 'C3MDIALO2'; 'C4MALOHOOH'; 'C23O3CHO'; 'C47CHO'; 'PROPOLNO3'; 'INB1OH'; 'MVKOHBOOH'; ...
+'MGLOO'; 'PXYFUOH'; 'INDHPCO3'; 'C23O3CCO3'; 'INDOH'; 'MVKOHAOOH'; 'MGLYOO'; 'C58NO3CO2H'; 'C524O2'; 'NOAOOA'; ...
+'H13CO2CO3H'; 'INB1NACO2H'; 'CO2H3CHO'; 'IEAPAN'; 'IEB4CHO'; 'MMALNHYOOH'; 'MGLYOX'; 'C524OH'; 'HMACO3H'; 'MVKOHAO2'; ...
+'INANCOPAN'; 'HC4CCHO'; 'MPAN'; 'C531O'; 'INDOOH'; 'CH3O2NO2'; 'MACRNBCO3H'; 'ISOPDO'; 'HCOC5'; 'PACLOOA'; ...
+'CH3COCO3'; 'INDHCO3H'; 'MMALNBCO2H'; 'C51NO3'; 'GAOO'; 'NC41OO'; 'MACRNBCO3'; 'IEACO3'; 'HMGLOO'; 'C23O3CPAN'; ...
+'CH3COCO2H'; 'IEPOXB'; 'C57O2'; 'INCGLYOX'; 'DNC524CO'; 'OCCOHCOH'; 'C51O2'; 'IECPAN'; 'HIEB1O'; 'C2OHOCOOH'; ...
+'INB1HPCO3H'; 'PPACLOOA'; 'C510OOH'; 'C5H8'; 'MACROHO'; 'C51OH'; 'C59O2'; 'ACETOL'; 'INB1HPCO2H'; 'VGLYOX'; ...
+'IPROPOLO2'; 'CONM2PAN'; 'CH3CO3'; 'INB1HPPAN'; 'CO2C3CO2H'; 'MMALNBPAN'; 'HIEB2O2'; 'C3MDIALOOH'; 'HPNC524CO'; 'C47CO3H'; ...
+'C45OOH'; 'INAHPCO2H'; 'CH3COCH2O2'; 'MACO3H'; 'HMAC'; 'HMVKBO'; 'GAOOB'; 'CH3NO3'; 'ISOPAOH'; 'HMVKANO3'; ...
+'MACROHO2'; 'HMVKBO2'; 'NPXYFUO'; 'HYPROPO'; 'C534O'; 'INB1NBCO3H'; 'H13CO2CHO'; 'COHM2CO3'; 'HCOCO3H'; 'HC4CCO2H'; ...
+'C57NO3CO3'; 'ISOPCO2'; 'INANCOCO3H'; 'IPROPOLPAN'; 'HNO3'; 'C57AOOH'; 'MACRNCO3'; 'HYETHO2H'; 'INB1NO3'; 'ETHOHNO3'; ...
+'GLYOO'; 'C524NO3'; 'ISOPAO2'; 'HOCHOCOOH'; 'HC4CHO'; 'A2PANOO'; 'HIEB1OOH'; 'GLYOX'; 'ISOP34O'; 'HC4CCO3'; ...
+'HMACR'; 'INCNCO2H'; 'C3H6'; 'CO2N3CO3H'; 'HC4ACO3'; 'MACROHOOH'; 'C527O2'; 'CO23C4NO3'; 'C57OOH'; 'CH2OO'; ...
+'COHM2PAN'; 'CH3CHOHCO3'; 'NC41OOA'; 'COHM2CO2H'; 'INB1HPCO3'; 'C23O3CCHO'; 'C5PAN19'; 'C5PAN18'; 'PXYFUOOH'; 'C5PAN17'; ...
+'C525O2'; 'C2H4'; 'HCOCOHCO3'; 'INB1NBCO3'; 'C57NO3'; 'NISOPOOH'; 'MACRNOOA'; 'C57AO2'; 'HO12CO3C4'; 'HCOCH2O'; ...
+'C31PAN'; 'C525O'; 'H13CO2CO3'; 'INANCO'; 'C5HPALD2'; 'C5HPALD1'; 'CO2C3PAN'; 'BIACETO'; 'C530O'; 'C3DIOLO2'; ...
+'NO3CH2CHO'; 'INB2O2'; 'MVKOHANO3'; 'NO3CH2CO2H'; 'CO'; 'CL'; 'HPC52OOH'; 'INAHPPAN'; 'MCOCOMOXO2'; 'HOCH2CH2O'; ...
+'MMALNACO2H'; 'C42AOH'; 'C51OOH'; 'PPGAOOB'; 'HC4ACO2H'; 'C45NO3'; 'PGAOOB'; 'NPXYFUOOH'; 'C58AOOH'; 'HIEB2OOH'; ...
+'C4M2ALOHO2'; 'HMACO2H'; 'HNC524CO'; 'HPC52PAN'; 'HCOCH2OOH'; 'MCOCOMOOOH'; 'CO2C3CO3H'; 'MVKNO3'; 'C2OHOCO2H'; 'ISOPBOH'; ...
+'MCOCOMOXO'; 'ISOPDOH'; 'C58O2'; 'HC4CO3H'; 'MC3CODBCO3'; 'MC3CODBCO2'; 'INDHPPAN'; 'A2PANO'; 'NO3CH2CO3H'; 'M3BU3ECO3H'; ...
+'HPC52O2'; 'C58OH'; 'CISOPAO'; 'ISOPDO2'; 'SO3'; 'SO2'; 'C47PAN'; 'ISOPBO2'; 'HMACRO'; 'C57NO3CO2H'; ...
+'HOCH2CO3H'; 'PR2O2HNO3'; 'HMVKAOOH'; 'INAHCO3H'; 'NC4CO3H'; 'HCOCOHCO3H'; 'C58NO3CO3H'; 'C526NO3'; 'CH3OH'; 'INDHCO3'; ...
+'BIACETO2'; 'INDHCHO'; 'HMACO3'; 'O3'; 'INDHPCHO'; 'CH3COCH2O'; 'INAHPAN'; 'INB1NAPAN'; 'M3BU3ECO3'; 'CISOPCO2'; ...
+'ACLOOA'; 'INAO'; 'INAHPCHO'; 'INANCHO'; 'INCNPAN'; 'NC524O'; 'C4CO2O2'; 'MVKOHBO'; 'C4CO2OOH'; 'HCOCOHPAN'; ...
+'CH3COCO3H'; 'OH'; 'GLYOOB'; 'GLYOOC'; 'CH3O2'; 'C4MDIAL'; 'HMVKBOOH'; 'BIACETOH'; 'HIEB2O'; 'C51O'; ...
+'PR1O2HNO3'; 'PXYFUONE'; 'C45O'; 'HYPROPO2'; 'MVKO2'; 'PE4E2CO'; 'MMALANHY'; 'ME3BU3ECHO'; 'C59OOH'; 'NC4OO'; ...
+'CO2C3OOA'; 'CO2C3OOB'; 'CH2OOA'; 'HOCH2CH2O2'; 'IEACHO'; 'C536OOH'; 'C58NO3PAN'; 'HO1CO24C5'; 'INCNCO3H'; 'OCCOHCO2'; ...
+'H13CO2C3'; 'INB1NACO3'; 'C58AO2'; 'MVKOH'; 'NC3OOA'; 'ACO3'; 'C57NO3PAN'; 'PROLNO3'; 'MVKOO'; 'INB1O2'; ...
+'C527O'; 'H2'; 'C532CO'; 'C537O'; 'C58O'; 'NC51OOH'; 'NC2OO'; 'HC4CCO3H'; 'M3F'; 'OCCOHCO'; ...
+'NMGLYOX'; 'C530OOH'; 'CO2C3CO3'; 'INB2O'; 'CH2CHCH2NO3'; 'MMALNBCO3'; 'HOCH2COCO2H'; 'ACR'; 'INDHPAN'; 'MMALNHY2OH'; ...
+'INB1NBPAN'; 'CH2CHCH2O2'; 'NO'; 'HMACROOH'; 'HC4ACO3H'; 'MC3ODBCO2H'; 'C527NO3'; 'C57OH'; 'C531OOH'; 'NC524OH'; ...
+'CH3CO2H'; 'MVKOOH'; 'NC524O2'; 'C4M2ALOHNO3'; 'C536O2'; 'MVKOOA'; 'CO2C3CHO'; 'MMALNAPAN'; 'NISOPO'; 'C537OOH'; ...
+'C530O2'; 'CO23C3CHO'; 'CH3COCH3'; 'PRNO3CO3'; 'MACRNBCO2H'; 'NC526O2'; 'C58ANO3'; 'INDHPCO3H'; 'C23O3CCO3H'; 'CO2H3CO3'; ...
+'INANCO3'; 'C3MDIALO2'; 'C4MALOHOOH'; 'C23O3CHO'; 'C47CHO'; 'PROPOLNO3'; 'HPC52O'; 'INB1OH'; 'MVKOHBOOH'; 'C58AO'; ...
 'INAHCO2H'; 'CHOMOHCO3H'; 'NC51O2'; 'C534O2'; 'HO2'; 'NISOPO2'; 'NC4CO2H'; 'PRNO3CO2H'; 'MACR'; 'INANCO2H'; ...
-'MACO3'; 'MACRNCO3H'; 'M3BU3EPAN'; 'INB1CO'; 'C4PAN10'; 'NO3CH2PAN'; 'CISOPAO2'; 'C524OOH'; 'M3FOO'; 'MACRNPAN'; ...
-'C31CO3H'; 'C45O2'; 'CHOMOHPAN'; 'HMPAN'; 'C3MDIALOH'; 'C526OOH'; };
+'MACO3'; 'MACRNCO3H'; 'M3BU3EPAN'; 'C4M2ALOHO'; 'INB1CO'; 'NC2OOA'; 'C4PAN10'; 'NO3CH2PAN'; 'CISOPAO2'; 'C524OOH'; ...
+'M3FOO'; 'MACRNPAN'; 'C31CO3H'; 'C45O2'; 'MMALANHYO'; 'CHOMOHPAN'; 'HMPAN'; 'C533O'; 'C3MDIALOH'; 'INDO'; ...
+'C526OOH'; 'ISOPBO'; };
 
 RO2ToAdd = {...
-'NISOPO2'; 'ISOP34O2'; 'MACO3'; 'MACRO2'; 'MACROHO2'; 'CH3CO3'; 'HMVKAO2'; 'HMVKBO2'; 'CH3O2'; 'MVKO2'; ...
-'CISOPAO2'; 'ISOPBO2'; 'CISOPCO2'; 'ISOPDO2'; 'NC526O2'; 'C530O2'; 'M3BU3ECO3'; 'C45O2'; 'NC51O2'; 'C51O2'; ...
-'CH2CHCH2O2'; 'ISOPAO2'; 'ISOPCO2'; 'INCO2'; 'NC4CO3'; 'C510O2'; 'PRONO3AO2'; 'PRONO3BO2'; 'HYPROPO2'; 'IPROPOLO2'; ...
-'C536O2'; 'C537O2'; 'INAO2'; 'C58O2'; 'HC4CO3'; 'CO2C3CO3'; 'CH3COCH2O2'; 'C4CO2O2'; 'C527O2'; 'HOCH2CO3'; ...
-'MACRNCO3'; 'MACRNBCO3'; 'CHOMOHCO3'; 'HCOCH2O2'; 'CO2H3CO3'; 'ACO3'; 'MVKOHAO2'; 'MVKOHBO2'; 'C526O2'; 'HC4ACO3'; ...
-'C58AO2'; 'INB1O2'; 'INB2O2'; 'HPC52O2'; 'HC4CCO3'; 'C57AO2'; 'C57O2'; 'INDO2'; 'C59O2'; 'ACRO2'; ...
-'OCCOHCO2'; 'C524O2'; 'HCOCO3'; 'CONM2CO3'; 'IPRHOCO3'; 'PRNO3CO3'; 'CH3CHOHCO3'; 'CO2N3CO3'; 'NO3CH2CO3'; 'C534O2'; ...
-'C3MCODBCO3'; 'MC3CODBCO3'; 'C4M2ALOHO2'; 'C535O2'; 'C58NO3CO3'; 'ETHENO3O2'; 'HOCH2CH2O2'; 'C531O2'; 'INCNCO3'; 'H13CO2CO3'; ...
-'IEACO3'; 'C3MDIALO2'; 'BIACETO2'; 'CH3COCO3'; 'NPXYFUO2'; 'MCOCOMOXO2'; 'PXYFUO2'; 'IECCO3'; 'HPC52CO3'; 'INDHCO3'; ...
-'C57NO3CO3'; 'INAHPCO3'; 'INANCO3'; 'INAHCO3'; 'A2PANOO'; 'HCOCOHCO3'; 'NC524O2'; 'C525O2'; 'HMACO3'; 'HMACRO2'; ...
-'COHM2CO3'; 'C47CO3'; 'INB1HPCO3'; 'INB1NACO3'; 'INB1NBCO3'; 'MMALNACO3'; 'MMALNBCO3'; 'INDHPCO3'; 'INANCOCO3'; 'HIEB1O2'; ...
-'HIEB2O2'; 'C31CO3'; 'C533O2'; 'MMALANHYO2'; 'C3DIOLO2'; 'C23O3CCO3'; };
+'NISOPO2'; 'ISOP34O2'; 'CH3C2H2O2'; 'MACO3'; 'MACRO2'; 'MACROHO2'; 'CH3CO3'; 'HMVKAO2'; 'HMVKBO2'; 'CH3O2'; ...
+'MVKO2'; 'CISOPAO2'; 'ISOPBO2'; 'CISOPCO2'; 'ISOPDO2'; 'NC526O2'; 'C530O2'; 'M3BU3ECO3'; 'C45O2'; 'NC51O2'; ...
+'C51O2'; 'CH2CHCH2O2'; 'ISOPAO2'; 'ISOPCO2'; 'INCO2'; 'NC4CO3'; 'C510O2'; 'PRONO3AO2'; 'PRONO3BO2'; 'HYPROPO2'; ...
+'IPROPOLO2'; 'C536O2'; 'C537O2'; 'INAO2'; 'C58O2'; 'HC4CO3'; 'CO2C3CO3'; 'CH3COCH2O2'; 'C4CO2O2'; 'C527O2'; ...
+'HOCH2CO3'; 'MACRNCO3'; 'MACRNBCO3'; 'CHOMOHCO3'; 'HCOCH2O2'; 'CO2H3CO3'; 'ACO3'; 'MVKOHAO2'; 'MVKOHBO2'; 'C526O2'; ...
+'HC4ACO3'; 'C58AO2'; 'INB1O2'; 'INB2O2'; 'HPC52O2'; 'HC4CCO3'; 'C57AO2'; 'C57O2'; 'INDO2'; 'C59O2'; ...
+'ACRO2'; 'OCCOHCO2'; 'C524O2'; 'HCOCO3'; 'CONM2CO3'; 'IPRHOCO3'; 'PRNO3CO3'; 'CH3CHOHCO3'; 'CO2N3CO3'; 'NO3CH2CO3'; ...
+'C534O2'; 'C3MCODBCO3'; 'MC3CODBCO3'; 'C4M2ALOHO2'; 'C535O2'; 'C58NO3CO3'; 'ETHENO3O2'; 'HOCH2CH2O2'; 'C531O2'; 'INCNCO3'; ...
+'H13CO2CO3'; 'IEACO3'; 'C3MDIALO2'; 'BIACETO2'; 'CH3COCO3'; 'NPXYFUO2'; 'MCOCOMOXO2'; 'PXYFUO2'; 'IECCO3'; 'HPC52CO3'; ...
+'INDHCO3'; 'C57NO3CO3'; 'INAHPCO3'; 'INANCO3'; 'INAHCO3'; 'A2PANOO'; 'HCOCOHCO3'; 'NC524O2'; 'C525O2'; 'HMACO3'; ...
+'HMACRO2'; 'COHM2CO3'; 'C47CO3'; 'INB1HPCO3'; 'INB1NACO3'; 'INB1NBCO3'; 'MMALNACO3'; 'MMALNBCO3'; 'INDHPCO3'; 'INANCOCO3'; ...
+'HIEB1O2'; 'HIEB2O2'; 'C31CO3'; 'C533O2'; 'MMALANHYO2'; 'C3DIOLO2'; 'C23O3CCO3'; };
 
 AddSpecies
 
@@ -79,40 +90,40 @@ Gstr{i,1} = 'NO3'; Gstr{i,2} = 'C5H8';
 fNO3(i)=fNO3(i)-1; fC5H8(i)=fC5H8(i)-1; fNISOPO2(i)=fNISOPO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + C5H8 =  + 0.56CH2OO + 0.19CO + 0.25HO2 + 0.25CO + 0.25OH + MACR';
+Rnames{i} = 'O3 + C5H8 = CH2OOE + MACR';
 k(:,i) = 1.03e-14.*exp(-1995./T).*0.3;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'C5H8'; 
-fO3(i)=fO3(i)-1; fC5H8(i)=fC5H8(i)-1; fCH2OO(i)=fCH2OO(i)+0.56; fCO(i)=fCO(i)+0.19; fHO2(i)=fHO2(i)+0.25; fCO(i)=fCO(i)+0.25; fOH(i)=fOH(i)+0.25; fMACR(i)=fMACR(i)+1; 
+fO3(i)=fO3(i)-1; fC5H8(i)=fC5H8(i)-1; fCH2OOE(i)=fCH2OOE(i)+1; fMACR(i)=fMACR(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + C5H8 =  + 0.56CH2OO + 0.19CO + 0.25HO2 + 0.25CO + 0.25OH + MVK';
+Rnames{i} = 'O3 + C5H8 = CH2OOE + MVK';
 k(:,i) = 1.03e-14.*exp(-1995./T).*0.2;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'C5H8'; 
-fO3(i)=fO3(i)-1; fC5H8(i)=fC5H8(i)-1; fCH2OO(i)=fCH2OO(i)+0.56; fCO(i)=fCO(i)+0.19; fHO2(i)=fHO2(i)+0.25; fCO(i)=fCO(i)+0.25; fOH(i)=fOH(i)+0.25; fMVK(i)=fMVK(i)+1; 
+fO3(i)=fO3(i)-1; fC5H8(i)=fC5H8(i)-1; fCH2OOE(i)=fCH2OOE(i)+1; fMVK(i)=fMVK(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + C5H8 = HCHO +  + 0.095C3H6 + 0.095CH3CO3 + 0.095HCHO + 0.095HO2 + 0.56MACROO + 0.25OH + 0.25CO + 0.25CH3CO3 + 0.25HCHO';
+Rnames{i} = 'O3 + C5H8 = HCHO + MACROOA';
 k(:,i) = 1.03e-14.*exp(-1995./T).*0.3;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'C5H8'; 
-fO3(i)=fO3(i)-1; fC5H8(i)=fC5H8(i)-1; fHCHO(i)=fHCHO(i)+1; fC3H6(i)=fC3H6(i)+0.095; fCH3CO3(i)=fCH3CO3(i)+0.095; fHCHO(i)=fHCHO(i)+0.095; fHO2(i)=fHO2(i)+0.095; fMACROO(i)=fMACROO(i)+0.56; fOH(i)=fOH(i)+0.25; fCO(i)=fCO(i)+0.25; fCH3CO3(i)=fCH3CO3(i)+0.25; fHCHO(i)=fHCHO(i)+0.25; 
+fO3(i)=fO3(i)-1; fC5H8(i)=fC5H8(i)-1; fHCHO(i)=fHCHO(i)+1; fMACROOA(i)=fMACROOA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + C5H8 = HCHO +  + 0.095C3H6 + 0.095CH3O2 + 0.095HCHO + 0.095CO + 0.095HO2 + 0.56MVKOO + 0.25OH + 0.25MVKO2';
+Rnames{i} = 'O3 + C5H8 = HCHO + MVKOOA';
 k(:,i) = 1.03e-14.*exp(-1995./T).*0.2;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'C5H8'; 
-fO3(i)=fO3(i)-1; fC5H8(i)=fC5H8(i)-1; fHCHO(i)=fHCHO(i)+1; fC3H6(i)=fC3H6(i)+0.095; fCH3O2(i)=fCH3O2(i)+0.095; fHCHO(i)=fHCHO(i)+0.095; fCO(i)=fCO(i)+0.095; fHO2(i)=fHO2(i)+0.095; fMVKOO(i)=fMVKOO(i)+0.56; fOH(i)=fOH(i)+0.25; fMVKO2(i)=fMVKO2(i)+0.25; 
+fO3(i)=fO3(i)-1; fC5H8(i)=fC5H8(i)-1; fHCHO(i)=fHCHO(i)+1; fMVKOOA(i)=fMVKOOA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + C5H8 =  + CISOPAO2 + ISOPBO2';
+Rnames{i} = 'OH + C5H8 = CISOPA';
 k(:,i) = 2.70e-11.*exp(390./T).*0.288;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'C5H8'; 
-fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fCISOPAO2(i)=fCISOPAO2(i)+1; fISOPBO2(i)=fISOPBO2(i)+1; 
+fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fCISOPA(i)=fCISOPA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + C5H8 =  + CISOPCO2 + ISOPDO2';
+Rnames{i} = 'OH + C5H8 = CISOPC';
 k(:,i) = 2.70e-11.*exp(390./T).*0.238;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'C5H8'; 
-fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fCISOPCO2(i)=fCISOPCO2(i)+1; fISOPDO2(i)=fISOPDO2(i)+1; 
+fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fCISOPC(i)=fCISOPC(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + C5H8 = ISOP34O2';
@@ -133,16 +144,16 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'C5H8';
 fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fPE4E2CO(i)=fPE4E2CO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + C5H8 =  + ISOPAO2 + ISOPBO2';
+Rnames{i} = 'OH + C5H8 = TISOPA';
 k(:,i) = 2.70e-11.*exp(390./T).*0.288;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'C5H8'; 
-fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fISOPAO2(i)=fISOPAO2(i)+1; fISOPBO2(i)=fISOPBO2(i)+1; 
+fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fTISOPA(i)=fTISOPA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + C5H8 =  + ISOPCO2 + ISOPDO2';
+Rnames{i} = 'OH + C5H8 = TISOPC';
 k(:,i) = 2.70e-11.*exp(390./T).*0.102;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'C5H8'; 
-fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fISOPCO2(i)=fISOPCO2(i)+1; fISOPDO2(i)=fISOPDO2(i)+1; 
+fOH(i)=fOH(i)-1; fC5H8(i)=fC5H8(i)-1; fTISOPC(i)=fTISOPC(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NISOPO2 + HO2 = NISOPOOH';
@@ -157,16 +168,16 @@ Gstr{i,1} = 'NISOPO2'; Gstr{i,2} = 'NO';
 fNISOPO2(i)=fNISOPO2(i)-1; fNO(i)=fNO(i)-1; fNISOPNO3(i)=fNISOPNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NISOPO2 + NO =  + NC4CHO + HO2 + NO2';
+Rnames{i} = 'NISOPO2 + NO = NISOPO + NO2';
 k(:,i) = KRO2NO.*0.948;
 Gstr{i,1} = 'NISOPO2'; Gstr{i,2} = 'NO'; 
-fNISOPO2(i)=fNISOPO2(i)-1; fNO(i)=fNO(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fNISOPO2(i)=fNISOPO2(i)-1; fNO(i)=fNO(i)-1; fNISOPO(i)=fNISOPO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NISOPO2 + NO3 =  + NC4CHO + HO2 + NO2';
+Rnames{i} = 'NISOPO2 + NO3 = NISOPO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'NISOPO2'; Gstr{i,2} = 'NO3'; 
-fNISOPO2(i)=fNISOPO2(i)-1; fNO3(i)=fNO3(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fNISOPO2(i)=fNISOPO2(i)-1; fNO3(i)=fNO3(i)-1; fNISOPO(i)=fNISOPO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NISOPO2 = ISOPCNO3';
@@ -181,16 +192,34 @@ Gstr{i,1} = 'NISOPO2'; Gstr{i,2} = 'RO2';
 fNISOPO2(i)=fNISOPO2(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NISOPO2 =  + NC4CHO + HO2';
+Rnames{i} = 'NISOPO2 = NISOPO';
 k(:,i) = 1.30e-12.*0.6;
 Gstr{i,1} = 'NISOPO2'; Gstr{i,2} = 'RO2';
-fNISOPO2(i)=fNISOPO2(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fNISOPO2(i)=fNISOPO2(i)-1; fNISOPO(i)=fNISOPO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACR =  + 0.35CH3CO3 + 0.35HCHO + 0.65HCHO + 0.65CH3O2 + 0.65CO + CO + HO2';
+Rnames{i} = 'CH2OOE = CH2OO';
+k(:,i) = KDEC.*0.56;
+Gstr{i,1} = 'CH2OOE'; 
+fCH2OOE(i)=fCH2OOE(i)-1; fCH2OO(i)=fCH2OO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOE = CO';
+k(:,i) = KDEC.*0.19;
+Gstr{i,1} = 'CH2OOE'; 
+fCH2OOE(i)=fCH2OOE(i)-1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOE = HO2 + CO + OH';
+k(:,i) = KDEC.*0.25;
+Gstr{i,1} = 'CH2OOE'; 
+fCH2OOE(i)=fCH2OOE(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACR = CH3C2H2O2 + CO + HO2';
 k(:,i) = J18;
 Gstr{i,1} = 'MACR'; 
-fMACR(i)=fMACR(i)-1; fCH3CO3(i)=fCH3CO3(i)+0.35; fHCHO(i)=fHCHO(i)+0.35; fHCHO(i)=fHCHO(i)+0.65; fCH3O2(i)=fCH3O2(i)+0.65; fCO(i)=fCO(i)+0.65; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+fMACR(i)=fMACR(i)-1; fCH3C2H2O2(i)=fCH3C2H2O2(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MACR = MACO3 + HO2';
@@ -205,16 +234,16 @@ Gstr{i,1} = 'NO3'; Gstr{i,2} = 'MACR';
 fNO3(i)=fNO3(i)-1; fMACR(i)=fMACR(i)-1; fMACO3(i)=fMACO3(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + MACR = HCHO +  + 0.18MGLYOO + 0.82OH + 0.82CO + 0.82CH3CO3';
+Rnames{i} = 'O3 + MACR = HCHO + MGLYOOB';
 k(:,i) = 1.4e-15.*exp(-2100./T).*0.12;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'MACR'; 
-fO3(i)=fO3(i)-1; fMACR(i)=fMACR(i)-1; fHCHO(i)=fHCHO(i)+1; fMGLYOO(i)=fMGLYOO(i)+0.18; fOH(i)=fOH(i)+0.82; fCO(i)=fCO(i)+0.82; fCH3CO3(i)=fCH3CO3(i)+0.82; 
+fO3(i)=fO3(i)-1; fMACR(i)=fMACR(i)-1; fHCHO(i)=fHCHO(i)+1; fMGLYOOB(i)=fMGLYOOB(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + MACR = MGLYOX +  + 0.37CH2OO + 0.47CO + 0.16HO2 + 0.16CO + 0.16OH';
+Rnames{i} = 'O3 + MACR = MGLYOX + CH2OOG';
 k(:,i) = 1.4e-15.*exp(-2100./T).*0.88;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'MACR'; 
-fO3(i)=fO3(i)-1; fMACR(i)=fMACR(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCH2OO(i)=fCH2OO(i)+0.37; fCO(i)=fCO(i)+0.47; fHO2(i)=fHO2(i)+0.16; fCO(i)=fCO(i)+0.16; fOH(i)=fOH(i)+0.16; 
+fO3(i)=fO3(i)-1; fMACR(i)=fMACR(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCH2OOG(i)=fCH2OOG(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + MACR = MACO3';
@@ -247,16 +276,16 @@ Gstr{i,1} = 'MVK';
 fMVK(i)=fMVK(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + MVK =  + 0.20CH3CHO + 0.20CH3CO3 + 0.20HCHO + 0.20HO2 + 0.24MGLOO + 0.36OH + 0.36CO + 0.36CH3CO3 + HCHO';
+Rnames{i} = 'O3 + MVK = MGLOOA + HCHO';
 k(:,i) = 8.5e-16.*exp(-1520./T).*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'MVK'; 
-fO3(i)=fO3(i)-1; fMVK(i)=fMVK(i)-1; fCH3CHO(i)=fCH3CHO(i)+0.20; fCH3CO3(i)=fCH3CO3(i)+0.20; fHCHO(i)=fHCHO(i)+0.20; fHO2(i)=fHO2(i)+0.20; fMGLOO(i)=fMGLOO(i)+0.24; fOH(i)=fOH(i)+0.36; fCO(i)=fCO(i)+0.36; fCH3CO3(i)=fCH3CO3(i)+0.36; fHCHO(i)=fHCHO(i)+1; 
+fO3(i)=fO3(i)-1; fMVK(i)=fMVK(i)-1; fMGLOOA(i)=fMGLOOA(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + MVK = MGLYOX +  + 0.24CH2OO + 0.40CO + 0.36HO2 + 0.36CO + 0.36OH';
+Rnames{i} = 'O3 + MVK = MGLYOX + CH2OOB';
 k(:,i) = 8.5e-16.*exp(-1520./T).*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'MVK'; 
-fO3(i)=fO3(i)-1; fMVK(i)=fMVK(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCH2OO(i)=fCH2OO(i)+0.24; fCO(i)=fCO(i)+0.40; fHO2(i)=fHO2(i)+0.36; fCO(i)=fCO(i)+0.36; fOH(i)=fOH(i)+0.36; 
+fO3(i)=fO3(i)-1; fMVK(i)=fMVK(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCH2OOB(i)=fCH2OOB(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + MVK = HMVKAO2';
@@ -295,6 +324,78 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'HCHO';
 fOH(i)=fOH(i)-1; fHCHO(i)=fHCHO(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'MACROOA = C3H6';
+k(:,i) = KDEC.*0.095;
+Gstr{i,1} = 'MACROOA'; 
+fMACROOA(i)=fMACROOA(i)-1; fC3H6(i)=fC3H6(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACROOA = CH3CO3 + HCHO + HO2';
+k(:,i) = KDEC.*0.095;
+Gstr{i,1} = 'MACROOA'; 
+fMACROOA(i)=fMACROOA(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACROOA = MACROO';
+k(:,i) = KDEC.*0.56;
+Gstr{i,1} = 'MACROOA'; 
+fMACROOA(i)=fMACROOA(i)-1; fMACROO(i)=fMACROO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACROOA = OH + CO + CH3CO3 + HCHO';
+k(:,i) = KDEC.*0.25;
+Gstr{i,1} = 'MACROOA'; 
+fMACROOA(i)=fMACROOA(i)-1; fOH(i)=fOH(i)+1; fCO(i)=fCO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MVKOOA = C3H6';
+k(:,i) = KDEC.*0.095;
+Gstr{i,1} = 'MVKOOA'; 
+fMVKOOA(i)=fMVKOOA(i)-1; fC3H6(i)=fC3H6(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MVKOOA = CH3O2 + HCHO + CO + HO2';
+k(:,i) = KDEC.*0.095;
+Gstr{i,1} = 'MVKOOA'; 
+fMVKOOA(i)=fMVKOOA(i)-1; fCH3O2(i)=fCH3O2(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MVKOOA = MVKOO';
+k(:,i) = KDEC.*0.56;
+Gstr{i,1} = 'MVKOOA'; 
+fMVKOOA(i)=fMVKOOA(i)-1; fMVKOO(i)=fMVKOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MVKOOA = OH + MVKO2';
+k(:,i) = KDEC.*0.25;
+Gstr{i,1} = 'MVKOOA'; 
+fMVKOOA(i)=fMVKOOA(i)-1; fOH(i)=fOH(i)+1; fMVKO2(i)=fMVKO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPA = CISOPAO2';
+k(:,i) = 3.50e-12.*.21.*M;
+Gstr{i,1} = 'CISOPA'; 
+fCISOPA(i)=fCISOPA(i)-1; fCISOPAO2(i)=fCISOPAO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPA = ISOPBO2';
+k(:,i) = 3.00e-12.*.21.*M;
+Gstr{i,1} = 'CISOPA'; 
+fCISOPA(i)=fCISOPA(i)-1; fISOPBO2(i)=fISOPBO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPC = CISOPCO2';
+k(:,i) = 2.00e-12.*.21.*M;
+Gstr{i,1} = 'CISOPC'; 
+fCISOPC(i)=fCISOPC(i)-1; fCISOPCO2(i)=fCISOPCO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPC = ISOPDO2';
+k(:,i) = 3.50e-12.*.21.*M;
+Gstr{i,1} = 'CISOPC'; 
+fCISOPC(i)=fCISOPC(i)-1; fISOPDO2(i)=fISOPDO2(i)+1; 
+
+i=i+1;
 Rnames{i} = 'ISOP34O2 + HO2 = ISOP34OOH';
 k(:,i) = KRO2HO2.*0.706;
 Gstr{i,1} = 'ISOP34O2'; Gstr{i,2} = 'HO2'; 
@@ -307,16 +408,16 @@ Gstr{i,1} = 'ISOP34O2'; Gstr{i,2} = 'NO';
 fISOP34O2(i)=fISOP34O2(i)-1; fNO(i)=fNO(i)-1; fISOP34NO3(i)=fISOP34NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOP34O2 + NO =  + MACR + HCHO + HO2 + NO2';
+Rnames{i} = 'ISOP34O2 + NO = ISOP34O + NO2';
 k(:,i) = KRO2NO.*0.913;
 Gstr{i,1} = 'ISOP34O2'; Gstr{i,2} = 'NO'; 
-fISOP34O2(i)=fISOP34O2(i)-1; fNO(i)=fNO(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOP34O2(i)=fISOP34O2(i)-1; fNO(i)=fNO(i)-1; fISOP34O(i)=fISOP34O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOP34O2 + NO3 =  + MACR + HCHO + HO2 + NO2';
+Rnames{i} = 'ISOP34O2 + NO3 = ISOP34O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'ISOP34O2'; Gstr{i,2} = 'NO3'; 
-fISOP34O2(i)=fISOP34O2(i)-1; fNO3(i)=fNO3(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOP34O2(i)=fISOP34O2(i)-1; fNO3(i)=fNO3(i)-1; fISOP34O(i)=fISOP34O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOP34O2 = HC4CHO';
@@ -325,10 +426,10 @@ Gstr{i,1} = 'ISOP34O2'; Gstr{i,2} = 'RO2';
 fISOP34O2(i)=fISOP34O2(i)-1; fHC4CHO(i)=fHC4CHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOP34O2 =  + MACR + HCHO + HO2';
+Rnames{i} = 'ISOP34O2 = ISOP34O';
 k(:,i) = 2.65e-12.*0.8;
 Gstr{i,1} = 'ISOP34O2'; Gstr{i,2} = 'RO2';
-fISOP34O2(i)=fISOP34O2(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fISOP34O2(i)=fISOP34O2(i)-1; fISOP34O(i)=fISOP34O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOP34O2 = ISOPDOH';
@@ -343,16 +444,16 @@ Gstr{i,1} = 'ME3BU3ECHO'; Gstr{i,2} = 'NO3';
 fME3BU3ECHO(i)=fME3BU3ECHO(i)-1; fNO3(i)=fNO3(i)-1; fNC526O2(i)=fNC526O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ME3BU3ECHO + O3 =  + 0.18CH2OO + 0.82HO2 + 0.82CO + 0.82OH + CO2C3CHO';
+Rnames{i} = 'ME3BU3ECHO + O3 = CH2OOC + CO2C3CHO';
 k(:,i) = 1.60e-17.*0.33;
 Gstr{i,1} = 'ME3BU3ECHO'; Gstr{i,2} = 'O3'; 
-fME3BU3ECHO(i)=fME3BU3ECHO(i)-1; fO3(i)=fO3(i)-1; fCH2OO(i)=fCH2OO(i)+0.18; fHO2(i)=fHO2(i)+0.82; fCO(i)=fCO(i)+0.82; fOH(i)=fOH(i)+0.82; fCO2C3CHO(i)=fCO2C3CHO(i)+1; 
+fME3BU3ECHO(i)=fME3BU3ECHO(i)-1; fO3(i)=fO3(i)-1; fCH2OOC(i)=fCH2OOC(i)+1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ME3BU3ECHO + O3 =  + 0.82C4CO2O2 + 0.82OH + 0.18CO2C3OO + HCHO';
+Rnames{i} = 'ME3BU3ECHO + O3 = CO2C3OOB + HCHO';
 k(:,i) = 1.60e-17.*0.67;
 Gstr{i,1} = 'ME3BU3ECHO'; Gstr{i,2} = 'O3'; 
-fME3BU3ECHO(i)=fME3BU3ECHO(i)-1; fO3(i)=fO3(i)-1; fC4CO2O2(i)=fC4CO2O2(i)+0.82; fOH(i)=fOH(i)+0.82; fCO2C3OO(i)=fCO2C3OO(i)+0.18; fHCHO(i)=fHCHO(i)+1; 
+fME3BU3ECHO(i)=fME3BU3ECHO(i)-1; fO3(i)=fO3(i)-1; fCO2C3OOB(i)=fCO2C3OOB(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ME3BU3ECHO + OH = C530O2';
@@ -379,16 +480,16 @@ Gstr{i,1} = 'PE4E2CO'; Gstr{i,2} = 'NO3';
 fPE4E2CO(i)=fPE4E2CO(i)-1; fNO3(i)=fNO3(i)-1; fNC51O2(i)=fNC51O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PE4E2CO + O3 =  + 0.24CH2OO + 0.40CO + 0.36HO2 + 0.36CO + 0.36OH + CO2C3CHO';
+Rnames{i} = 'PE4E2CO + O3 = CH2OOB + CO2C3CHO';
 k(:,i) = 1.00e-17.*0.43;
 Gstr{i,1} = 'PE4E2CO'; Gstr{i,2} = 'O3'; 
-fPE4E2CO(i)=fPE4E2CO(i)-1; fO3(i)=fO3(i)-1; fCH2OO(i)=fCH2OO(i)+0.24; fCO(i)=fCO(i)+0.40; fHO2(i)=fHO2(i)+0.36; fCO(i)=fCO(i)+0.36; fOH(i)=fOH(i)+0.36; fCO2C3CHO(i)=fCO2C3CHO(i)+1; 
+fPE4E2CO(i)=fPE4E2CO(i)-1; fO3(i)=fO3(i)-1; fCH2OOB(i)=fCH2OOB(i)+1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PE4E2CO + O3 =  + 0.36C4CO2O2 + 0.36OH + 0.2CH3COCH2O2 + 0.2HO2 + 0.2CH3COCH3 + 0.24CO2C3OO + HCHO';
+Rnames{i} = 'PE4E2CO + O3 = CO2C3OOA + HCHO';
 k(:,i) = 1.00e-17.*0.57;
 Gstr{i,1} = 'PE4E2CO'; Gstr{i,2} = 'O3'; 
-fPE4E2CO(i)=fPE4E2CO(i)-1; fO3(i)=fO3(i)-1; fC4CO2O2(i)=fC4CO2O2(i)+0.36; fOH(i)=fOH(i)+0.36; fCH3COCH2O2(i)=fCH3COCH2O2(i)+0.2; fHO2(i)=fHO2(i)+0.2; fCH3COCH3(i)=fCH3COCH3(i)+0.2; fCO2C3OO(i)=fCO2C3OO(i)+0.24; fHCHO(i)=fHCHO(i)+1; 
+fPE4E2CO(i)=fPE4E2CO(i)-1; fO3(i)=fO3(i)-1; fCO2C3OOA(i)=fCO2C3OOA(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PE4E2CO + OH = C51O2';
@@ -403,10 +504,34 @@ Gstr{i,1} = 'PE4E2CO';
 fPE4E2CO(i)=fPE4E2CO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fCH2CHCH2O2(i)=fCH2CHCH2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NISOPOOH =  + NC4CHO + HO2 + OH';
+Rnames{i} = 'TISOPA = ISOPAO2';
+k(:,i) = 2.50e-12.*exp(-480./T).*.21.*M;
+Gstr{i,1} = 'TISOPA'; 
+fTISOPA(i)=fTISOPA(i)-1; fISOPAO2(i)=fISOPAO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'TISOPA = ISOPBO2';
+k(:,i) = 3.00e-12.*.21.*M;
+Gstr{i,1} = 'TISOPA'; 
+fTISOPA(i)=fTISOPA(i)-1; fISOPBO2(i)=fISOPBO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'TISOPC = ISOPCO2';
+k(:,i) = 2.50e-12.*exp(-480./T).*.21.*M;
+Gstr{i,1} = 'TISOPC'; 
+fTISOPC(i)=fTISOPC(i)-1; fISOPCO2(i)=fISOPCO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'TISOPC = ISOPDO2';
+k(:,i) = 3.50e-12.*.21.*M;
+Gstr{i,1} = 'TISOPC'; 
+fTISOPC(i)=fTISOPC(i)-1; fISOPDO2(i)=fISOPDO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NISOPOOH = NISOPO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'NISOPOOH'; 
-fNISOPOOH(i)=fNISOPOOH(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fNISOPOOH(i)=fNISOPOOH(i)-1; fNISOPO(i)=fNISOPO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + NISOPOOH = NC4CHO + OH';
@@ -415,10 +540,10 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'NISOPOOH';
 fOH(i)=fOH(i)-1; fNISOPOOH(i)=fNISOPOOH(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NISOPNO3 =  + NC4CHO + HO2 + NO2';
+Rnames{i} = 'NISOPNO3 = NISOPO + NO2';
 k(:,i) = J53.*2.0;
 Gstr{i,1} = 'NISOPNO3'; 
-fNISOPNO3(i)=fNISOPNO3(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fNISOPNO3(i)=fNISOPNO3(i)-1; fNISOPO(i)=fNISOPO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + NISOPNO3 = NC4CHO + NO2';
@@ -427,22 +552,28 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'NISOPNO3';
 fOH(i)=fOH(i)-1; fNISOPNO3(i)=fNISOPNO3(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPCNO3 =  + 0.30C527O2 + 0.52HC4ACHO + 0.52HO2 + 0.18M3F + 0.18HO2 + NO2';
+Rnames{i} = 'NISOPO = NC4CHO + HO2';
+k(:,i) = KROPRIM.*.21.*M;
+Gstr{i,1} = 'NISOPO'; 
+fNISOPO(i)=fNISOPO(i)-1; fNC4CHO(i)=fNC4CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ISOPCNO3 = CISOPCO + NO2';
 k(:,i) = J53;
 Gstr{i,1} = 'ISOPCNO3'; 
-fISOPCNO3(i)=fISOPCNO3(i)-1; fC527O2(i)=fC527O2(i)+0.30; fHC4ACHO(i)=fHC4ACHO(i)+0.52; fHO2(i)=fHO2(i)+0.52; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; fNO2(i)=fNO2(i)+1; 
+fISOPCNO3(i)=fISOPCNO3(i)-1; fCISOPCO(i)=fCISOPCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOPCNO3 =  + 0.11GAOO + 0.89OH + 0.89HO2 + 0.89GLYOX + NOA';
+Rnames{i} = 'O3 + ISOPCNO3 = GAOOB + NOA';
 k(:,i) = 4.10e-17.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOPCNO3'; 
-fO3(i)=fO3(i)-1; fISOPCNO3(i)=fISOPCNO3(i)-1; fGAOO(i)=fGAOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fGLYOX(i)=fGLYOX(i)+0.89; fNOA(i)=fNOA(i)+1; 
+fO3(i)=fO3(i)-1; fISOPCNO3(i)=fISOPCNO3(i)-1; fGAOOB(i)=fGAOOB(i)+1; fNOA(i)=fNOA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOPCNO3 = HOCH2CHO +  + 0.11NC3OO + 0.89OH + 0.89NO2 + 0.89MGLYOX';
+Rnames{i} = 'O3 + ISOPCNO3 = HOCH2CHO + NC3OOA';
 k(:,i) = 4.10e-17.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOPCNO3'; 
-fO3(i)=fO3(i)-1; fISOPCNO3(i)=fISOPCNO3(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNC3OO(i)=fNC3OO(i)+0.11; fOH(i)=fOH(i)+0.89; fNO2(i)=fNO2(i)+0.89; fMGLYOX(i)=fMGLYOX(i)+0.89; 
+fO3(i)=fO3(i)-1; fISOPCNO3(i)=fISOPCNO3(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNC3OOA(i)=fNC3OOA(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ISOPCNO3 = INCO2';
@@ -469,16 +600,16 @@ Gstr{i,1} = 'NO3'; Gstr{i,2} = 'NC4CHO';
 fNO3(i)=fNO3(i)-1; fNC4CHO(i)=fNC4CHO(i)-1; fNC4CO3(i)=fNC4CO3(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + NC4CHO = NOA +  + 0.11GLYOO + 0.89OH + 0.89HO2 + 0.89CO + 0.89CO';
+Rnames{i} = 'O3 + NC4CHO = NOA + GLYOOC';
 k(:,i) = 2.40e-17.*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'NC4CHO'; 
-fO3(i)=fO3(i)-1; fNC4CHO(i)=fNC4CHO(i)-1; fNOA(i)=fNOA(i)+1; fGLYOO(i)=fGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fCO(i)=fCO(i)+0.89; fCO(i)=fCO(i)+0.89; 
+fO3(i)=fO3(i)-1; fNC4CHO(i)=fNC4CHO(i)-1; fNOA(i)=fNOA(i)+1; fGLYOOC(i)=fGLYOOC(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + NC4CHO =  + 0.11NOAOO + 0.89OH + 0.89NO2 + 0.89MGLYOX + GLYOX';
+Rnames{i} = 'O3 + NC4CHO = NOAOOA + GLYOX';
 k(:,i) = 2.40e-17.*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'NC4CHO'; 
-fO3(i)=fO3(i)-1; fNC4CHO(i)=fNC4CHO(i)-1; fNOAOO(i)=fNOAOO(i)+0.11; fOH(i)=fOH(i)+0.89; fNO2(i)=fNO2(i)+0.89; fMGLYOX(i)=fMGLYOX(i)+0.89; fGLYOX(i)=fGLYOX(i)+1; 
+fO3(i)=fO3(i)-1; fNC4CHO(i)=fNC4CHO(i)-1; fNOAOOA(i)=fNOAOOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + NC4CHO = C510O2';
@@ -529,10 +660,22 @@ Gstr{i,1} = 'CH2OO';
 fCH2OO(i)=fCH2OO(i)-1; fHCOOH(i)=fHCOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACO3 + HO2 =  + 0.35CH3CO3 + 0.35HCHO + 0.65HCHO + 0.65CH3O2 + 0.65CO + OH';
+Rnames{i} = 'CH3C2H2O2 = CH3CO3 + HCHO';
+k(:,i) = KDEC.*0.35;
+Gstr{i,1} = 'CH3C2H2O2'; 
+fCH3C2H2O2(i)=fCH3C2H2O2(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH3C2H2O2 = HCHO + CH3O2 + CO';
+k(:,i) = KDEC.*0.65;
+Gstr{i,1} = 'CH3C2H2O2'; 
+fCH3C2H2O2(i)=fCH3C2H2O2(i)-1; fHCHO(i)=fHCHO(i)+1; fCH3O2(i)=fCH3O2(i)+1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACO3 + HO2 = CH3C2H2O2 + OH';
 k(:,i) = KAPHO2.*0.44;
 Gstr{i,1} = 'MACO3'; Gstr{i,2} = 'HO2'; 
-fMACO3(i)=fMACO3(i)-1; fHO2(i)=fHO2(i)-1; fCH3CO3(i)=fCH3CO3(i)+0.35; fHCHO(i)=fHCHO(i)+0.35; fHCHO(i)=fHCHO(i)+0.65; fCH3O2(i)=fCH3O2(i)+0.65; fCO(i)=fCO(i)+0.65; fOH(i)=fOH(i)+1; 
+fMACO3(i)=fMACO3(i)-1; fHO2(i)=fHO2(i)-1; fCH3C2H2O2(i)=fCH3C2H2O2(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MACO3 + HO2 = MACO2H + O3';
@@ -547,10 +690,10 @@ Gstr{i,1} = 'MACO3'; Gstr{i,2} = 'HO2';
 fMACO3(i)=fMACO3(i)-1; fHO2(i)=fHO2(i)-1; fMACO3H(i)=fMACO3H(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACO3 + NO =  + 0.35CH3CO3 + 0.35HCHO + 0.65HCHO + 0.65CH3O2 + 0.65CO + NO2';
+Rnames{i} = 'MACO3 + NO = CH3C2H2O2 + NO2';
 k(:,i) = 8.70e-12.*exp(290./T);
 Gstr{i,1} = 'MACO3'; Gstr{i,2} = 'NO'; 
-fMACO3(i)=fMACO3(i)-1; fNO(i)=fNO(i)-1; fCH3CO3(i)=fCH3CO3(i)+0.35; fHCHO(i)=fHCHO(i)+0.35; fHCHO(i)=fHCHO(i)+0.65; fCH3O2(i)=fCH3O2(i)+0.65; fCO(i)=fCO(i)+0.65; fNO2(i)=fNO2(i)+1; 
+fMACO3(i)=fMACO3(i)-1; fNO(i)=fNO(i)-1; fCH3C2H2O2(i)=fCH3C2H2O2(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MACO3 + NO2 = MPAN';
@@ -559,22 +702,34 @@ Gstr{i,1} = 'MACO3'; Gstr{i,2} = 'NO2';
 fMACO3(i)=fMACO3(i)-1; fNO2(i)=fNO2(i)-1; fMPAN(i)=fMPAN(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACO3 + NO3 =  + 0.35CH3CO3 + 0.35HCHO + 0.65HCHO + 0.65CH3O2 + 0.65CO + NO2';
+Rnames{i} = 'MACO3 + NO3 = CH3C2H2O2 + NO2';
 k(:,i) = KRO2NO3.*1.74;
 Gstr{i,1} = 'MACO3'; Gstr{i,2} = 'NO3'; 
-fMACO3(i)=fMACO3(i)-1; fNO3(i)=fNO3(i)-1; fCH3CO3(i)=fCH3CO3(i)+0.35; fHCHO(i)=fHCHO(i)+0.35; fHCHO(i)=fHCHO(i)+0.65; fCH3O2(i)=fCH3O2(i)+0.65; fCO(i)=fCO(i)+0.65; fNO2(i)=fNO2(i)+1; 
+fMACO3(i)=fMACO3(i)-1; fNO3(i)=fNO3(i)-1; fCH3C2H2O2(i)=fCH3C2H2O2(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACO3 =  + 0.35CH3CO3 + 0.35HCHO + 0.65HCHO + 0.65CH3O2 + 0.65CO';
+Rnames{i} = 'MACO3 = CH3C2H2O2';
 k(:,i) = 1.00e-11.*0.7;
 Gstr{i,1} = 'MACO3'; Gstr{i,2} = 'RO2';
-fMACO3(i)=fMACO3(i)-1; fCH3CO3(i)=fCH3CO3(i)+0.35; fHCHO(i)=fHCHO(i)+0.35; fHCHO(i)=fHCHO(i)+0.65; fCH3O2(i)=fCH3O2(i)+0.65; fCO(i)=fCO(i)+0.65; 
+fMACO3(i)=fMACO3(i)-1; fCH3C2H2O2(i)=fCH3C2H2O2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MACO3 = MACO2H';
 k(:,i) = 1.00e-11.*0.3;
 Gstr{i,1} = 'MACO3'; Gstr{i,2} = 'RO2';
 fMACO3(i)=fMACO3(i)-1; fMACO2H(i)=fMACO2H(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MGLYOOB = MGLYOO';
+k(:,i) = KDEC.*0.18;
+Gstr{i,1} = 'MGLYOOB'; 
+fMGLYOOB(i)=fMGLYOOB(i)-1; fMGLYOO(i)=fMGLYOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MGLYOOB = OH + CO + CH3CO3';
+k(:,i) = KDEC.*0.82;
+Gstr{i,1} = 'MGLYOOB'; 
+fMGLYOOB(i)=fMGLYOOB(i)-1; fOH(i)=fOH(i)+1; fCO(i)=fCO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MGLYOX = CH3CO3 + CO + HO2';
@@ -595,6 +750,24 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'MGLYOX';
 fOH(i)=fOH(i)-1; fMGLYOX(i)=fMGLYOX(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'CH2OOG = CH2OO';
+k(:,i) = KDEC.*0.37;
+Gstr{i,1} = 'CH2OOG'; 
+fCH2OOG(i)=fCH2OOG(i)-1; fCH2OO(i)=fCH2OO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOG = CO';
+k(:,i) = KDEC.*0.47;
+Gstr{i,1} = 'CH2OOG'; 
+fCH2OOG(i)=fCH2OOG(i)-1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOG = HO2 + CO + OH';
+k(:,i) = KDEC.*0.16;
+Gstr{i,1} = 'CH2OOG'; 
+fCH2OOG(i)=fCH2OOG(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
 Rnames{i} = 'MACRO2 + HO2 = MACROOH';
 k(:,i) = KRO2HO2.*0.625;
 Gstr{i,1} = 'MACRO2'; Gstr{i,2} = 'HO2'; 
@@ -607,16 +780,16 @@ Gstr{i,1} = 'MACRO2'; Gstr{i,2} = 'NO';
 fMACRO2(i)=fMACRO2(i)-1; fNO(i)=fNO(i)-1; fMACRNO3(i)=fMACRNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACRO2 + NO =  + ACETOL + CO + HO2 + NO2';
+Rnames{i} = 'MACRO2 + NO = MACRO + NO2';
 k(:,i) = KRO2NO.*0.987;
 Gstr{i,1} = 'MACRO2'; Gstr{i,2} = 'NO'; 
-fMACRO2(i)=fMACRO2(i)-1; fNO(i)=fNO(i)-1; fACETOL(i)=fACETOL(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fMACRO2(i)=fMACRO2(i)-1; fNO(i)=fNO(i)-1; fMACRO(i)=fMACRO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACRO2 + NO3 =  + ACETOL + CO + HO2 + NO2';
+Rnames{i} = 'MACRO2 + NO3 = MACRO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'MACRO2'; Gstr{i,2} = 'NO3'; 
-fMACRO2(i)=fMACRO2(i)-1; fNO3(i)=fNO3(i)-1; fACETOL(i)=fACETOL(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fMACRO2(i)=fMACRO2(i)-1; fNO3(i)=fNO3(i)-1; fMACRO(i)=fMACRO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MACRO2 = ACETOL + CO + OH';
@@ -625,10 +798,10 @@ Gstr{i,1} = 'MACRO2';
 fMACRO2(i)=fMACRO2(i)-1; fACETOL(i)=fACETOL(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACRO2 =  + ACETOL + CO + HO2';
+Rnames{i} = 'MACRO2 = MACRO';
 k(:,i) = 9.20e-14.*0.7;
 Gstr{i,1} = 'MACRO2'; Gstr{i,2} = 'RO2';
-fMACRO2(i)=fMACRO2(i)-1; fACETOL(i)=fACETOL(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+fMACRO2(i)=fMACRO2(i)-1; fMACRO(i)=fMACRO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MACRO2 = MACROH';
@@ -649,16 +822,16 @@ Gstr{i,1} = 'MACROHO2'; Gstr{i,2} = 'NO';
 fMACROHO2(i)=fMACROHO2(i)-1; fNO(i)=fNO(i)-1; fMACRNB(i)=fMACRNB(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACROHO2 + NO =  + MGLYOX + HCHO + HO2 + NO2';
+Rnames{i} = 'MACROHO2 + NO = MACROHO + NO2';
 k(:,i) = KRO2NO.*0.983;
 Gstr{i,1} = 'MACROHO2'; Gstr{i,2} = 'NO'; 
-fMACROHO2(i)=fMACROHO2(i)-1; fNO(i)=fNO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fMACROHO2(i)=fMACROHO2(i)-1; fNO(i)=fNO(i)-1; fMACROHO(i)=fMACROHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACROHO2 + NO3 =  + MGLYOX + HCHO + HO2 + NO2';
+Rnames{i} = 'MACROHO2 + NO3 = MACROHO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'MACROHO2'; Gstr{i,2} = 'NO3'; 
-fMACROHO2(i)=fMACROHO2(i)-1; fNO3(i)=fNO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fMACROHO2(i)=fMACROHO2(i)-1; fNO3(i)=fNO3(i)-1; fMACROHO(i)=fMACROHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MACROHO2 = C3MDIALOH';
@@ -673,10 +846,10 @@ Gstr{i,1} = 'MACROHO2'; Gstr{i,2} = 'RO2';
 fMACROHO2(i)=fMACROHO2(i)-1; fMACROH(i)=fMACROH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACROHO2 =  + MGLYOX + HCHO + HO2';
+Rnames{i} = 'MACROHO2 = MACROHO';
 k(:,i) = 1.4e-12.*0.6;
 Gstr{i,1} = 'MACROHO2'; Gstr{i,2} = 'RO2';
-fMACROHO2(i)=fMACROHO2(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fMACROHO2(i)=fMACROHO2(i)-1; fMACROHO(i)=fMACROHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NO3 + C3H6 = PRONO3AO2';
@@ -691,16 +864,16 @@ Gstr{i,1} = 'NO3'; Gstr{i,2} = 'C3H6';
 fNO3(i)=fNO3(i)-1; fC3H6(i)=fC3H6(i)-1; fPRONO3BO2(i)=fPRONO3BO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + C3H6 =  + 0.24CH2OO + 0.40CO + 0.36HO2 + 0.36CO + 0.36OH + CH3CHO';
+Rnames{i} = 'O3 + C3H6 = CH2OOB + CH3CHO';
 k(:,i) = 5.5e-15.*exp(-1880./T).*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'C3H6'; 
-fO3(i)=fO3(i)-1; fC3H6(i)=fC3H6(i)-1; fCH2OO(i)=fCH2OO(i)+0.24; fCO(i)=fCO(i)+0.40; fHO2(i)=fHO2(i)+0.36; fCO(i)=fCO(i)+0.36; fOH(i)=fOH(i)+0.36; fCH3CHO(i)=fCH3CHO(i)+1; 
+fO3(i)=fO3(i)-1; fC3H6(i)=fC3H6(i)-1; fCH2OOB(i)=fCH2OOB(i)+1; fCH3CHO(i)=fCH3CHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + C3H6 =  + 0.24CH3CHOO + 0.36CH3O2 + 0.36CO + 0.36OH + 0.20CH3O2 + 0.20HO2 + 0.20CH4 + HCHO';
+Rnames{i} = 'O3 + C3H6 = CH3CHOOA + HCHO';
 k(:,i) = 5.5e-15.*exp(-1880./T).*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'C3H6'; 
-fO3(i)=fO3(i)-1; fC3H6(i)=fC3H6(i)-1; fCH3CHOO(i)=fCH3CHOO(i)+0.24; fCH3O2(i)=fCH3O2(i)+0.36; fCO(i)=fCO(i)+0.36; fOH(i)=fOH(i)+0.36; fCH3O2(i)=fCH3O2(i)+0.20; fHO2(i)=fHO2(i)+0.20; fCH4(i)=fCH4(i)+0.20; fHCHO(i)=fHCHO(i)+1; 
+fO3(i)=fO3(i)-1; fC3H6(i)=fC3H6(i)-1; fCH3CHOOA(i)=fCH3CHOOA(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + C3H6 = HYPROPO2';
@@ -763,6 +936,48 @@ Gstr{i,1} = 'CH3CO3'; Gstr{i,2} = 'RO2';
 fCH3CO3(i)=fCH3CO3(i)-1; fCH3O2(i)=fCH3O2(i)+1; 
 
 i=i+1;
+Rnames{i} = 'MGLOOA = CH3CHO';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'MGLOOA'; 
+fMGLOOA(i)=fMGLOOA(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MGLOOA = CH3CO3 + HCHO + HO2';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'MGLOOA'; 
+fMGLOOA(i)=fMGLOOA(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MGLOOA = MGLOO';
+k(:,i) = KDEC.*0.24;
+Gstr{i,1} = 'MGLOOA'; 
+fMGLOOA(i)=fMGLOOA(i)-1; fMGLOO(i)=fMGLOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MGLOOA = OH + CO + CH3CO3';
+k(:,i) = KDEC.*0.36;
+Gstr{i,1} = 'MGLOOA'; 
+fMGLOOA(i)=fMGLOOA(i)-1; fOH(i)=fOH(i)+1; fCO(i)=fCO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOB = CH2OO';
+k(:,i) = KDEC.*0.24;
+Gstr{i,1} = 'CH2OOB'; 
+fCH2OOB(i)=fCH2OOB(i)-1; fCH2OO(i)=fCH2OO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOB = CO';
+k(:,i) = KDEC.*0.40;
+Gstr{i,1} = 'CH2OOB'; 
+fCH2OOB(i)=fCH2OOB(i)-1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOB = HO2 + CO + OH';
+k(:,i) = KDEC.*0.36;
+Gstr{i,1} = 'CH2OOB'; 
+fCH2OOB(i)=fCH2OOB(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
 Rnames{i} = 'HMVKAO2 + HO2 = HMVKAOOH';
 k(:,i) = KRO2HO2.*0.625;
 Gstr{i,1} = 'HMVKAO2'; Gstr{i,2} = 'HO2'; 
@@ -775,16 +990,16 @@ Gstr{i,1} = 'HMVKAO2'; Gstr{i,2} = 'NO';
 fHMVKAO2(i)=fHMVKAO2(i)-1; fNO(i)=fNO(i)-1; fHMVKANO3(i)=fHMVKANO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKAO2 + NO =  + MGLYOX + HCHO + HO2 + NO2';
+Rnames{i} = 'HMVKAO2 + NO = HMVKAO + NO2';
 k(:,i) = KRO2NO.*0.983;
 Gstr{i,1} = 'HMVKAO2'; Gstr{i,2} = 'NO'; 
-fHMVKAO2(i)=fHMVKAO2(i)-1; fNO(i)=fNO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHMVKAO2(i)=fHMVKAO2(i)-1; fNO(i)=fNO(i)-1; fHMVKAO(i)=fHMVKAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKAO2 + NO3 =  + MGLYOX + HCHO + HO2 + NO2';
+Rnames{i} = 'HMVKAO2 + NO3 = HMVKAO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HMVKAO2'; Gstr{i,2} = 'NO3'; 
-fHMVKAO2(i)=fHMVKAO2(i)-1; fNO3(i)=fNO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHMVKAO2(i)=fHMVKAO2(i)-1; fNO3(i)=fNO3(i)-1; fHMVKAO(i)=fHMVKAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMVKAO2 = CO2H3CHO';
@@ -793,10 +1008,10 @@ Gstr{i,1} = 'HMVKAO2'; Gstr{i,2} = 'RO2';
 fHMVKAO2(i)=fHMVKAO2(i)-1; fCO2H3CHO(i)=fCO2H3CHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKAO2 =  + MGLYOX + HCHO + HO2';
+Rnames{i} = 'HMVKAO2 = HMVKAO';
 k(:,i) = 2.00e-12.*0.6;
 Gstr{i,1} = 'HMVKAO2'; Gstr{i,2} = 'RO2';
-fHMVKAO2(i)=fHMVKAO2(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fHMVKAO2(i)=fHMVKAO2(i)-1; fHMVKAO(i)=fHMVKAO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMVKAO2 = HO12CO3C4';
@@ -817,16 +1032,16 @@ Gstr{i,1} = 'HMVKBO2'; Gstr{i,2} = 'HO2';
 fHMVKBO2(i)=fHMVKBO2(i)-1; fHO2(i)=fHO2(i)-1; fHMVKBOOH(i)=fHMVKBOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKBO2 + NO =  + CH3CO3 + HOCH2CHO + NO2';
+Rnames{i} = 'HMVKBO2 + NO = HMVKBO + NO2';
 k(:,i) = KRO2NO.*0.957;
 Gstr{i,1} = 'HMVKBO2'; Gstr{i,2} = 'NO'; 
-fHMVKBO2(i)=fHMVKBO2(i)-1; fNO(i)=fNO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fHMVKBO2(i)=fHMVKBO2(i)-1; fNO(i)=fNO(i)-1; fHMVKBO(i)=fHMVKBO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKBO2 + NO3 =  + CH3CO3 + HOCH2CHO + NO2';
+Rnames{i} = 'HMVKBO2 + NO3 = HMVKBO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HMVKBO2'; Gstr{i,2} = 'NO3'; 
-fHMVKBO2(i)=fHMVKBO2(i)-1; fNO3(i)=fNO3(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fHMVKBO2(i)=fHMVKBO2(i)-1; fNO3(i)=fNO3(i)-1; fHMVKBO(i)=fHMVKBO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMVKBO2 = BIACETOH';
@@ -835,10 +1050,10 @@ Gstr{i,1} = 'HMVKBO2'; Gstr{i,2} = 'RO2';
 fHMVKBO2(i)=fHMVKBO2(i)-1; fBIACETOH(i)=fBIACETOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKBO2 =  + CH3CO3 + HOCH2CHO';
+Rnames{i} = 'HMVKBO2 = HMVKBO';
 k(:,i) = 8.80e-13.*0.6;
 Gstr{i,1} = 'HMVKBO2'; Gstr{i,2} = 'RO2';
-fHMVKBO2(i)=fHMVKBO2(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
+fHMVKBO2(i)=fHMVKBO2(i)-1; fHMVKBO(i)=fHMVKBO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMVKBO2 = HO12CO3C4';
@@ -901,10 +1116,10 @@ Gstr{i,1} = 'CH3O2'; Gstr{i,2} = 'NO';
 fCH3O2(i)=fCH3O2(i)-1; fNO(i)=fNO(i)-1; fCH3NO3(i)=fCH3NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3O2 + NO =  + HCHO + HO2 + NO2';
+Rnames{i} = 'CH3O2 + NO = CH3O + NO2';
 k(:,i) = 2.3e-12.*exp(360./T).*0.999;
 Gstr{i,1} = 'CH3O2'; Gstr{i,2} = 'NO'; 
-fCH3O2(i)=fCH3O2(i)-1; fNO(i)=fNO(i)-1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fCH3O2(i)=fCH3O2(i)-1; fNO(i)=fNO(i)-1; fCH3O(i)=fCH3O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3O2 + NO2 = CH3O2NO2';
@@ -913,16 +1128,16 @@ Gstr{i,1} = 'CH3O2'; Gstr{i,2} = 'NO2';
 fCH3O2(i)=fCH3O2(i)-1; fNO2(i)=fNO2(i)-1; fCH3O2NO2(i)=fCH3O2NO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3O2 + NO3 =  + HCHO + HO2 + NO2';
+Rnames{i} = 'CH3O2 + NO3 = CH3O + NO2';
 k(:,i) = 1.2e-12;
 Gstr{i,1} = 'CH3O2'; Gstr{i,2} = 'NO3'; 
-fCH3O2(i)=fCH3O2(i)-1; fNO3(i)=fNO3(i)-1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fCH3O2(i)=fCH3O2(i)-1; fNO3(i)=fNO3(i)-1; fCH3O(i)=fCH3O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3O2 =  + HCHO + HO2';
+Rnames{i} = 'CH3O2 = CH3O';
 k(:,i) = 2.*KCH3O2.*7.18.*exp(-885./T);
 Gstr{i,1} = 'CH3O2'; Gstr{i,2} = 'RO2';
-fCH3O2(i)=fCH3O2(i)-1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fCH3O2(i)=fCH3O2(i)-1; fCH3O(i)=fCH3O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3O2 = CH3OH';
@@ -973,22 +1188,22 @@ Gstr{i,1} = 'MVKO2'; Gstr{i,2} = 'HO2';
 fMVKO2(i)=fMVKO2(i)-1; fHO2(i)=fHO2(i)-1; fMVKOOH(i)=fMVKOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKO2 + NO =  + HCHO + ACO3 + NO2';
+Rnames{i} = 'MVKO2 + NO = MVKO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'MVKO2'; Gstr{i,2} = 'NO'; 
-fMVKO2(i)=fMVKO2(i)-1; fNO(i)=fNO(i)-1; fHCHO(i)=fHCHO(i)+1; fACO3(i)=fACO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fMVKO2(i)=fMVKO2(i)-1; fNO(i)=fNO(i)-1; fMVKO(i)=fMVKO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKO2 + NO3 =  + HCHO + ACO3 + NO2';
+Rnames{i} = 'MVKO2 + NO3 = MVKO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'MVKO2'; Gstr{i,2} = 'NO3'; 
-fMVKO2(i)=fMVKO2(i)-1; fNO3(i)=fNO3(i)-1; fHCHO(i)=fHCHO(i)+1; fACO3(i)=fACO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fMVKO2(i)=fMVKO2(i)-1; fNO3(i)=fNO3(i)-1; fMVKO(i)=fMVKO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKO2 =  + HCHO + ACO3';
+Rnames{i} = 'MVKO2 = MVKO';
 k(:,i) = 2.00e-12.*0.6;
 Gstr{i,1} = 'MVKO2'; Gstr{i,2} = 'RO2';
-fMVKO2(i)=fMVKO2(i)-1; fHCHO(i)=fHCHO(i)+1; fACO3(i)=fACO3(i)+1; 
+fMVKO2(i)=fMVKO2(i)-1; fMVKO(i)=fMVKO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MVKO2 = MVKOH';
@@ -1009,10 +1224,10 @@ Gstr{i,1} = 'CISOPAO2'; Gstr{i,2} = 'HO2';
 fCISOPAO2(i)=fCISOPAO2(i)-1; fHO2(i)=fHO2(i)-1; fISOPAOOH(i)=fISOPAOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CISOPAO2 + NO =  + 0.19C526O2 + 0.63HC4CCHO + 0.63HO2 + 0.18M3F + 0.18HO2 + NO2';
+Rnames{i} = 'CISOPAO2 + NO = CISOPAO + NO2';
 k(:,i) = KRO2NO.*0.913;
 Gstr{i,1} = 'CISOPAO2'; Gstr{i,2} = 'NO'; 
-fCISOPAO2(i)=fCISOPAO2(i)-1; fNO(i)=fNO(i)-1; fC526O2(i)=fC526O2(i)+0.19; fHC4CCHO(i)=fHC4CCHO(i)+0.63; fHO2(i)=fHO2(i)+0.63; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; fNO2(i)=fNO2(i)+1; 
+fCISOPAO2(i)=fCISOPAO2(i)-1; fNO(i)=fNO(i)-1; fCISOPAO(i)=fCISOPAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CISOPAO2 + NO = ISOPANO3';
@@ -1021,10 +1236,10 @@ Gstr{i,1} = 'CISOPAO2'; Gstr{i,2} = 'NO';
 fCISOPAO2(i)=fCISOPAO2(i)-1; fNO(i)=fNO(i)-1; fISOPANO3(i)=fISOPANO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CISOPAO2 + NO3 =  + 0.19C526O2 + 0.63HC4CCHO + 0.63HO2 + 0.18M3F + 0.18HO2 + NO2';
+Rnames{i} = 'CISOPAO2 + NO3 = CISOPAO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'CISOPAO2'; Gstr{i,2} = 'NO3'; 
-fCISOPAO2(i)=fCISOPAO2(i)-1; fNO3(i)=fNO3(i)-1; fC526O2(i)=fC526O2(i)+0.19; fHC4CCHO(i)=fHC4CCHO(i)+0.63; fHO2(i)=fHO2(i)+0.63; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; fNO2(i)=fNO2(i)+1; 
+fCISOPAO2(i)=fCISOPAO2(i)-1; fNO3(i)=fNO3(i)-1; fCISOPAO(i)=fCISOPAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CISOPAO2 = C536O2';
@@ -1039,16 +1254,16 @@ Gstr{i,1} = 'CISOPAO2';
 fCISOPAO2(i)=fCISOPAO2(i)-1; fC5HPALD1(i)=fC5HPALD1(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CISOPAO2 =  + CISOPAO2 + ISOPBO2';
+Rnames{i} = 'CISOPAO2 = CISOPA';
 k(:,i) = 5.22D15.*exp(-9838./T);
 Gstr{i,1} = 'CISOPAO2'; 
-fCISOPAO2(i)=fCISOPAO2(i)-1; fCISOPAO2(i)=fCISOPAO2(i)+1; fISOPBO2(i)=fISOPBO2(i)+1; 
+fCISOPAO2(i)=fCISOPAO2(i)-1; fCISOPA(i)=fCISOPA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CISOPAO2 =  + 0.19C526O2 + 0.63HC4CCHO + 0.63HO2 + 0.18M3F + 0.18HO2';
+Rnames{i} = 'CISOPAO2 = CISOPAO';
 k(:,i) = 2.40e-12.*0.8;
 Gstr{i,1} = 'CISOPAO2'; Gstr{i,2} = 'RO2';
-fCISOPAO2(i)=fCISOPAO2(i)-1; fC526O2(i)=fC526O2(i)+0.19; fHC4CCHO(i)=fHC4CCHO(i)+0.63; fHO2(i)=fHO2(i)+0.63; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; 
+fCISOPAO2(i)=fCISOPAO2(i)-1; fCISOPAO(i)=fCISOPAO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CISOPAO2 = HC4ACHO';
@@ -1075,28 +1290,28 @@ Gstr{i,1} = 'ISOPBO2'; Gstr{i,2} = 'NO';
 fISOPBO2(i)=fISOPBO2(i)-1; fNO(i)=fNO(i)-1; fISOPBNO3(i)=fISOPBNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPBO2 + NO =  + MVK + HCHO + HO2 + NO2';
+Rnames{i} = 'ISOPBO2 + NO = ISOPBO + NO2';
 k(:,i) = KRO2NO.*0.896;
 Gstr{i,1} = 'ISOPBO2'; Gstr{i,2} = 'NO'; 
-fISOPBO2(i)=fISOPBO2(i)-1; fNO(i)=fNO(i)-1; fMVK(i)=fMVK(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPBO2(i)=fISOPBO2(i)-1; fNO(i)=fNO(i)-1; fISOPBO(i)=fISOPBO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPBO2 + NO3 =  + MVK + HCHO + HO2 + NO2';
+Rnames{i} = 'ISOPBO2 + NO3 = ISOPBO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'ISOPBO2'; Gstr{i,2} = 'NO3'; 
-fISOPBO2(i)=fISOPBO2(i)-1; fNO3(i)=fNO3(i)-1; fMVK(i)=fMVK(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPBO2(i)=fISOPBO2(i)-1; fNO3(i)=fNO3(i)-1; fISOPBO(i)=fISOPBO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPBO2 =  + CISOPAO2 + ISOPBO2';
+Rnames{i} = 'ISOPBO2 = CISOPA';
 k(:,i) = 8.62D15.*exp(-11322./T);
 Gstr{i,1} = 'ISOPBO2'; 
-fISOPBO2(i)=fISOPBO2(i)-1; fCISOPAO2(i)=fCISOPAO2(i)+1; fISOPBO2(i)=fISOPBO2(i)+1; 
+fISOPBO2(i)=fISOPBO2(i)-1; fCISOPA(i)=fCISOPA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPBO2 =  + MVK + HCHO + HO2';
+Rnames{i} = 'ISOPBO2 = ISOPBO';
 k(:,i) = 8.00e-13.*0.8;
 Gstr{i,1} = 'ISOPBO2'; Gstr{i,2} = 'RO2';
-fISOPBO2(i)=fISOPBO2(i)-1; fMVK(i)=fMVK(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fISOPBO2(i)=fISOPBO2(i)-1; fISOPBO(i)=fISOPBO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPBO2 = ISOPBOH';
@@ -1111,10 +1326,10 @@ Gstr{i,1} = 'ISOPBO2';
 fISOPBO2(i)=fISOPBO2(i)-1; fMVK(i)=fMVK(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPBO2 =  + ISOPAO2 + ISOPBO2';
+Rnames{i} = 'ISOPBO2 = TISOPA';
 k(:,i) = 8.55D15.*exp(-10743./T);
 Gstr{i,1} = 'ISOPBO2'; 
-fISOPBO2(i)=fISOPBO2(i)-1; fISOPAO2(i)=fISOPAO2(i)+1; fISOPBO2(i)=fISOPBO2(i)+1; 
+fISOPBO2(i)=fISOPBO2(i)-1; fTISOPA(i)=fTISOPA(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CISOPCO2 + HO2 = ISOPCOOH';
@@ -1123,10 +1338,10 @@ Gstr{i,1} = 'CISOPCO2'; Gstr{i,2} = 'HO2';
 fCISOPCO2(i)=fCISOPCO2(i)-1; fHO2(i)=fHO2(i)-1; fISOPCOOH(i)=fISOPCOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CISOPCO2 + NO =  + 0.30C527O2 + 0.52HC4ACHO + 0.52HO2 + 0.18M3F + 0.18HO2 + NO2';
+Rnames{i} = 'CISOPCO2 + NO = CISOPCO + NO2';
 k(:,i) = KRO2NO.*0.913;
 Gstr{i,1} = 'CISOPCO2'; Gstr{i,2} = 'NO'; 
-fCISOPCO2(i)=fCISOPCO2(i)-1; fNO(i)=fNO(i)-1; fC527O2(i)=fC527O2(i)+0.30; fHC4ACHO(i)=fHC4ACHO(i)+0.52; fHO2(i)=fHO2(i)+0.52; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; fNO2(i)=fNO2(i)+1; 
+fCISOPCO2(i)=fCISOPCO2(i)-1; fNO(i)=fNO(i)-1; fCISOPCO(i)=fCISOPCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CISOPCO2 + NO = ISOPCNO3';
@@ -1135,10 +1350,10 @@ Gstr{i,1} = 'CISOPCO2'; Gstr{i,2} = 'NO';
 fCISOPCO2(i)=fCISOPCO2(i)-1; fNO(i)=fNO(i)-1; fISOPCNO3(i)=fISOPCNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CISOPCO2 + NO3 =  + 0.30C527O2 + 0.52HC4ACHO + 0.52HO2 + 0.18M3F + 0.18HO2 + NO2';
+Rnames{i} = 'CISOPCO2 + NO3 = CISOPCO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'CISOPCO2'; Gstr{i,2} = 'NO3'; 
-fCISOPCO2(i)=fCISOPCO2(i)-1; fNO3(i)=fNO3(i)-1; fC527O2(i)=fC527O2(i)+0.30; fHC4ACHO(i)=fHC4ACHO(i)+0.52; fHO2(i)=fHO2(i)+0.52; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; fNO2(i)=fNO2(i)+1; 
+fCISOPCO2(i)=fCISOPCO2(i)-1; fNO3(i)=fNO3(i)-1; fCISOPCO(i)=fCISOPCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CISOPCO2 = C537O2';
@@ -1153,16 +1368,16 @@ Gstr{i,1} = 'CISOPCO2';
 fCISOPCO2(i)=fCISOPCO2(i)-1; fC5HPALD2(i)=fC5HPALD2(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CISOPCO2 =  + CISOPCO2 + ISOPDO2';
+Rnames{i} = 'CISOPCO2 = CISOPC';
 k(:,i) = 3.06D15.*exp(-10254./T);
 Gstr{i,1} = 'CISOPCO2'; 
-fCISOPCO2(i)=fCISOPCO2(i)-1; fCISOPCO2(i)=fCISOPCO2(i)+1; fISOPDO2(i)=fISOPDO2(i)+1; 
+fCISOPCO2(i)=fCISOPCO2(i)-1; fCISOPC(i)=fCISOPC(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CISOPCO2 =  + 0.30C527O2 + 0.52HC4ACHO + 0.52HO2 + 0.18M3F + 0.18HO2';
+Rnames{i} = 'CISOPCO2 = CISOPCO';
 k(:,i) = 2.40e-12.*0.8;
 Gstr{i,1} = 'CISOPCO2'; Gstr{i,2} = 'RO2';
-fCISOPCO2(i)=fCISOPCO2(i)-1; fC527O2(i)=fC527O2(i)+0.30; fHC4ACHO(i)=fHC4ACHO(i)+0.52; fHO2(i)=fHO2(i)+0.52; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; 
+fCISOPCO2(i)=fCISOPCO2(i)-1; fCISOPCO(i)=fCISOPCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CISOPCO2 = HC4CCHO';
@@ -1189,22 +1404,22 @@ Gstr{i,1} = 'ISOPDO2'; Gstr{i,2} = 'NO';
 fISOPDO2(i)=fISOPDO2(i)-1; fNO(i)=fNO(i)-1; fISOPDNO3(i)=fISOPDNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPDO2 + NO =  + MACR + HCHO + HO2 + NO2';
+Rnames{i} = 'ISOPDO2 + NO = ISOPDO + NO2';
 k(:,i) = KRO2NO.*0.896;
 Gstr{i,1} = 'ISOPDO2'; Gstr{i,2} = 'NO'; 
-fISOPDO2(i)=fISOPDO2(i)-1; fNO(i)=fNO(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPDO2(i)=fISOPDO2(i)-1; fNO(i)=fNO(i)-1; fISOPDO(i)=fISOPDO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPDO2 + NO3 =  + MACR + HCHO + HO2 + NO2';
+Rnames{i} = 'ISOPDO2 + NO3 = ISOPDO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'ISOPDO2'; Gstr{i,2} = 'NO3'; 
-fISOPDO2(i)=fISOPDO2(i)-1; fNO3(i)=fNO3(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPDO2(i)=fISOPDO2(i)-1; fNO3(i)=fNO3(i)-1; fISOPDO(i)=fISOPDO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPDO2 =  + CISOPCO2 + ISOPDO2';
+Rnames{i} = 'ISOPDO2 = CISOPC';
 k(:,i) = 1.05D16.*exp(-11705./T);
 Gstr{i,1} = 'ISOPDO2'; 
-fISOPDO2(i)=fISOPDO2(i)-1; fCISOPCO2(i)=fCISOPCO2(i)+1; fISOPDO2(i)=fISOPDO2(i)+1; 
+fISOPDO2(i)=fISOPDO2(i)-1; fCISOPC(i)=fCISOPC(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPDO2 = HCOC5';
@@ -1213,10 +1428,10 @@ Gstr{i,1} = 'ISOPDO2'; Gstr{i,2} = 'RO2';
 fISOPDO2(i)=fISOPDO2(i)-1; fHCOC5(i)=fHCOC5(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPDO2 =  + MACR + HCHO + HO2';
+Rnames{i} = 'ISOPDO2 = ISOPDO';
 k(:,i) = 2.90e-12.*0.8;
 Gstr{i,1} = 'ISOPDO2'; Gstr{i,2} = 'RO2';
-fISOPDO2(i)=fISOPDO2(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fISOPDO2(i)=fISOPDO2(i)-1; fISOPDO(i)=fISOPDO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPDO2 = ISOPDOH';
@@ -1231,10 +1446,10 @@ Gstr{i,1} = 'ISOPDO2';
 fISOPDO2(i)=fISOPDO2(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPDO2 =  + ISOPCO2 + ISOPDO2';
+Rnames{i} = 'ISOPDO2 = TISOPC';
 k(:,i) = 1.05D16.*exp(-11569./T);
 Gstr{i,1} = 'ISOPDO2'; 
-fISOPDO2(i)=fISOPDO2(i)-1; fISOPCO2(i)=fISOPCO2(i)+1; fISOPDO2(i)=fISOPDO2(i)+1; 
+fISOPDO2(i)=fISOPDO2(i)-1; fTISOPC(i)=fTISOPC(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOP34OOH + OH = HC4CHO + OH';
@@ -1243,10 +1458,10 @@ Gstr{i,1} = 'ISOP34OOH'; Gstr{i,2} = 'OH';
 fISOP34OOH(i)=fISOP34OOH(i)-1; fOH(i)=fOH(i)-1; fHC4CHO(i)=fHC4CHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOP34OOH =  + MACR + HCHO + HO2 + OH';
+Rnames{i} = 'ISOP34OOH = ISOP34O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'ISOP34OOH'; 
-fISOP34OOH(i)=fISOP34OOH(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fISOP34OOH(i)=fISOP34OOH(i)-1; fISOP34O(i)=fISOP34O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOP34NO3 + OH = INAO2';
@@ -1255,16 +1470,22 @@ Gstr{i,1} = 'ISOP34NO3'; Gstr{i,2} = 'OH';
 fISOP34NO3(i)=fISOP34NO3(i)-1; fOH(i)=fOH(i)-1; fINAO2(i)=fINAO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOP34NO3 = HMVKANO3 +  + 0.18CH2OO + 0.82HO2 + 0.82CO + 0.82OH';
+Rnames{i} = 'O3 + ISOP34NO3 = HMVKANO3 + CH2OOC';
 k(:,i) = 2.52e-17.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOP34NO3'; 
-fO3(i)=fO3(i)-1; fISOP34NO3(i)=fISOP34NO3(i)-1; fHMVKANO3(i)=fHMVKANO3(i)+1; fCH2OO(i)=fCH2OO(i)+0.18; fHO2(i)=fHO2(i)+0.82; fCO(i)=fCO(i)+0.82; fOH(i)=fOH(i)+0.82; 
+fO3(i)=fO3(i)-1; fISOP34NO3(i)=fISOP34NO3(i)-1; fHMVKANO3(i)=fHMVKANO3(i)+1; fCH2OOC(i)=fCH2OOC(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOP34NO3 =  + 0.82CO23C4NO3 + 0.82HO2 + 0.82OH + 0.18NC41OO + HCHO';
+Rnames{i} = 'O3 + ISOP34NO3 = NC41OOA + HCHO';
 k(:,i) = 2.52e-17.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOP34NO3'; 
-fO3(i)=fO3(i)-1; fISOP34NO3(i)=fISOP34NO3(i)-1; fCO23C4NO3(i)=fCO23C4NO3(i)+0.82; fHO2(i)=fHO2(i)+0.82; fOH(i)=fOH(i)+0.82; fNC41OO(i)=fNC41OO(i)+0.18; fHCHO(i)=fHCHO(i)+1; 
+fO3(i)=fO3(i)-1; fISOP34NO3(i)=fISOP34NO3(i)-1; fNC41OOA(i)=fNC41OOA(i)+1; fHCHO(i)=fHCHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ISOP34O = MACR + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'ISOP34O'; 
+fISOP34O(i)=fISOP34O(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HC4CHO + OH = C58O2';
@@ -1297,22 +1518,34 @@ Gstr{i,1} = 'NC526O2'; Gstr{i,2} = 'HO2';
 fNC526O2(i)=fNC526O2(i)-1; fHO2(i)=fHO2(i)-1; fNC526OOH(i)=fNC526OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC526O2 + NO =  + 0.27CO2C3CHO + 0.27HCHO + 0.27NO2 + 0.73NOA + 0.73HCOCH2O2 + NO2';
+Rnames{i} = 'NC526O2 + NO = NC526O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'NC526O2'; Gstr{i,2} = 'NO'; 
-fNC526O2(i)=fNC526O2(i)-1; fNO(i)=fNO(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+0.27; fHCHO(i)=fHCHO(i)+0.27; fNO2(i)=fNO2(i)+0.27; fNOA(i)=fNOA(i)+0.73; fHCOCH2O2(i)=fHCOCH2O2(i)+0.73; fNO2(i)=fNO2(i)+1; 
+fNC526O2(i)=fNC526O2(i)-1; fNO(i)=fNO(i)-1; fNC526O(i)=fNC526O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC526O2 + NO3 =  + 0.27CO2C3CHO + 0.27HCHO + 0.27NO2 + 0.73NOA + 0.73HCOCH2O2 + NO2';
+Rnames{i} = 'NC526O2 + NO3 = NC526O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'NC526O2'; Gstr{i,2} = 'NO3'; 
-fNC526O2(i)=fNC526O2(i)-1; fNO3(i)=fNO3(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+0.27; fHCHO(i)=fHCHO(i)+0.27; fNO2(i)=fNO2(i)+0.27; fNOA(i)=fNOA(i)+0.73; fHCOCH2O2(i)=fHCOCH2O2(i)+0.73; fNO2(i)=fNO2(i)+1; 
+fNC526O2(i)=fNC526O2(i)-1; fNO3(i)=fNO3(i)-1; fNC526O(i)=fNC526O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC526O2 =  + 0.27CO2C3CHO + 0.27HCHO + 0.27NO2 + 0.73NOA + 0.73HCOCH2O2';
+Rnames{i} = 'NC526O2 = NC526O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'NC526O2'; Gstr{i,2} = 'RO2';
-fNC526O2(i)=fNC526O2(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+0.27; fHCHO(i)=fHCHO(i)+0.27; fNO2(i)=fNO2(i)+0.27; fNOA(i)=fNOA(i)+0.73; fHCOCH2O2(i)=fHCOCH2O2(i)+0.73; 
+fNC526O2(i)=fNC526O2(i)-1; fNC526O(i)=fNC526O(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOC = CH2OO';
+k(:,i) = KDEC.*0.18;
+Gstr{i,1} = 'CH2OOC'; 
+fCH2OOC(i)=fCH2OOC(i)-1; fCH2OO(i)=fCH2OO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOC = HO2 + CO + OH';
+k(:,i) = KDEC.*0.82;
+Gstr{i,1} = 'CH2OOC'; 
+fCH2OOC(i)=fCH2OOC(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CO2C3CHO + NO3 = CO2C3CO3 + HNO3';
@@ -1333,6 +1566,18 @@ Gstr{i,1} = 'CO2C3CHO';
 fCO2C3CHO(i)=fCO2C3CHO(i)-1; fCH3COCH2O2(i)=fCH3COCH2O2(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'CO2C3OOB = C4CO2O2 + OH';
+k(:,i) = KDEC.*0.82;
+Gstr{i,1} = 'CO2C3OOB'; 
+fCO2C3OOB(i)=fCO2C3OOB(i)-1; fC4CO2O2(i)=fC4CO2O2(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CO2C3OOB = CO2C3OO';
+k(:,i) = KDEC.*0.18;
+Gstr{i,1} = 'CO2C3OOB'; 
+fCO2C3OOB(i)=fCO2C3OOB(i)-1; fCO2C3OO(i)=fCO2C3OO(i)+1; 
+
+i=i+1;
 Rnames{i} = 'C530O2 + HO2 = C530OOH';
 k(:,i) = KRO2HO2.*0.706;
 Gstr{i,1} = 'C530O2'; Gstr{i,2} = 'HO2'; 
@@ -1345,22 +1590,22 @@ Gstr{i,1} = 'C530O2'; Gstr{i,2} = 'NO';
 fC530O2(i)=fC530O2(i)-1; fNO(i)=fNO(i)-1; fC530NO3(i)=fC530NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C530O2 + NO =  + CO2C3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'C530O2 + NO = C530O + NO2';
 k(:,i) = KRO2NO.*0.980;
 Gstr{i,1} = 'C530O2'; Gstr{i,2} = 'NO'; 
-fC530O2(i)=fC530O2(i)-1; fNO(i)=fNO(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC530O2(i)=fC530O2(i)-1; fNO(i)=fNO(i)-1; fC530O(i)=fC530O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C530O2 + NO3 =  + CO2C3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'C530O2 + NO3 = C530O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C530O2'; Gstr{i,2} = 'NO3'; 
-fC530O2(i)=fC530O2(i)-1; fNO3(i)=fNO3(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC530O2(i)=fC530O2(i)-1; fNO3(i)=fNO3(i)-1; fC530O(i)=fC530O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C530O2 =  + CO2C3CHO + HCHO + HO2';
+Rnames{i} = 'C530O2 = C530O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'C530O2'; Gstr{i,2} = 'RO2';
-fC530O2(i)=fC530O2(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fC530O2(i)=fC530O2(i)-1; fC530O(i)=fC530O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'M3BU3ECO3 + HO2 = C45O2 + OH + NO2';
@@ -1411,22 +1656,22 @@ Gstr{i,1} = 'C45O2'; Gstr{i,2} = 'NO';
 fC45O2(i)=fC45O2(i)-1; fNO(i)=fNO(i)-1; fC45NO3(i)=fC45NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C45O2 + NO =  + MACR + HO2 + NO2';
+Rnames{i} = 'C45O2 + NO = C45O + NO2';
 k(:,i) = KRO2NO.*0.976;
 Gstr{i,1} = 'C45O2'; Gstr{i,2} = 'NO'; 
-fC45O2(i)=fC45O2(i)-1; fNO(i)=fNO(i)-1; fMACR(i)=fMACR(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC45O2(i)=fC45O2(i)-1; fNO(i)=fNO(i)-1; fC45O(i)=fC45O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C45O2 + NO3 =  + MACR + HO2 + NO2';
+Rnames{i} = 'C45O2 + NO3 = C45O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C45O2'; Gstr{i,2} = 'NO3'; 
-fC45O2(i)=fC45O2(i)-1; fNO3(i)=fNO3(i)-1; fMACR(i)=fMACR(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC45O2(i)=fC45O2(i)-1; fNO3(i)=fNO3(i)-1; fC45O(i)=fC45O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C45O2 =  + MACR + HO2';
+Rnames{i} = 'C45O2 = C45O';
 k(:,i) = 1.30e-12;
 Gstr{i,1} = 'C45O2'; Gstr{i,2} = 'RO2';
-fC45O2(i)=fC45O2(i)-1; fMACR(i)=fMACR(i)+1; fHO2(i)=fHO2(i)+1; 
+fC45O2(i)=fC45O2(i)-1; fC45O(i)=fC45O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NC51O2 + HO2 = NC51OOH';
@@ -1435,22 +1680,46 @@ Gstr{i,1} = 'NC51O2'; Gstr{i,2} = 'HO2';
 fNC51O2(i)=fNC51O2(i)-1; fHO2(i)=fHO2(i)-1; fNC51OOH(i)=fNC51OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC51O2 + NO =  + CO2C3CHO + HCHO + NO2 + NO2';
+Rnames{i} = 'NC51O2 + NO = NC51O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'NC51O2'; Gstr{i,2} = 'NO'; 
-fNC51O2(i)=fNC51O2(i)-1; fNO(i)=fNO(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fNC51O2(i)=fNC51O2(i)-1; fNO(i)=fNO(i)-1; fNC51O(i)=fNC51O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC51O2 + NO3 =  + CO2C3CHO + HCHO + NO2 + NO2';
+Rnames{i} = 'NC51O2 + NO3 = NC51O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'NC51O2'; Gstr{i,2} = 'NO3'; 
-fNC51O2(i)=fNC51O2(i)-1; fNO3(i)=fNO3(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fNC51O2(i)=fNC51O2(i)-1; fNO3(i)=fNO3(i)-1; fNC51O(i)=fNC51O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC51O2 =  + CO2C3CHO + HCHO + NO2';
+Rnames{i} = 'NC51O2 = NC51O';
 k(:,i) = 8.80e-13;
 Gstr{i,1} = 'NC51O2'; Gstr{i,2} = 'RO2';
-fNC51O2(i)=fNC51O2(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fNC51O2(i)=fNC51O2(i)-1; fNC51O(i)=fNC51O(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CO2C3OOA = C4CO2O2 + OH';
+k(:,i) = KDEC.*0.36;
+Gstr{i,1} = 'CO2C3OOA'; 
+fCO2C3OOA(i)=fCO2C3OOA(i)-1; fC4CO2O2(i)=fC4CO2O2(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CO2C3OOA = CH3COCH2O2 + HO2';
+k(:,i) = KDEC.*0.2;
+Gstr{i,1} = 'CO2C3OOA'; 
+fCO2C3OOA(i)=fCO2C3OOA(i)-1; fCH3COCH2O2(i)=fCH3COCH2O2(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CO2C3OOA = CH3COCH3';
+k(:,i) = KDEC.*0.2;
+Gstr{i,1} = 'CO2C3OOA'; 
+fCO2C3OOA(i)=fCO2C3OOA(i)-1; fCH3COCH3(i)=fCH3COCH3(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CO2C3OOA = CO2C3OO';
+k(:,i) = KDEC.*0.24;
+Gstr{i,1} = 'CO2C3OOA'; 
+fCO2C3OOA(i)=fCO2C3OOA(i)-1; fCO2C3OO(i)=fCO2C3OO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C51O2 + HO2 = C51OOH';
@@ -1465,22 +1734,22 @@ Gstr{i,1} = 'C51O2'; Gstr{i,2} = 'NO';
 fC51O2(i)=fC51O2(i)-1; fNO(i)=fNO(i)-1; fC51NO3(i)=fC51NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C51O2 + NO =  + CO2C3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'C51O2 + NO = C51O + NO2';
 k(:,i) = KRO2NO.*0.935;
 Gstr{i,1} = 'C51O2'; Gstr{i,2} = 'NO'; 
-fC51O2(i)=fC51O2(i)-1; fNO(i)=fNO(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC51O2(i)=fC51O2(i)-1; fNO(i)=fNO(i)-1; fC51O(i)=fC51O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C51O2 + NO3 =  + CO2C3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'C51O2 + NO3 = C51O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C51O2'; Gstr{i,2} = 'NO3'; 
-fC51O2(i)=fC51O2(i)-1; fNO3(i)=fNO3(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC51O2(i)=fC51O2(i)-1; fNO3(i)=fNO3(i)-1; fC51O(i)=fC51O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C51O2 =  + CO2C3CHO + HCHO + HO2';
+Rnames{i} = 'C51O2 = C51O';
 k(:,i) = 8.40e-13.*0.6;
 Gstr{i,1} = 'C51O2'; Gstr{i,2} = 'RO2';
-fC51O2(i)=fC51O2(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fC51O2(i)=fC51O2(i)-1; fC51O(i)=fC51O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C51O2 = C51OH';
@@ -1507,16 +1776,16 @@ Gstr{i,1} = 'CH2CHCH2O2'; Gstr{i,2} = 'NO';
 fCH2CHCH2O2(i)=fCH2CHCH2O2(i)-1; fNO(i)=fNO(i)-1; fCH2CHCH2NO3(i)=fCH2CHCH2NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH2CHCH2O2 + NO =  + ACR + HO2 + NO2';
+Rnames{i} = 'CH2CHCH2O2 + NO = CH2CHCH2O + NO2';
 k(:,i) = KRO2NO.*0.976;
 Gstr{i,1} = 'CH2CHCH2O2'; Gstr{i,2} = 'NO'; 
-fCH2CHCH2O2(i)=fCH2CHCH2O2(i)-1; fNO(i)=fNO(i)-1; fACR(i)=fACR(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fCH2CHCH2O2(i)=fCH2CHCH2O2(i)-1; fNO(i)=fNO(i)-1; fCH2CHCH2O(i)=fCH2CHCH2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH2CHCH2O2 + NO3 =  + ACR + HO2 + NO2';
+Rnames{i} = 'CH2CHCH2O2 + NO3 = CH2CHCH2O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'CH2CHCH2O2'; Gstr{i,2} = 'NO3'; 
-fCH2CHCH2O2(i)=fCH2CHCH2O2(i)-1; fNO3(i)=fNO3(i)-1; fACR(i)=fACR(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fCH2CHCH2O2(i)=fCH2CHCH2O2(i)-1; fNO3(i)=fNO3(i)-1; fCH2CHCH2O(i)=fCH2CHCH2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH2CHCH2O2 = ACR';
@@ -1531,10 +1800,10 @@ Gstr{i,1} = 'CH2CHCH2O2'; Gstr{i,2} = 'RO2';
 fCH2CHCH2O2(i)=fCH2CHCH2O2(i)-1; fALLYLOH(i)=fALLYLOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH2CHCH2O2 =  + ACR + HO2';
+Rnames{i} = 'CH2CHCH2O2 = CH2CHCH2O';
 k(:,i) = 1.30e-12.*0.6;
 Gstr{i,1} = 'CH2CHCH2O2'; Gstr{i,2} = 'RO2';
-fCH2CHCH2O2(i)=fCH2CHCH2O2(i)-1; fACR(i)=fACR(i)+1; fHO2(i)=fHO2(i)+1; 
+fCH2CHCH2O2(i)=fCH2CHCH2O2(i)-1; fCH2CHCH2O(i)=fCH2CHCH2O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPAO2 + HO2 = ISOPAOOH';
@@ -1549,16 +1818,16 @@ Gstr{i,1} = 'ISOPAO2'; Gstr{i,2} = 'NO';
 fISOPAO2(i)=fISOPAO2(i)-1; fNO(i)=fNO(i)-1; fISOPANO3(i)=fISOPANO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPAO2 + NO =  + C524O2 + NO2';
+Rnames{i} = 'ISOPAO2 + NO = ISOPAO + NO2';
 k(:,i) = KRO2NO.*0.913;
 Gstr{i,1} = 'ISOPAO2'; Gstr{i,2} = 'NO'; 
-fISOPAO2(i)=fISOPAO2(i)-1; fNO(i)=fNO(i)-1; fC524O2(i)=fC524O2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPAO2(i)=fISOPAO2(i)-1; fNO(i)=fNO(i)-1; fISOPAO(i)=fISOPAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPAO2 + NO3 =  + C524O2 + NO2';
+Rnames{i} = 'ISOPAO2 + NO3 = ISOPAO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'ISOPAO2'; Gstr{i,2} = 'NO3'; 
-fISOPAO2(i)=fISOPAO2(i)-1; fNO3(i)=fNO3(i)-1; fC524O2(i)=fC524O2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPAO2(i)=fISOPAO2(i)-1; fNO3(i)=fNO3(i)-1; fISOPAO(i)=fISOPAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPAO2 = HC4ACHO';
@@ -1567,10 +1836,10 @@ Gstr{i,1} = 'ISOPAO2'; Gstr{i,2} = 'RO2';
 fISOPAO2(i)=fISOPAO2(i)-1; fHC4ACHO(i)=fHC4ACHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPAO2 =  + C524O2';
+Rnames{i} = 'ISOPAO2 = ISOPAO';
 k(:,i) = 2.40e-12.*0.8;
 Gstr{i,1} = 'ISOPAO2'; Gstr{i,2} = 'RO2';
-fISOPAO2(i)=fISOPAO2(i)-1; fC524O2(i)=fC524O2(i)+1; 
+fISOPAO2(i)=fISOPAO2(i)-1; fISOPAO(i)=fISOPAO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPAO2 = ISOPAOH';
@@ -1579,10 +1848,10 @@ Gstr{i,1} = 'ISOPAO2'; Gstr{i,2} = 'RO2';
 fISOPAO2(i)=fISOPAO2(i)-1; fISOPAOH(i)=fISOPAOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPAO2 =  + ISOPAO2 + ISOPBO2';
+Rnames{i} = 'ISOPAO2 = TISOPA';
 k(:,i) = 2.86D14.*exp(-9028./T);
 Gstr{i,1} = 'ISOPAO2'; 
-fISOPAO2(i)=fISOPAO2(i)-1; fISOPAO2(i)=fISOPAO2(i)+1; fISOPBO2(i)=fISOPBO2(i)+1; 
+fISOPAO2(i)=fISOPAO2(i)-1; fTISOPA(i)=fTISOPA(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPCO2 + HO2 = ISOPCOOH';
@@ -1591,10 +1860,10 @@ Gstr{i,1} = 'ISOPCO2'; Gstr{i,2} = 'HO2';
 fISOPCO2(i)=fISOPCO2(i)-1; fHO2(i)=fHO2(i)-1; fISOPCOOH(i)=fISOPCOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPCO2 + NO =  + 0.30C527O2 + 0.52HC4ACHO + 0.52HO2 + 0.18M3F + 0.18HO2 + NO2';
+Rnames{i} = 'ISOPCO2 + NO = CISOPCO + NO2';
 k(:,i) = KRO2NO.*0.913;
 Gstr{i,1} = 'ISOPCO2'; Gstr{i,2} = 'NO'; 
-fISOPCO2(i)=fISOPCO2(i)-1; fNO(i)=fNO(i)-1; fC527O2(i)=fC527O2(i)+0.30; fHC4ACHO(i)=fHC4ACHO(i)+0.52; fHO2(i)=fHO2(i)+0.52; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; fNO2(i)=fNO2(i)+1; 
+fISOPCO2(i)=fISOPCO2(i)-1; fNO(i)=fNO(i)-1; fCISOPCO(i)=fCISOPCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPCO2 + NO = ISOPCNO3';
@@ -1603,16 +1872,16 @@ Gstr{i,1} = 'ISOPCO2'; Gstr{i,2} = 'NO';
 fISOPCO2(i)=fISOPCO2(i)-1; fNO(i)=fNO(i)-1; fISOPCNO3(i)=fISOPCNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPCO2 + NO3 =  + 0.30C527O2 + 0.52HC4ACHO + 0.52HO2 + 0.18M3F + 0.18HO2 + NO2';
+Rnames{i} = 'ISOPCO2 + NO3 = CISOPCO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'ISOPCO2'; Gstr{i,2} = 'NO3'; 
-fISOPCO2(i)=fISOPCO2(i)-1; fNO3(i)=fNO3(i)-1; fC527O2(i)=fC527O2(i)+0.30; fHC4ACHO(i)=fHC4ACHO(i)+0.52; fHO2(i)=fHO2(i)+0.52; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; fNO2(i)=fNO2(i)+1; 
+fISOPCO2(i)=fISOPCO2(i)-1; fNO3(i)=fNO3(i)-1; fCISOPCO(i)=fCISOPCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPCO2 =  + 0.30C527O2 + 0.52HC4ACHO + 0.52HO2 + 0.18M3F + 0.18HO2';
+Rnames{i} = 'ISOPCO2 = CISOPCO';
 k(:,i) = 2.00e-12.*0.8;
 Gstr{i,1} = 'ISOPCO2'; Gstr{i,2} = 'RO2';
-fISOPCO2(i)=fISOPCO2(i)-1; fC527O2(i)=fC527O2(i)+0.30; fHC4ACHO(i)=fHC4ACHO(i)+0.52; fHO2(i)=fHO2(i)+0.52; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; 
+fISOPCO2(i)=fISOPCO2(i)-1; fCISOPCO(i)=fCISOPCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ISOPCO2 = HC4CCHO';
@@ -1627,10 +1896,40 @@ Gstr{i,1} = 'ISOPCO2'; Gstr{i,2} = 'RO2';
 fISOPCO2(i)=fISOPCO2(i)-1; fISOPAOH(i)=fISOPAOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPCO2 =  + ISOPCO2 + ISOPDO2';
+Rnames{i} = 'ISOPCO2 = TISOPC';
 k(:,i) = 2.13D14.*exp(-9984./T);
 Gstr{i,1} = 'ISOPCO2'; 
-fISOPCO2(i)=fISOPCO2(i)-1; fISOPCO2(i)=fISOPCO2(i)+1; fISOPDO2(i)=fISOPDO2(i)+1; 
+fISOPCO2(i)=fISOPCO2(i)-1; fTISOPC(i)=fTISOPC(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPCO = C527O2';
+k(:,i) = KDEC.*0.30;
+Gstr{i,1} = 'CISOPCO'; 
+fCISOPCO(i)=fCISOPCO(i)-1; fC527O2(i)=fC527O2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPCO = HC4ACHO + HO2';
+k(:,i) = KDEC.*0.52;
+Gstr{i,1} = 'CISOPCO'; 
+fCISOPCO(i)=fCISOPCO(i)-1; fHC4ACHO(i)=fHC4ACHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPCO = M3F + HO2';
+k(:,i) = KDEC.*0.18;
+Gstr{i,1} = 'CISOPCO'; 
+fCISOPCO(i)=fCISOPCO(i)-1; fM3F(i)=fM3F(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'GAOOB = GAOO';
+k(:,i) = KDEC.*0.11;
+Gstr{i,1} = 'GAOOB'; 
+fGAOOB(i)=fGAOOB(i)-1; fGAOO(i)=fGAOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'GAOOB = OH + HO2 + GLYOX';
+k(:,i) = KDEC.*0.89;
+Gstr{i,1} = 'GAOOB'; 
+fGAOOB(i)=fGAOOB(i)-1; fOH(i)=fOH(i)+1; fHO2(i)=fHO2(i)+1; fGLYOX(i)=fGLYOX(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NOA + OH = MGLYOX + NO2';
@@ -1639,10 +1938,10 @@ Gstr{i,1} = 'NOA'; Gstr{i,2} = 'OH';
 fNOA(i)=fNOA(i)-1; fOH(i)=fOH(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NOA =  + CH3CO3 + HCHO + NO2';
+Rnames{i} = 'NOA = CH3COCH2O + NO2';
 k(:,i) = J56;
 Gstr{i,1} = 'NOA'; 
-fNOA(i)=fNOA(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fNOA(i)=fNOA(i)-1; fCH3COCH2O(i)=fCH3COCH2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HOCH2CHO + NO3 = HOCH2CO3 + HNO3';
@@ -1669,6 +1968,18 @@ Gstr{i,1} = 'HOCH2CHO';
 fHOCH2CHO(i)=fHOCH2CHO(i)-1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'NC3OOA = NC3OO';
+k(:,i) = KDEC.*0.11;
+Gstr{i,1} = 'NC3OOA'; 
+fNC3OOA(i)=fNC3OOA(i)-1; fNC3OO(i)=fNC3OO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC3OOA = OH + NO2 + MGLYOX';
+k(:,i) = KDEC.*0.89;
+Gstr{i,1} = 'NC3OOA'; 
+fNC3OOA(i)=fNC3OOA(i)-1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; 
+
+i=i+1;
 Rnames{i} = 'INCO2 + HO2 = INCOOH';
 k(:,i) = KRO2HO2.*0.706;
 Gstr{i,1} = 'INCO2'; Gstr{i,2} = 'HO2'; 
@@ -1681,16 +1992,16 @@ Gstr{i,1} = 'INCO2'; Gstr{i,2} = 'NO';
 fINCO2(i)=fINCO2(i)-1; fNO(i)=fNO(i)-1; fINCNO3(i)=fINCNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INCO2 + NO =  + NOA + HO2 + HOCH2CHO + NO2';
+Rnames{i} = 'INCO2 + NO = INCO + NO2';
 k(:,i) = KRO2NO.*0.896;
 Gstr{i,1} = 'INCO2'; Gstr{i,2} = 'NO'; 
-fINCO2(i)=fINCO2(i)-1; fNO(i)=fNO(i)-1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fINCO2(i)=fINCO2(i)-1; fNO(i)=fNO(i)-1; fINCO(i)=fINCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INCO2 + NO3 =  + NOA + HO2 + HOCH2CHO + NO2';
+Rnames{i} = 'INCO2 + NO3 = INCO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'INCO2'; Gstr{i,2} = 'NO3'; 
-fINCO2(i)=fINCO2(i)-1; fNO3(i)=fNO3(i)-1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fINCO2(i)=fINCO2(i)-1; fNO3(i)=fNO3(i)-1; fINCO(i)=fINCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INCO2 = INCCO';
@@ -1699,10 +2010,10 @@ Gstr{i,1} = 'INCO2'; Gstr{i,2} = 'RO2';
 fINCO2(i)=fINCO2(i)-1; fINCCO(i)=fINCCO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INCO2 =  + NOA + HO2 + HOCH2CHO';
+Rnames{i} = 'INCO2 = INCO';
 k(:,i) = 2.90e-12.*0.8;
 Gstr{i,1} = 'INCO2'; Gstr{i,2} = 'RO2';
-fINCO2(i)=fINCO2(i)-1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
+fINCO2(i)=fINCO2(i)-1; fINCO(i)=fINCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INCO2 = INCOH';
@@ -1783,6 +2094,30 @@ Gstr{i,1} = 'NC4CO3'; Gstr{i,2} = 'RO2';
 fNC4CO3(i)=fNC4CO3(i)-1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'GLYOOC = GLYOO';
+k(:,i) = KDEC.*0.11;
+Gstr{i,1} = 'GLYOOC'; 
+fGLYOOC(i)=fGLYOOC(i)-1; fGLYOO(i)=fGLYOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'GLYOOC = OH + HO2 + CO + CO';
+k(:,i) = KDEC.*0.89;
+Gstr{i,1} = 'GLYOOC'; 
+fGLYOOC(i)=fGLYOOC(i)-1; fOH(i)=fOH(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NOAOOA = NOAOO';
+k(:,i) = KDEC.*0.11;
+Gstr{i,1} = 'NOAOOA'; 
+fNOAOOA(i)=fNOAOOA(i)-1; fNOAOO(i)=fNOAOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NOAOOA = OH + NO2 + MGLYOX';
+k(:,i) = KDEC.*0.89;
+Gstr{i,1} = 'NOAOOA'; 
+fNOAOOA(i)=fNOAOOA(i)-1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; 
+
+i=i+1;
 Rnames{i} = 'GLYOX = CO + CO + H2';
 k(:,i) = J31;
 Gstr{i,1} = 'GLYOX'; 
@@ -1801,16 +2136,16 @@ Gstr{i,1} = 'GLYOX';
 fGLYOX(i)=fGLYOX(i)-1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NO3 + GLYOX =  + CO + CO + HO2 + CO + CO + HO2 + CO + OH + HCOCO3 + HNO3';
+Rnames{i} = 'NO3 + GLYOX = HCOCO + HNO3';
 k(:,i) = KNO3AL;
 Gstr{i,1} = 'NO3'; Gstr{i,2} = 'GLYOX'; 
-fNO3(i)=fNO3(i)-1; fGLYOX(i)=fGLYOX(i)-1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; fHCOCO3(i)=fHCOCO3(i)+1; fHNO3(i)=fHNO3(i)+1; 
+fNO3(i)=fNO3(i)-1; fGLYOX(i)=fGLYOX(i)-1; fHCOCO(i)=fHCOCO(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + GLYOX =  + CO + CO + HO2 + CO + CO + HO2 + CO + OH + HCOCO3';
+Rnames{i} = 'OH + GLYOX = HCOCO';
 k(:,i) = 3.1e-12.*exp(340./T);
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'GLYOX'; 
-fOH(i)=fOH(i)-1; fGLYOX(i)=fGLYOX(i)-1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; fHCOCO3(i)=fHCOCO3(i)+1; 
+fOH(i)=fOH(i)-1; fGLYOX(i)=fGLYOX(i)-1; fHCOCO(i)=fHCOCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C510O2 + HO2 = C510OOH';
@@ -1819,22 +2154,22 @@ Gstr{i,1} = 'C510O2'; Gstr{i,2} = 'HO2';
 fC510O2(i)=fC510O2(i)-1; fHO2(i)=fHO2(i)-1; fC510OOH(i)=fC510OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C510O2 + NO =  + NOA + GLYOX + HO2 + NO2';
+Rnames{i} = 'C510O2 + NO = C510O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C510O2'; Gstr{i,2} = 'NO'; 
-fC510O2(i)=fC510O2(i)-1; fNO(i)=fNO(i)-1; fNOA(i)=fNOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC510O2(i)=fC510O2(i)-1; fNO(i)=fNO(i)-1; fC510O(i)=fC510O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C510O2 + NO3 =  + NOA + GLYOX + HO2 + NO2';
+Rnames{i} = 'C510O2 + NO3 = C510O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C510O2'; Gstr{i,2} = 'NO3'; 
-fC510O2(i)=fC510O2(i)-1; fNO3(i)=fNO3(i)-1; fNOA(i)=fNOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC510O2(i)=fC510O2(i)-1; fNO3(i)=fNO3(i)-1; fC510O(i)=fC510O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C510O2 =  + NOA + GLYOX + HO2';
+Rnames{i} = 'C510O2 = C510O';
 k(:,i) = 9.20e-14.*0.7;
 Gstr{i,1} = 'C510O2'; Gstr{i,2} = 'RO2';
-fC510O2(i)=fC510O2(i)-1; fNOA(i)=fNOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC510O2(i)=fC510O2(i)-1; fC510O(i)=fC510O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C510O2 = C510OH';
@@ -1849,16 +2184,16 @@ Gstr{i,1} = 'HCOOH'; Gstr{i,2} = 'OH';
 fHCOOH(i)=fHCOOH(i)-1; fOH(i)=fOH(i)-1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + MACO2H =  + 0.35CH3CO3 + 0.35HCHO + 0.65HCHO + 0.65CH3O2 + 0.65CO';
+Rnames{i} = 'OH + MACO2H = CH3C2H2O2';
 k(:,i) = 1.51e-11;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'MACO2H'; 
-fOH(i)=fOH(i)-1; fMACO2H(i)=fMACO2H(i)-1; fCH3CO3(i)=fCH3CO3(i)+0.35; fHCHO(i)=fHCHO(i)+0.35; fHCHO(i)=fHCHO(i)+0.65; fCH3O2(i)=fCH3O2(i)+0.65; fCO(i)=fCO(i)+0.65; 
+fOH(i)=fOH(i)-1; fMACO2H(i)=fMACO2H(i)-1; fCH3C2H2O2(i)=fCH3C2H2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACO3H =  + 0.35CH3CO3 + 0.35HCHO + 0.65HCHO + 0.65CH3O2 + 0.65CO + OH';
+Rnames{i} = 'MACO3H = CH3C2H2O2 + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'MACO3H'; 
-fMACO3H(i)=fMACO3H(i)-1; fCH3CO3(i)=fCH3CO3(i)+0.35; fHCHO(i)=fHCHO(i)+0.35; fHCHO(i)=fHCHO(i)+0.65; fCH3O2(i)=fCH3O2(i)+0.65; fCO(i)=fCO(i)+0.65; fOH(i)=fOH(i)+1; 
+fMACO3H(i)=fMACO3H(i)-1; fCH3C2H2O2(i)=fCH3C2H2O2(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + MACO3H = ACETOL + CO + OH';
@@ -1945,10 +2280,10 @@ Gstr{i,1} = 'MACROOH';
 fMACROOH(i)=fMACROOH(i)-1; fACETOL(i)=fACETOL(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACROOH =  + ACETOL + CO + HO2 + OH';
+Rnames{i} = 'MACROOH = MACRO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'MACROOH'; 
-fMACROOH(i)=fMACROOH(i)-1; fACETOL(i)=fACETOL(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fMACROOH(i)=fMACROOH(i)-1; fMACRO(i)=fMACRO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + MACROOH = ACETOL + CO + OH';
@@ -1975,6 +2310,12 @@ Gstr{i,1} = 'MACRNO3';
 fMACRNO3(i)=fMACRNO3(i)-1; fACETOL(i)=fACETOL(i)+1; fNO2(i)=fNO2(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
+Rnames{i} = 'MACRO = ACETOL + CO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'MACRO'; 
+fMACRO(i)=fMACRO(i)-1; fACETOL(i)=fACETOL(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
 Rnames{i} = 'MACROH = ACETOL + CO + HO2 + HO2';
 k(:,i) = J17;
 Gstr{i,1} = 'MACROH'; 
@@ -1999,10 +2340,10 @@ Gstr{i,1} = 'MACROHOOH';
 fMACROHOOH(i)=fMACROHOOH(i)-1; fIBUTALOH(i)=fIBUTALOH(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MACROHOOH =  + MGLYOX + HCHO + HO2 + OH';
+Rnames{i} = 'MACROHOOH = MACROHO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'MACROHOOH'; 
-fMACROHOOH(i)=fMACROHOOH(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fMACROHOOH(i)=fMACROHOOH(i)-1; fMACROHO(i)=fMACROHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MACRNB = C3MDIALOH + HO2 + NO2';
@@ -2015,6 +2356,12 @@ Rnames{i} = 'OH + MACRNB = MACRNBCO3';
 k(:,i) = 2.15e-11;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'MACRNB'; 
 fOH(i)=fOH(i)-1; fMACRNB(i)=fMACRNB(i)-1; fMACRNBCO3(i)=fMACRNBCO3(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACROHO = MGLYOX + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'MACROHO'; 
+fMACROHO(i)=fMACROHO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C3MDIALOH + OH = CHOMOHCO3';
@@ -2035,16 +2382,16 @@ Gstr{i,1} = 'PRONO3AO2'; Gstr{i,2} = 'HO2';
 fPRONO3AO2(i)=fPRONO3AO2(i)-1; fHO2(i)=fHO2(i)-1; fPR1O2HNO3(i)=fPR1O2HNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PRONO3AO2 + NO =  + CHOPRNO3 + HO2 + HCHO + CH3CHO + NO2 + NO2';
+Rnames{i} = 'PRONO3AO2 + NO = PRONO3AO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'PRONO3AO2'; Gstr{i,2} = 'NO'; 
-fPRONO3AO2(i)=fPRONO3AO2(i)-1; fNO(i)=fNO(i)-1; fCHOPRNO3(i)=fCHOPRNO3(i)+1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fCH3CHO(i)=fCH3CHO(i)+1; fNO2(i)=fNO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fPRONO3AO2(i)=fPRONO3AO2(i)-1; fNO(i)=fNO(i)-1; fPRONO3AO(i)=fPRONO3AO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PRONO3AO2 + NO3 =  + CHOPRNO3 + HO2 + HCHO + CH3CHO + NO2 + NO2';
+Rnames{i} = 'PRONO3AO2 + NO3 = PRONO3AO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'PRONO3AO2'; Gstr{i,2} = 'NO3'; 
-fPRONO3AO2(i)=fPRONO3AO2(i)-1; fNO3(i)=fNO3(i)-1; fCHOPRNO3(i)=fCHOPRNO3(i)+1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fCH3CHO(i)=fCH3CHO(i)+1; fNO2(i)=fNO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fPRONO3AO2(i)=fPRONO3AO2(i)-1; fNO3(i)=fNO3(i)-1; fPRONO3AO(i)=fPRONO3AO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PRONO3AO2 = CHOPRNO3';
@@ -2053,10 +2400,10 @@ Gstr{i,1} = 'PRONO3AO2'; Gstr{i,2} = 'RO2';
 fPRONO3AO2(i)=fPRONO3AO2(i)-1; fCHOPRNO3(i)=fCHOPRNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PRONO3AO2 =  + CHOPRNO3 + HO2 + HCHO + CH3CHO + NO2';
+Rnames{i} = 'PRONO3AO2 = PRONO3AO';
 k(:,i) = 6.00e-13.*0.6;
 Gstr{i,1} = 'PRONO3AO2'; Gstr{i,2} = 'RO2';
-fPRONO3AO2(i)=fPRONO3AO2(i)-1; fCHOPRNO3(i)=fCHOPRNO3(i)+1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fCH3CHO(i)=fCH3CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fPRONO3AO2(i)=fPRONO3AO2(i)-1; fPRONO3AO(i)=fPRONO3AO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PRONO3AO2 = PROPOLNO3';
@@ -2071,16 +2418,16 @@ Gstr{i,1} = 'PRONO3BO2'; Gstr{i,2} = 'HO2';
 fPRONO3BO2(i)=fPRONO3BO2(i)-1; fHO2(i)=fHO2(i)-1; fPR2O2HNO3(i)=fPR2O2HNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PRONO3BO2 + NO =  + CH3CHO + HCHO + NO2 + NOA + HO2 + NO2';
+Rnames{i} = 'PRONO3BO2 + NO = PRONO3BO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'PRONO3BO2'; Gstr{i,2} = 'NO'; 
-fPRONO3BO2(i)=fPRONO3BO2(i)-1; fNO(i)=fNO(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fPRONO3BO2(i)=fPRONO3BO2(i)-1; fNO(i)=fNO(i)-1; fPRONO3BO(i)=fPRONO3BO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PRONO3BO2 + NO3 =  + CH3CHO + HCHO + NO2 + NOA + HO2 + NO2';
+Rnames{i} = 'PRONO3BO2 + NO3 = PRONO3BO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'PRONO3BO2'; Gstr{i,2} = 'NO3'; 
-fPRONO3BO2(i)=fPRONO3BO2(i)-1; fNO3(i)=fNO3(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fPRONO3BO2(i)=fPRONO3BO2(i)-1; fNO3(i)=fNO3(i)-1; fPRONO3BO(i)=fPRONO3BO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PRONO3BO2 = NOA';
@@ -2095,10 +2442,10 @@ Gstr{i,1} = 'PRONO3BO2'; Gstr{i,2} = 'RO2';
 fPRONO3BO2(i)=fPRONO3BO2(i)-1; fPROLNO3(i)=fPROLNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PRONO3BO2 =  + CH3CHO + HCHO + NO2 + NOA + HO2';
+Rnames{i} = 'PRONO3BO2 = PRONO3BO';
 k(:,i) = 4.00e-14.*0.6;
 Gstr{i,1} = 'PRONO3BO2'; Gstr{i,2} = 'RO2';
-fPRONO3BO2(i)=fPRONO3BO2(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; 
+fPRONO3BO2(i)=fPRONO3BO2(i)-1; fPRONO3BO(i)=fPRONO3BO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3CHO = CH3O2 + HO2 + CO';
@@ -2125,16 +2472,40 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'CH3CHO';
 fOH(i)=fOH(i)-1; fCH3CHO(i)=fCH3CHO(i)-1; fHCOCH2O2(i)=fHCOCH2O2(i)+1; 
 
 i=i+1;
+Rnames{i} = 'CH3CHOOA = CH3CHOO';
+k(:,i) = KDEC.*0.24;
+Gstr{i,1} = 'CH3CHOOA'; 
+fCH3CHOOA(i)=fCH3CHOOA(i)-1; fCH3CHOO(i)=fCH3CHOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH3CHOOA = CH3O2 + CO + OH';
+k(:,i) = KDEC.*0.36;
+Gstr{i,1} = 'CH3CHOOA'; 
+fCH3CHOOA(i)=fCH3CHOOA(i)-1; fCH3O2(i)=fCH3O2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH3CHOOA = CH3O2 + HO2';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'CH3CHOOA'; 
+fCH3CHOOA(i)=fCH3CHOOA(i)-1; fCH3O2(i)=fCH3O2(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH3CHOOA = CH4';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'CH3CHOOA'; 
+fCH3CHOOA(i)=fCH3CHOOA(i)-1; fCH4(i)=fCH4(i)+1; 
+
+i=i+1;
 Rnames{i} = 'HYPROPO2 + HO2 = HYPROPO2H';
 k(:,i) = KRO2HO2.*0.520;
 Gstr{i,1} = 'HYPROPO2'; Gstr{i,2} = 'HO2'; 
 fHYPROPO2(i)=fHYPROPO2(i)-1; fHO2(i)=fHO2(i)-1; fHYPROPO2H(i)=fHYPROPO2H(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HYPROPO2 + NO3 =  + CH3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'HYPROPO2 + NO3 = HYPROPO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HYPROPO2'; Gstr{i,2} = 'NO3'; 
-fHYPROPO2(i)=fHYPROPO2(i)-1; fNO3(i)=fNO3(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHYPROPO2(i)=fHYPROPO2(i)-1; fNO3(i)=fNO3(i)-1; fHYPROPO(i)=fHYPROPO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HYPROPO2 = ACETOL';
@@ -2143,10 +2514,10 @@ Gstr{i,1} = 'HYPROPO2'; Gstr{i,2} = 'RO2';
 fHYPROPO2(i)=fHYPROPO2(i)-1; fACETOL(i)=fACETOL(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HYPROPO2 =  + CH3CHO + HCHO + HO2';
+Rnames{i} = 'HYPROPO2 = HYPROPO';
 k(:,i) = 8.80e-13.*0.6;
 Gstr{i,1} = 'HYPROPO2'; Gstr{i,2} = 'RO2';
-fHYPROPO2(i)=fHYPROPO2(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fHYPROPO2(i)=fHYPROPO2(i)-1; fHYPROPO(i)=fHYPROPO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HYPROPO2 = PROPGLY';
@@ -2155,10 +2526,10 @@ Gstr{i,1} = 'HYPROPO2'; Gstr{i,2} = 'RO2';
 fHYPROPO2(i)=fHYPROPO2(i)-1; fPROPGLY(i)=fPROPGLY(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NO + HYPROPO2 =  + CH3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'NO + HYPROPO2 = HYPROPO + NO2';
 k(:,i) = KRO2NO.*0.977;
 Gstr{i,1} = 'NO'; Gstr{i,2} = 'HYPROPO2'; 
-fNO(i)=fNO(i)-1; fHYPROPO2(i)=fHYPROPO2(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fNO(i)=fNO(i)-1; fHYPROPO2(i)=fHYPROPO2(i)-1; fHYPROPO(i)=fHYPROPO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NO + HYPROPO2 = PROPOLNO3';
@@ -2173,10 +2544,10 @@ Gstr{i,1} = 'IPROPOLO2'; Gstr{i,2} = 'HO2';
 fIPROPOLO2(i)=fIPROPOLO2(i)-1; fHO2(i)=fHO2(i)-1; fIPROPOLO2H(i)=fIPROPOLO2H(i)+1; 
 
 i=i+1;
-Rnames{i} = 'IPROPOLO2 + NO =  + CH3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'IPROPOLO2 + NO = IPROPOLO + NO2';
 k(:,i) = KRO2NO.*0.991;
 Gstr{i,1} = 'IPROPOLO2'; Gstr{i,2} = 'NO'; 
-fIPROPOLO2(i)=fIPROPOLO2(i)-1; fNO(i)=fNO(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fIPROPOLO2(i)=fIPROPOLO2(i)-1; fNO(i)=fNO(i)-1; fIPROPOLO(i)=fIPROPOLO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'IPROPOLO2 + NO = PROLNO3';
@@ -2185,10 +2556,10 @@ Gstr{i,1} = 'IPROPOLO2'; Gstr{i,2} = 'NO';
 fIPROPOLO2(i)=fIPROPOLO2(i)-1; fNO(i)=fNO(i)-1; fPROLNO3(i)=fPROLNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'IPROPOLO2 + NO3 =  + CH3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'IPROPOLO2 + NO3 = IPROPOLO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'IPROPOLO2'; Gstr{i,2} = 'NO3'; 
-fIPROPOLO2(i)=fIPROPOLO2(i)-1; fNO3(i)=fNO3(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fIPROPOLO2(i)=fIPROPOLO2(i)-1; fNO3(i)=fNO3(i)-1; fIPROPOLO(i)=fIPROPOLO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'IPROPOLO2 = CH3CHOHCHO';
@@ -2197,10 +2568,10 @@ Gstr{i,1} = 'IPROPOLO2'; Gstr{i,2} = 'RO2';
 fIPROPOLO2(i)=fIPROPOLO2(i)-1; fCH3CHOHCHO(i)=fCH3CHOHCHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'IPROPOLO2 =  + CH3CHO + HCHO + HO2';
+Rnames{i} = 'IPROPOLO2 = IPROPOLO';
 k(:,i) = 2.00e-12.*0.6;
 Gstr{i,1} = 'IPROPOLO2'; Gstr{i,2} = 'RO2';
-fIPROPOLO2(i)=fIPROPOLO2(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fIPROPOLO2(i)=fIPROPOLO2(i)-1; fIPROPOLO(i)=fIPROPOLO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'IPROPOLO2 = PROPGLY';
@@ -2275,10 +2646,10 @@ Gstr{i,1} = 'MGLOO';
 fMGLOO(i)=fMGLOO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fH2O2(i)=fH2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKAOOH =  + MGLYOX + HCHO + HO2 + OH';
+Rnames{i} = 'HMVKAOOH = HMVKAO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HMVKAOOH'; 
-fHMVKAOOH(i)=fHMVKAOOH(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fHMVKAOOH(i)=fHMVKAOOH(i)-1; fHMVKAO(i)=fHMVKAO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + HMVKAOOH = CO2H3CHO + OH';
@@ -2287,16 +2658,22 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'HMVKAOOH';
 fOH(i)=fOH(i)-1; fHMVKAOOH(i)=fHMVKAOOH(i)-1; fCO2H3CHO(i)=fCO2H3CHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKANO3 =  + MGLYOX + HCHO + HO2 + NO2';
+Rnames{i} = 'HMVKANO3 = HMVKAO + NO2';
 k(:,i) = J56.*0.91;
 Gstr{i,1} = 'HMVKANO3'; 
-fHMVKANO3(i)=fHMVKANO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHMVKANO3(i)=fHMVKANO3(i)-1; fHMVKAO(i)=fHMVKAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + HMVKANO3 = CO2H3CHO + NO2';
 k(:,i) = 2.23e-12;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'HMVKANO3'; 
 fOH(i)=fOH(i)-1; fHMVKANO3(i)=fHMVKANO3(i)-1; fCO2H3CHO(i)=fCO2H3CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HMVKAO = MGLYOX + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'HMVKAO'; 
+fHMVKAO(i)=fHMVKAO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CO2H3CHO = MGLYOX + CO + HO2 + HO2';
@@ -2347,16 +2724,22 @@ Gstr{i,1} = 'MVKNO3';
 fMVKNO3(i)=fMVKNO3(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMVKBOOH =  + CH3CO3 + HOCH2CHO + OH';
+Rnames{i} = 'HMVKBOOH = HMVKBO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HMVKBOOH'; 
-fHMVKBOOH(i)=fHMVKBOOH(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; 
+fHMVKBOOH(i)=fHMVKBOOH(i)-1; fHMVKBO(i)=fHMVKBO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + HMVKBOOH = BIACETOH + OH';
 k(:,i) = 3.95e-11;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'HMVKBOOH'; 
 fOH(i)=fOH(i)-1; fHMVKBOOH(i)=fHMVKBOOH(i)-1; fBIACETOH(i)=fBIACETOH(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HMVKBO = CH3CO3 + HOCH2CHO';
+k(:,i) = KDEC;
+Gstr{i,1} = 'HMVKBO'; 
+fHMVKBO(i)=fHMVKBO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'BIACETOH = CH3CO3 + HOCH2CO3';
@@ -2371,10 +2754,10 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'BIACETOH';
 fOH(i)=fOH(i)-1; fBIACETOH(i)=fBIACETOH(i)-1; fCO23C3CHO(i)=fCO23C3CHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3OOH =  + HCHO + HO2 + OH';
+Rnames{i} = 'CH3OOH = CH3O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'CH3OOH'; 
-fCH3OOH(i)=fCH3OOH(i)-1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fCH3OOH(i)=fCH3OOH(i)-1; fCH3O(i)=fCH3O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + CH3OOH = CH3O2';
@@ -2389,16 +2772,22 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'CH3OOH';
 fOH(i)=fOH(i)-1; fCH3OOH(i)=fCH3OOH(i)-1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3NO3 =  + HCHO + HO2 + NO2';
+Rnames{i} = 'CH3NO3 = CH3O + NO2';
 k(:,i) = J51;
 Gstr{i,1} = 'CH3NO3'; 
-fCH3NO3(i)=fCH3NO3(i)-1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fCH3NO3(i)=fCH3NO3(i)-1; fCH3O(i)=fCH3O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + CH3NO3 = HCHO + NO2';
 k(:,i) = 4.0e-13.*exp(-845./T);
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'CH3NO3'; 
 fOH(i)=fOH(i)-1; fCH3NO3(i)=fCH3NO3(i)-1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH3O = HCHO + HO2';
+k(:,i) = 7.2e-14.*exp(-1080./T).*.21.*M;
+Gstr{i,1} = 'CH3O'; 
+fCH3O(i)=fCH3O(i)-1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3O2NO2 = CH3O2 + NO2';
@@ -2419,10 +2808,10 @@ Gstr{i,1} = 'MVKOOH';
 fMVKOOH(i)=fMVKOOH(i)-1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; fACO3(i)=fACO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOOH =  + HCHO + ACO3 + OH';
+Rnames{i} = 'MVKOOH = MVKO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'MVKOOH'; 
-fMVKOOH(i)=fMVKOOH(i)-1; fHCHO(i)=fHCHO(i)+1; fACO3(i)=fACO3(i)+1; fOH(i)=fOH(i)+1; 
+fMVKOOH(i)=fMVKOOH(i)-1; fMVKO(i)=fMVKO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + MVKOOH = MVKO2';
@@ -2437,16 +2826,22 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'MVKOOH';
 fOH(i)=fOH(i)-1; fMVKOOH(i)=fMVKOOH(i)-1; fVGLYOX(i)=fVGLYOX(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOH + O3 =  + 0.24HMGLOO + 0.20HOCH2CHO + 0.20HOCH2CO3 + 0.20HO2 + 0.36OH + 0.36CO + 0.36HOCH2CO3 + HCHO';
-k(:,i) = 7.51e-16.*exp(-1521./T).*0.5;
-Gstr{i,1} = 'MVKOH'; Gstr{i,2} = 'O3'; 
-fMVKOH(i)=fMVKOH(i)-1; fO3(i)=fO3(i)-1; fHMGLOO(i)=fHMGLOO(i)+0.24; fHOCH2CHO(i)=fHOCH2CHO(i)+0.20; fHOCH2CO3(i)=fHOCH2CO3(i)+0.20; fHO2(i)=fHO2(i)+0.20; fOH(i)=fOH(i)+0.36; fCO(i)=fCO(i)+0.36; fHOCH2CO3(i)=fHOCH2CO3(i)+0.36; fHCHO(i)=fHCHO(i)+1; 
+Rnames{i} = 'MVKO = HCHO + ACO3';
+k(:,i) = KDEC;
+Gstr{i,1} = 'MVKO'; 
+fMVKO(i)=fMVKO(i)-1; fHCHO(i)=fHCHO(i)+1; fACO3(i)=fACO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOH + O3 = HOCH2COCHO +  + 0.24CH2OO + 0.40CO + 0.36HO2 + 0.36CO + 0.36OH';
+Rnames{i} = 'MVKOH + O3 = HMGLOOA + HCHO';
 k(:,i) = 7.51e-16.*exp(-1521./T).*0.5;
 Gstr{i,1} = 'MVKOH'; Gstr{i,2} = 'O3'; 
-fMVKOH(i)=fMVKOH(i)-1; fO3(i)=fO3(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fCH2OO(i)=fCH2OO(i)+0.24; fCO(i)=fCO(i)+0.40; fHO2(i)=fHO2(i)+0.36; fCO(i)=fCO(i)+0.36; fOH(i)=fOH(i)+0.36; 
+fMVKOH(i)=fMVKOH(i)-1; fO3(i)=fO3(i)-1; fHMGLOOA(i)=fHMGLOOA(i)+1; fHCHO(i)=fHCHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MVKOH + O3 = HOCH2COCHO + CH2OOB';
+k(:,i) = 7.51e-16.*exp(-1521./T).*0.5;
+Gstr{i,1} = 'MVKOH'; Gstr{i,2} = 'O3'; 
+fMVKOH(i)=fMVKOH(i)-1; fO3(i)=fO3(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fCH2OOB(i)=fCH2OOB(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MVKOH + OH = MVKOHAO2';
@@ -2491,10 +2886,10 @@ Gstr{i,1} = 'VGLYOX';
 fVGLYOX(i)=fVGLYOX(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fACO3(i)=fACO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPAOOH =  + C524O2 + OH';
+Rnames{i} = 'ISOPAOOH = ISOPAO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'ISOPAOOH'; 
-fISOPAOOH(i)=fISOPAOOH(i)-1; fC524O2(i)=fC524O2(i)+1; fOH(i)=fOH(i)+1; 
+fISOPAOOH(i)=fISOPAOOH(i)-1; fISOPAO(i)=fISOPAO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ISOPAOOH = HC4ACHO + OH';
@@ -2515,22 +2910,40 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'ISOPAOOH';
 fOH(i)=fOH(i)-1; fISOPAOOH(i)=fISOPAOOH(i)-1; fISOPAO2(i)=fISOPAO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPANO3 =  + C524O2 + NO2';
+Rnames{i} = 'CISOPAO = C526O2';
+k(:,i) = KDEC.*0.19;
+Gstr{i,1} = 'CISOPAO'; 
+fCISOPAO(i)=fCISOPAO(i)-1; fC526O2(i)=fC526O2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPAO = HC4CCHO + HO2';
+k(:,i) = KDEC.*0.63;
+Gstr{i,1} = 'CISOPAO'; 
+fCISOPAO(i)=fCISOPAO(i)-1; fHC4CCHO(i)=fHC4CCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CISOPAO = M3F + HO2';
+k(:,i) = KDEC.*0.18;
+Gstr{i,1} = 'CISOPAO'; 
+fCISOPAO(i)=fCISOPAO(i)-1; fM3F(i)=fM3F(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ISOPANO3 = ISOPAO + NO2';
 k(:,i) = J53;
 Gstr{i,1} = 'ISOPANO3'; 
-fISOPANO3(i)=fISOPANO3(i)-1; fC524O2(i)=fC524O2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPANO3(i)=fISOPANO3(i)-1; fISOPAO(i)=fISOPAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOPANO3 = ACETOL +  + 0.11NC2OO + 0.89OH + 0.89NO2 + 0.89GLYOX';
+Rnames{i} = 'O3 + ISOPANO3 = ACETOL + NC2OOA';
 k(:,i) = 4.10e-17.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOPANO3'; 
-fO3(i)=fO3(i)-1; fISOPANO3(i)=fISOPANO3(i)-1; fACETOL(i)=fACETOL(i)+1; fNC2OO(i)=fNC2OO(i)+0.11; fOH(i)=fOH(i)+0.89; fNO2(i)=fNO2(i)+0.89; fGLYOX(i)=fGLYOX(i)+0.89; 
+fO3(i)=fO3(i)-1; fISOPANO3(i)=fISOPANO3(i)-1; fACETOL(i)=fACETOL(i)+1; fNC2OOA(i)=fNC2OOA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOPANO3 =  + 0.11ACLOO + 0.89OH + 0.89HO2 + 0.89MGLYOX + NO3CH2CHO';
+Rnames{i} = 'O3 + ISOPANO3 = ACLOOA + NO3CH2CHO';
 k(:,i) = 4.10e-17.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOPANO3'; 
-fO3(i)=fO3(i)-1; fISOPANO3(i)=fISOPANO3(i)-1; fACLOO(i)=fACLOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fMGLYOX(i)=fMGLYOX(i)+0.89; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; 
+fO3(i)=fO3(i)-1; fISOPANO3(i)=fISOPANO3(i)-1; fACLOOA(i)=fACLOOA(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ISOPANO3 = INAO2';
@@ -2545,22 +2958,22 @@ Gstr{i,1} = 'C536O2'; Gstr{i,2} = 'HO2';
 fC536O2(i)=fC536O2(i)-1; fHO2(i)=fHO2(i)-1; fC536OOH(i)=fC536OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C536O2 + NO =  + MGLYOX + HCOCH2OOH + OH + NO2';
+Rnames{i} = 'C536O2 + NO = C536O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C536O2'; Gstr{i,2} = 'NO'; 
-fC536O2(i)=fC536O2(i)-1; fNO(i)=fNO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCOCH2OOH(i)=fHCOCH2OOH(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC536O2(i)=fC536O2(i)-1; fNO(i)=fNO(i)-1; fC536O(i)=fC536O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C536O2 + NO3 =  + MGLYOX + HCOCH2OOH + OH + NO2';
+Rnames{i} = 'C536O2 + NO3 = C536O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C536O2'; Gstr{i,2} = 'NO3'; 
-fC536O2(i)=fC536O2(i)-1; fNO3(i)=fNO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCOCH2OOH(i)=fHCOCH2OOH(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC536O2(i)=fC536O2(i)-1; fNO3(i)=fNO3(i)-1; fC536O(i)=fC536O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C536O2 =  + MGLYOX + HCOCH2OOH + OH';
+Rnames{i} = 'C536O2 = C536O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'C536O2'; Gstr{i,2} = 'RO2';
-fC536O2(i)=fC536O2(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCOCH2OOH(i)=fHCOCH2OOH(i)+1; fOH(i)=fOH(i)+1; 
+fC536O2(i)=fC536O2(i)-1; fC536O(i)=fC536O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C536O2 = DHPMEK + CO + OH';
@@ -2575,16 +2988,16 @@ Gstr{i,1} = 'C5HPALD1'; Gstr{i,2} = 'NO3';
 fC5HPALD1(i)=fC5HPALD1(i)-1; fNO3(i)=fNO3(i)-1; fC5PACALD1(i)=fC5PACALD1(i)+1; fOH(i)=fOH(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C5HPALD1 + O3 =  + 0.11MGLYOO + 0.89OH + 0.89CO + 0.89CH3CO3 + HCOCH2OOH';
+Rnames{i} = 'C5HPALD1 + O3 = MGLYOOA + HCOCH2OOH';
 k(:,i) = 2.40e-17.*0.73;
 Gstr{i,1} = 'C5HPALD1'; Gstr{i,2} = 'O3'; 
-fC5HPALD1(i)=fC5HPALD1(i)-1; fO3(i)=fO3(i)-1; fMGLYOO(i)=fMGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fCO(i)=fCO(i)+0.89; fCH3CO3(i)=fCH3CO3(i)+0.89; fHCOCH2OOH(i)=fHCOCH2OOH(i)+1; 
+fC5HPALD1(i)=fC5HPALD1(i)-1; fO3(i)=fO3(i)-1; fMGLYOOA(i)=fMGLYOOA(i)+1; fHCOCH2OOH(i)=fHCOCH2OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C5HPALD1 + O3 = MGLYOX +  + GLYOX + OH + OH';
+Rnames{i} = 'C5HPALD1 + O3 = MGLYOX + PGAOOB';
 k(:,i) = 2.40e-17.*0.27;
 Gstr{i,1} = 'C5HPALD1'; Gstr{i,2} = 'O3'; 
-fC5HPALD1(i)=fC5HPALD1(i)-1; fO3(i)=fO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fGLYOX(i)=fGLYOX(i)+1; fOH(i)=fOH(i)+1; fOH(i)=fOH(i)+1; 
+fC5HPALD1(i)=fC5HPALD1(i)-1; fO3(i)=fO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fPGAOOB(i)=fPGAOOB(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C5HPALD1 + OH = C4MALOHOOH + OH';
@@ -2635,16 +3048,16 @@ Gstr{i,1} = 'NO3'; Gstr{i,2} = 'HC4ACHO';
 fNO3(i)=fNO3(i)-1; fHC4ACHO(i)=fHC4ACHO(i)-1; fHC4ACO3(i)=fHC4ACO3(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + HC4ACHO = ACETOL +  + 0.11GLYOO + 0.89OH + 0.89HO2 + 0.89CO + 0.89CO';
+Rnames{i} = 'O3 + HC4ACHO = ACETOL + GLYOOC';
 k(:,i) = 2.40e-17.*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'HC4ACHO'; 
-fO3(i)=fO3(i)-1; fHC4ACHO(i)=fHC4ACHO(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOO(i)=fGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fCO(i)=fCO(i)+0.89; fCO(i)=fCO(i)+0.89; 
+fO3(i)=fO3(i)-1; fHC4ACHO(i)=fHC4ACHO(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOOC(i)=fGLYOOC(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + HC4ACHO =  + 0.11ACLOO + 0.89OH + 0.89HO2 + 0.89MGLYOX + GLYOX';
+Rnames{i} = 'O3 + HC4ACHO = ACLOOA + GLYOX';
 k(:,i) = 2.40e-17.*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'HC4ACHO'; 
-fO3(i)=fO3(i)-1; fHC4ACHO(i)=fHC4ACHO(i)-1; fACLOO(i)=fACLOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fMGLYOX(i)=fMGLYOX(i)+0.89; fGLYOX(i)=fGLYOX(i)+1; 
+fO3(i)=fO3(i)-1; fHC4ACHO(i)=fHC4ACHO(i)-1; fACLOOA(i)=fACLOOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + HC4ACHO = C4MDIAL + HO2';
@@ -2683,10 +3096,10 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'ISOPAOH';
 fOH(i)=fOH(i)-1; fISOPAOH(i)=fISOPAOH(i)-1; fHC4CCHO(i)=fHC4CCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPBOOH =  + MVK + HCHO + HO2 + OH';
+Rnames{i} = 'ISOPBOOH = ISOPBO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'ISOPBOOH'; 
-fISOPBOOH(i)=fISOPBOOH(i)-1; fMVK(i)=fMVK(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fISOPBOOH(i)=fISOPBOOH(i)-1; fISOPBO(i)=fISOPBO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ISOPBOOH = IEPOXB + OH';
@@ -2701,22 +3114,22 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'ISOPBOOH';
 fOH(i)=fOH(i)-1; fISOPBOOH(i)=fISOPBOOH(i)-1; fISOPBO2(i)=fISOPBO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPBNO3 =  + MVK + HCHO + HO2 + NO2';
+Rnames{i} = 'ISOPBNO3 = ISOPBO + NO2';
 k(:,i) = J55;
 Gstr{i,1} = 'ISOPBNO3'; 
-fISOPBNO3(i)=fISOPBNO3(i)-1; fMVK(i)=fMVK(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPBNO3(i)=fISOPBNO3(i)-1; fISOPBO(i)=fISOPBO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOPBNO3 = HCHO +  + 0.36ACETOL + 0.36NO2 + 0.36CO + 0.36OH + 0.20ACETOL + 0.20NO2 + 0.20HO2 + 0.24MACRNOO + 0.20PROPOLNO3';
+Rnames{i} = 'O3 + ISOPBNO3 = HCHO + MACRNOOA';
 k(:,i) = 5.00e-19.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOPBNO3'; 
-fO3(i)=fO3(i)-1; fISOPBNO3(i)=fISOPBNO3(i)-1; fHCHO(i)=fHCHO(i)+1; fACETOL(i)=fACETOL(i)+0.36; fNO2(i)=fNO2(i)+0.36; fCO(i)=fCO(i)+0.36; fOH(i)=fOH(i)+0.36; fACETOL(i)=fACETOL(i)+0.20; fNO2(i)=fNO2(i)+0.20; fHO2(i)=fHO2(i)+0.20; fMACRNOO(i)=fMACRNOO(i)+0.24; fPROPOLNO3(i)=fPROPOLNO3(i)+0.20; 
+fO3(i)=fO3(i)-1; fISOPBNO3(i)=fISOPBNO3(i)-1; fHCHO(i)=fHCHO(i)+1; fMACRNOOA(i)=fMACRNOOA(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOPBNO3 = MACRNO3 +  + 0.24CH2OO + 0.40CO + 0.36HO2 + 0.36CO + 0.36OH';
+Rnames{i} = 'O3 + ISOPBNO3 = MACRNO3 + CH2OOB';
 k(:,i) = 5.00e-19.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOPBNO3'; 
-fO3(i)=fO3(i)-1; fISOPBNO3(i)=fISOPBNO3(i)-1; fMACRNO3(i)=fMACRNO3(i)+1; fCH2OO(i)=fCH2OO(i)+0.24; fCO(i)=fCO(i)+0.40; fHO2(i)=fHO2(i)+0.36; fCO(i)=fCO(i)+0.36; fOH(i)=fOH(i)+0.36; 
+fO3(i)=fO3(i)-1; fISOPBNO3(i)=fISOPBNO3(i)-1; fMACRNO3(i)=fMACRNO3(i)+1; fCH2OOB(i)=fCH2OOB(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ISOPBNO3 = INB1O2';
@@ -2731,16 +3144,22 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'ISOPBNO3';
 fOH(i)=fOH(i)-1; fISOPBNO3(i)=fISOPBNO3(i)-1; fINB2O2(i)=fINB2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + ISOPBOH =  + MVK + HCHO + HO2';
-k(:,i) = 3.85e-11;
-Gstr{i,1} = 'OH'; Gstr{i,2} = 'ISOPBOH'; 
-fOH(i)=fOH(i)-1; fISOPBOH(i)=fISOPBOH(i)-1; fMVK(i)=fMVK(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+Rnames{i} = 'ISOPBO = MVK + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'ISOPBO'; 
+fISOPBO(i)=fISOPBO(i)-1; fMVK(i)=fMVK(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPCOOH =  + 0.30C527O2 + 0.52HC4ACHO + 0.52HO2 + 0.18M3F + 0.18HO2 + OH';
+Rnames{i} = 'OH + ISOPBOH = ISOPBO';
+k(:,i) = 3.85e-11;
+Gstr{i,1} = 'OH'; Gstr{i,2} = 'ISOPBOH'; 
+fOH(i)=fOH(i)-1; fISOPBOH(i)=fISOPBOH(i)-1; fISOPBO(i)=fISOPBO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ISOPCOOH = CISOPCO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'ISOPCOOH'; 
-fISOPCOOH(i)=fISOPCOOH(i)-1; fC527O2(i)=fC527O2(i)+0.30; fHC4ACHO(i)=fHC4ACHO(i)+0.52; fHO2(i)=fHO2(i)+0.52; fM3F(i)=fM3F(i)+0.18; fHO2(i)=fHO2(i)+0.18; fOH(i)=fOH(i)+1; 
+fISOPCOOH(i)=fISOPCOOH(i)-1; fCISOPCO(i)=fCISOPCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ISOPCOOH = HC4CCHO + OH';
@@ -2767,22 +3186,22 @@ Gstr{i,1} = 'C537O2'; Gstr{i,2} = 'HO2';
 fC537O2(i)=fC537O2(i)-1; fHO2(i)=fHO2(i)-1; fC537OOH(i)=fC537OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C537O2 + NO =  + GLYOX + HYPERACET + OH + NO2';
+Rnames{i} = 'C537O2 + NO = C537O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C537O2'; Gstr{i,2} = 'NO'; 
-fC537O2(i)=fC537O2(i)-1; fNO(i)=fNO(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC537O2(i)=fC537O2(i)-1; fNO(i)=fNO(i)-1; fC537O(i)=fC537O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C537O2 + NO3 =  + GLYOX + HYPERACET + OH + NO2';
+Rnames{i} = 'C537O2 + NO3 = C537O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C537O2'; Gstr{i,2} = 'NO3'; 
-fC537O2(i)=fC537O2(i)-1; fNO3(i)=fNO3(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC537O2(i)=fC537O2(i)-1; fNO3(i)=fNO3(i)-1; fC537O(i)=fC537O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C537O2 =  + GLYOX + HYPERACET + OH';
+Rnames{i} = 'C537O2 = C537O';
 k(:,i) = 8.80e-13;
 Gstr{i,1} = 'C537O2'; Gstr{i,2} = 'RO2';
-fC537O2(i)=fC537O2(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fOH(i)=fOH(i)+1; 
+fC537O2(i)=fC537O2(i)-1; fC537O(i)=fC537O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C537O2 = DHPMPAL + CO + OH';
@@ -2797,16 +3216,16 @@ Gstr{i,1} = 'C5HPALD2'; Gstr{i,2} = 'NO3';
 fC5HPALD2(i)=fC5HPALD2(i)-1; fNO3(i)=fNO3(i)-1; fC5PACALD2(i)=fC5PACALD2(i)+1; fOH(i)=fOH(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C5HPALD2 + O3 = HYPERACET +  + 0.11GLYOO + 0.89OH + 0.89HO2 + 0.89CO + 0.89CO';
+Rnames{i} = 'C5HPALD2 + O3 = HYPERACET + GLYOOC';
 k(:,i) = 2.40e-17.*0.27;
 Gstr{i,1} = 'C5HPALD2'; Gstr{i,2} = 'O3'; 
-fC5HPALD2(i)=fC5HPALD2(i)-1; fO3(i)=fO3(i)-1; fHYPERACET(i)=fHYPERACET(i)+1; fGLYOO(i)=fGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fCO(i)=fCO(i)+0.89; fCO(i)=fCO(i)+0.89; 
+fC5HPALD2(i)=fC5HPALD2(i)-1; fO3(i)=fO3(i)-1; fHYPERACET(i)=fHYPERACET(i)+1; fGLYOOC(i)=fGLYOOC(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C5HPALD2 + O3 =  + MGLYOX + OH + OH + GLYOX';
+Rnames{i} = 'C5HPALD2 + O3 = PACLOOA + GLYOX';
 k(:,i) = 2.40e-17.*0.73;
 Gstr{i,1} = 'C5HPALD2'; Gstr{i,2} = 'O3'; 
-fC5HPALD2(i)=fC5HPALD2(i)-1; fO3(i)=fO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fOH(i)=fOH(i)+1; fOH(i)=fOH(i)+1; fGLYOX(i)=fGLYOX(i)+1; 
+fC5HPALD2(i)=fC5HPALD2(i)-1; fO3(i)=fO3(i)-1; fPACLOOA(i)=fPACLOOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C5HPALD2 + OH = C4MDIAL + OH';
@@ -2857,16 +3276,16 @@ Gstr{i,1} = 'NO3'; Gstr{i,2} = 'HC4CCHO';
 fNO3(i)=fNO3(i)-1; fHC4CCHO(i)=fHC4CCHO(i)-1; fHC4CCO3(i)=fHC4CCO3(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + HC4CCHO =  + 0.11MGLYOO + 0.89OH + 0.89CO + 0.89CH3CO3 + HOCH2CHO';
+Rnames{i} = 'O3 + HC4CCHO = MGLYOOA + HOCH2CHO';
 k(:,i) = 2.40e-17.*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'HC4CCHO'; 
-fO3(i)=fO3(i)-1; fHC4CCHO(i)=fHC4CCHO(i)-1; fMGLYOO(i)=fMGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fCO(i)=fCO(i)+0.89; fCH3CO3(i)=fCH3CO3(i)+0.89; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
+fO3(i)=fO3(i)-1; fHC4CCHO(i)=fHC4CCHO(i)-1; fMGLYOOA(i)=fMGLYOOA(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + HC4CCHO = MGLYOX +  + 0.11GAOO + 0.89OH + 0.89HO2 + 0.89GLYOX';
+Rnames{i} = 'O3 + HC4CCHO = MGLYOX + GAOOB';
 k(:,i) = 2.40e-17.*0.5;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'HC4CCHO'; 
-fO3(i)=fO3(i)-1; fHC4CCHO(i)=fHC4CCHO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fGAOO(i)=fGAOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fGLYOX(i)=fGLYOX(i)+0.89; 
+fO3(i)=fO3(i)-1; fHC4CCHO(i)=fHC4CCHO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fGAOOB(i)=fGAOOB(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + HC4CCHO = C4MDIAL + HO2';
@@ -2893,10 +3312,10 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'HC4CCHO';
 fOH(i)=fOH(i)-1; fHC4CCHO(i)=fHC4CCHO(i)-1; fHC4CCO3(i)=fHC4CCO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPDOOH =  + MACR + HCHO + HO2 + OH';
+Rnames{i} = 'ISOPDOOH = ISOPDO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'ISOPDOOH'; 
-fISOPDOOH(i)=fISOPDOOH(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fISOPDOOH(i)=fISOPDOOH(i)-1; fISOPDO(i)=fISOPDO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ISOPDOOH = HCOC5 + OH';
@@ -2917,28 +3336,34 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'ISOPDOOH';
 fOH(i)=fOH(i)-1; fISOPDOOH(i)=fISOPDOOH(i)-1; fISOPDO2(i)=fISOPDO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ISOPDNO3 =  + MACR + HCHO + HO2 + NO2';
+Rnames{i} = 'ISOPDNO3 = ISOPDO + NO2';
 k(:,i) = J54;
 Gstr{i,1} = 'ISOPDNO3'; 
-fISOPDNO3(i)=fISOPDNO3(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fISOPDNO3(i)=fISOPDNO3(i)-1; fISOPDO(i)=fISOPDO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOPDNO3 =  + 0.18CH2OO + 0.82HO2 + 0.82CO + 0.82OH + MVKNO3';
+Rnames{i} = 'O3 + ISOPDNO3 = CH2OOC + MVKNO3';
 k(:,i) = 7.00e-19.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOPDNO3'; 
-fO3(i)=fO3(i)-1; fISOPDNO3(i)=fISOPDNO3(i)-1; fCH2OO(i)=fCH2OO(i)+0.18; fHO2(i)=fHO2(i)+0.82; fCO(i)=fCO(i)+0.82; fOH(i)=fOH(i)+0.82; fMVKNO3(i)=fMVKNO3(i)+1; 
+fO3(i)=fO3(i)-1; fISOPDNO3(i)=fISOPDNO3(i)-1; fCH2OOC(i)=fCH2OOC(i)+1; fMVKNO3(i)=fMVKNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ISOPDNO3 = HCHO +  + 0.18NC4OO + 0.82OH + 0.82NO2 + 0.82BIACETOH';
+Rnames{i} = 'O3 + ISOPDNO3 = HCHO + NC4OOA';
 k(:,i) = 7.00e-19.*0.50;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ISOPDNO3'; 
-fO3(i)=fO3(i)-1; fISOPDNO3(i)=fISOPDNO3(i)-1; fHCHO(i)=fHCHO(i)+1; fNC4OO(i)=fNC4OO(i)+0.18; fOH(i)=fOH(i)+0.82; fNO2(i)=fNO2(i)+0.82; fBIACETOH(i)=fBIACETOH(i)+0.82; 
+fO3(i)=fO3(i)-1; fISOPDNO3(i)=fISOPDNO3(i)-1; fHCHO(i)=fHCHO(i)+1; fNC4OOA(i)=fNC4OOA(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ISOPDNO3 = INDO2';
 k(:,i) = 4.15e-11;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'ISOPDNO3'; 
 fOH(i)=fOH(i)-1; fISOPDNO3(i)=fISOPDNO3(i)-1; fINDO2(i)=fINDO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ISOPDO = MACR + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'ISOPDO'; 
+fISOPDO(i)=fISOPDO(i)-1; fMACR(i)=fMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HCOC5 = CH3CO3 + HCHO + HOCH2CO3';
@@ -2965,28 +3390,40 @@ Gstr{i,1} = 'INAO2'; Gstr{i,2} = 'NO';
 fINAO2(i)=fINAO2(i)-1; fNO(i)=fNO(i)-1; fINANO3(i)=fINANO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INAO2 + NO =  + ACETOL + NO3CH2CHO + HO2 + NO2';
+Rnames{i} = 'INAO2 + NO = INAO + NO2';
 k(:,i) = KRO2NO.*0.896;
 Gstr{i,1} = 'INAO2'; Gstr{i,2} = 'NO'; 
-fINAO2(i)=fINAO2(i)-1; fNO(i)=fNO(i)-1; fACETOL(i)=fACETOL(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fINAO2(i)=fINAO2(i)-1; fNO(i)=fNO(i)-1; fINAO(i)=fINAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INAO2 + NO3 =  + ACETOL + NO3CH2CHO + HO2 + NO2';
+Rnames{i} = 'INAO2 + NO3 = INAO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'INAO2'; Gstr{i,2} = 'NO3'; 
-fINAO2(i)=fINAO2(i)-1; fNO3(i)=fNO3(i)-1; fACETOL(i)=fACETOL(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fINAO2(i)=fINAO2(i)-1; fNO3(i)=fNO3(i)-1; fINAO(i)=fINAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INAO2 =  + ACETOL + NO3CH2CHO + HO2';
+Rnames{i} = 'INAO2 = INAO';
 k(:,i) = 8.00e-13.*0.8;
 Gstr{i,1} = 'INAO2'; Gstr{i,2} = 'RO2';
-fINAO2(i)=fINAO2(i)-1; fACETOL(i)=fACETOL(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fINAO2(i)=fINAO2(i)-1; fINAO(i)=fINAO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INAO2 = INAOH';
 k(:,i) = 8.00e-13.*0.2;
 Gstr{i,1} = 'INAO2'; Gstr{i,2} = 'RO2';
 fINAO2(i)=fINAO2(i)-1; fINAOH(i)=fINAOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC41OOA = CO23C4NO3 + HO2 + OH';
+k(:,i) = KDEC.*0.82;
+Gstr{i,1} = 'NC41OOA'; 
+fNC41OOA(i)=fNC41OOA(i)-1; fCO23C4NO3(i)=fCO23C4NO3(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC41OOA = NC41OO';
+k(:,i) = KDEC.*0.18;
+Gstr{i,1} = 'NC41OOA'; 
+fNC41OOA(i)=fNC41OOA(i)-1; fNC41OO(i)=fNC41OO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C58O2 + HO2 = C58OOH';
@@ -3001,22 +3438,22 @@ Gstr{i,1} = 'C58O2'; Gstr{i,2} = 'NO';
 fC58O2(i)=fC58O2(i)-1; fNO(i)=fNO(i)-1; fC58NO3(i)=fC58NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C58O2 + NO =  + ACETOL + GLYOX + HO2 + NO2';
+Rnames{i} = 'C58O2 + NO = C58O + NO2';
 k(:,i) = KRO2NO.*0.981;
 Gstr{i,1} = 'C58O2'; Gstr{i,2} = 'NO'; 
-fC58O2(i)=fC58O2(i)-1; fNO(i)=fNO(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC58O2(i)=fC58O2(i)-1; fNO(i)=fNO(i)-1; fC58O(i)=fC58O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C58O2 + NO3 =  + ACETOL + GLYOX + HO2 + NO2';
+Rnames{i} = 'C58O2 + NO3 = C58O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C58O2'; Gstr{i,2} = 'NO3'; 
-fC58O2(i)=fC58O2(i)-1; fNO3(i)=fNO3(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC58O2(i)=fC58O2(i)-1; fNO3(i)=fNO3(i)-1; fC58O(i)=fC58O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C58O2 =  + ACETOL + GLYOX + HO2';
+Rnames{i} = 'C58O2 = C58O';
 k(:,i) = 9.20e-14.*0.7;
 Gstr{i,1} = 'C58O2'; Gstr{i,2} = 'RO2';
-fC58O2(i)=fC58O2(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC58O2(i)=fC58O2(i)-1; fC58O(i)=fC58O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C58O2 = C58OH';
@@ -3067,16 +3504,28 @@ Gstr{i,1} = 'NC526OOH'; Gstr{i,2} = 'OH';
 fNC526OOH(i)=fNC526OOH(i)-1; fOH(i)=fOH(i)-1; fNC526O2(i)=fNC526O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC526OOH =  + 0.27CO2C3CHO + 0.27HCHO + 0.27NO2 + 0.73NOA + 0.73HCOCH2O2 + OH';
+Rnames{i} = 'NC526OOH = NC526O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'NC526OOH'; 
-fNC526OOH(i)=fNC526OOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+0.27; fHCHO(i)=fHCHO(i)+0.27; fNO2(i)=fNO2(i)+0.27; fNOA(i)=fNOA(i)+0.73; fHCOCH2O2(i)=fHCOCH2O2(i)+0.73; fOH(i)=fOH(i)+1; 
+fNC526OOH(i)=fNC526OOH(i)-1; fNC526O(i)=fNC526O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC526OOH =  + 0.27CO2C3CHO + 0.27HCHO + 0.27NO2 + 0.73NOA + 0.73HCOCH2O2 + OH';
+Rnames{i} = 'NC526OOH = NC526O + OH';
 k(:,i) = J15;
 Gstr{i,1} = 'NC526OOH'; 
-fNC526OOH(i)=fNC526OOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+0.27; fHCHO(i)=fHCHO(i)+0.27; fNO2(i)=fNO2(i)+0.27; fNOA(i)=fNOA(i)+0.73; fHCOCH2O2(i)=fHCOCH2O2(i)+0.73; fOH(i)=fOH(i)+1; 
+fNC526OOH(i)=fNC526OOH(i)-1; fNC526O(i)=fNC526O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC526O = CO2C3CHO + HCHO + NO2';
+k(:,i) = KDEC.*0.27;
+Gstr{i,1} = 'NC526O'; 
+fNC526O(i)=fNC526O(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC526O = NOA + HCOCH2O2';
+k(:,i) = KDEC.*0.73;
+Gstr{i,1} = 'NC526O'; 
+fNC526O(i)=fNC526O(i)-1; fNOA(i)=fNOA(i)+1; fHCOCH2O2(i)=fHCOCH2O2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CO2C3CO3 + HO2 = CH3COCH2O2 + OH';
@@ -3115,10 +3564,10 @@ Gstr{i,1} = 'CO2C3CO3'; Gstr{i,2} = 'RO2';
 fCO2C3CO3(i)=fCO2C3CO3(i)-1; fCH3COCH2O2(i)=fCH3COCH2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3COCH2O2 + HO2 =  + CH3CO3 + HCHO + OH';
+Rnames{i} = 'CH3COCH2O2 + HO2 = CH3COCH2O + OH';
 k(:,i) = 1.36e-13.*exp(1250./T).*0.15;
 Gstr{i,1} = 'CH3COCH2O2'; Gstr{i,2} = 'HO2'; 
-fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fHO2(i)=fHO2(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
+fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fHO2(i)=fHO2(i)-1; fCH3COCH2O(i)=fCH3COCH2O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3COCH2O2 + HO2 = HYPERACET';
@@ -3127,16 +3576,16 @@ Gstr{i,1} = 'CH3COCH2O2'; Gstr{i,2} = 'HO2';
 fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fHO2(i)=fHO2(i)-1; fHYPERACET(i)=fHYPERACET(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3COCH2O2 + NO =  + CH3CO3 + HCHO + NO2';
+Rnames{i} = 'CH3COCH2O2 + NO = CH3COCH2O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'CH3COCH2O2'; Gstr{i,2} = 'NO'; 
-fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fNO(i)=fNO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fNO(i)=fNO(i)-1; fCH3COCH2O(i)=fCH3COCH2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3COCH2O2 + NO3 =  + CH3CO3 + HCHO + NO2';
+Rnames{i} = 'CH3COCH2O2 + NO3 = CH3COCH2O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'CH3COCH2O2'; Gstr{i,2} = 'NO3'; 
-fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fNO3(i)=fNO3(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fNO3(i)=fNO3(i)-1; fCH3COCH2O(i)=fCH3COCH2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3COCH2O2 = ACETOL';
@@ -3145,10 +3594,10 @@ Gstr{i,1} = 'CH3COCH2O2'; Gstr{i,2} = 'RO2';
 fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fACETOL(i)=fACETOL(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH3COCH2O2 =  + CH3CO3 + HCHO';
+Rnames{i} = 'CH3COCH2O2 = CH3COCH2O';
 k(:,i) = 2.*(K298CH3O2.*8.0e-12).^0.5.*0.6;
 Gstr{i,1} = 'CH3COCH2O2'; Gstr{i,2} = 'RO2';
-fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; 
+fCH3COCH2O2(i)=fCH3COCH2O2(i)-1; fCH3COCH2O(i)=fCH3COCH2O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3COCH2O2 = MGLYOX';
@@ -3163,22 +3612,22 @@ Gstr{i,1} = 'C4CO2O2'; Gstr{i,2} = 'HO2';
 fC4CO2O2(i)=fC4CO2O2(i)-1; fHO2(i)=fHO2(i)-1; fC4CO2OOH(i)=fC4CO2OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4CO2O2 + NO =  + 0.5GLYOX + 0.5CH3CO3 + 0.5MGLYOX + 0.5HO2 + 0.5CO + NO2';
+Rnames{i} = 'C4CO2O2 + NO = C4CO2O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C4CO2O2'; Gstr{i,2} = 'NO'; 
-fC4CO2O2(i)=fC4CO2O2(i)-1; fNO(i)=fNO(i)-1; fGLYOX(i)=fGLYOX(i)+0.5; fCH3CO3(i)=fCH3CO3(i)+0.5; fMGLYOX(i)=fMGLYOX(i)+0.5; fHO2(i)=fHO2(i)+0.5; fCO(i)=fCO(i)+0.5; fNO2(i)=fNO2(i)+1; 
+fC4CO2O2(i)=fC4CO2O2(i)-1; fNO(i)=fNO(i)-1; fC4CO2O(i)=fC4CO2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4CO2O2 + NO3 =  + 0.5GLYOX + 0.5CH3CO3 + 0.5MGLYOX + 0.5HO2 + 0.5CO + NO2';
+Rnames{i} = 'C4CO2O2 + NO3 = C4CO2O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C4CO2O2'; Gstr{i,2} = 'NO3'; 
-fC4CO2O2(i)=fC4CO2O2(i)-1; fNO3(i)=fNO3(i)-1; fGLYOX(i)=fGLYOX(i)+0.5; fCH3CO3(i)=fCH3CO3(i)+0.5; fMGLYOX(i)=fMGLYOX(i)+0.5; fHO2(i)=fHO2(i)+0.5; fCO(i)=fCO(i)+0.5; fNO2(i)=fNO2(i)+1; 
+fC4CO2O2(i)=fC4CO2O2(i)-1; fNO3(i)=fNO3(i)-1; fC4CO2O(i)=fC4CO2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4CO2O2 =  + 0.5GLYOX + 0.5CH3CO3 + 0.5MGLYOX + 0.5HO2 + 0.5CO';
+Rnames{i} = 'C4CO2O2 = C4CO2O';
 k(:,i) = 8.80e-12;
 Gstr{i,1} = 'C4CO2O2'; Gstr{i,2} = 'RO2';
-fC4CO2O2(i)=fC4CO2O2(i)-1; fGLYOX(i)=fGLYOX(i)+0.5; fCH3CO3(i)=fCH3CO3(i)+0.5; fMGLYOX(i)=fMGLYOX(i)+0.5; fHO2(i)=fHO2(i)+0.5; fCO(i)=fCO(i)+0.5; 
+fC4CO2O2(i)=fC4CO2O2(i)-1; fC4CO2O(i)=fC4CO2O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CO2C3OO + CO = CO2C3CHO';
@@ -3223,16 +3672,16 @@ Gstr{i,1} = 'C530OOH'; Gstr{i,2} = 'OH';
 fC530OOH(i)=fC530OOH(i)-1; fOH(i)=fOH(i)-1; fC530O2(i)=fC530O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C530OOH =  + CO2C3CHO + HCHO + HO2 + OH';
+Rnames{i} = 'C530OOH = C530O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C530OOH'; 
-fC530OOH(i)=fC530OOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC530OOH(i)=fC530OOH(i)-1; fC530O(i)=fC530O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C530OOH =  + CO2C3CHO + HCHO + HO2 + OH';
+Rnames{i} = 'C530OOH = C530O + OH';
 k(:,i) = J15;
 Gstr{i,1} = 'C530OOH'; 
-fC530OOH(i)=fC530OOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC530OOH(i)=fC530OOH(i)-1; fC530O(i)=fC530O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C530NO3 + OH = CO2C3CHO + HCHO + NO2';
@@ -3241,10 +3690,16 @@ Gstr{i,1} = 'C530NO3'; Gstr{i,2} = 'OH';
 fC530NO3(i)=fC530NO3(i)-1; fOH(i)=fOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C530NO3 =  + CO2C3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'C530NO3 = C530O + NO2';
 k(:,i) = J56.*4;
 Gstr{i,1} = 'C530NO3'; 
-fC530NO3(i)=fC530NO3(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC530NO3(i)=fC530NO3(i)-1; fC530O(i)=fC530O(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C530O = CO2C3CHO + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C530O'; 
+fC530O(i)=fC530O(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'M3BU3ECO3H + OH =  M3BU3ECO3';
@@ -3277,10 +3732,10 @@ Gstr{i,1} = 'C45OOH'; Gstr{i,2} = 'OH';
 fC45OOH(i)=fC45OOH(i)-1; fOH(i)=fOH(i)-1; fMACR(i)=fMACR(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C45OOH =  + MACR + HO2 + OH';
+Rnames{i} = 'C45OOH = C45O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C45OOH'; 
-fC45OOH(i)=fC45OOH(i)-1; fMACR(i)=fMACR(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC45OOH(i)=fC45OOH(i)-1; fC45O(i)=fC45O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C45NO3 + OH = MACR + NO2';
@@ -3289,10 +3744,16 @@ Gstr{i,1} = 'C45NO3'; Gstr{i,2} = 'OH';
 fC45NO3(i)=fC45NO3(i)-1; fOH(i)=fOH(i)-1; fMACR(i)=fMACR(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C45NO3 =  + MACR + HO2 + NO2';
+Rnames{i} = 'C45NO3 = C45O + NO2';
 k(:,i) = J53;
 Gstr{i,1} = 'C45NO3'; 
-fC45NO3(i)=fC45NO3(i)-1; fMACR(i)=fMACR(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC45NO3(i)=fC45NO3(i)-1; fC45O(i)=fC45O(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C45O = MACR + HO2';
+k(:,i) = KROPRIM.*.21.*M;
+Gstr{i,1} = 'C45O'; 
+fC45O(i)=fC45O(i)-1; fMACR(i)=fMACR(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NC51OOH + OH = NC51O2';
@@ -3301,16 +3762,22 @@ Gstr{i,1} = 'NC51OOH'; Gstr{i,2} = 'OH';
 fNC51OOH(i)=fNC51OOH(i)-1; fOH(i)=fOH(i)-1; fNC51O2(i)=fNC51O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC51OOH =  + CO2C3CHO + HCHO + NO2 + OH';
+Rnames{i} = 'NC51OOH = NC51O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'NC51OOH'; 
-fNC51OOH(i)=fNC51OOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; fOH(i)=fOH(i)+1; 
+fNC51OOH(i)=fNC51OOH(i)-1; fNC51O(i)=fNC51O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC51OOH =  + CO2C3CHO + HCHO + NO2 + OH';
+Rnames{i} = 'NC51OOH = NC51O + OH';
 k(:,i) = J22;
 Gstr{i,1} = 'NC51OOH'; 
-fNC51OOH(i)=fNC51OOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; fOH(i)=fOH(i)+1; 
+fNC51OOH(i)=fNC51OOH(i)-1; fNC51O(i)=fNC51O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC51O = CO2C3CHO + HCHO + NO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'NC51O'; 
+fNC51O(i)=fNC51O(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3COCH3 + OH = CH3COCH2O2';
@@ -3325,16 +3792,16 @@ Gstr{i,1} = 'CH3COCH3';
 fCH3COCH3(i)=fCH3COCH3(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fCH3O2(i)=fCH3O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C51OOH =  + CO2C3CHO + HCHO + HO2 + OH';
+Rnames{i} = 'C51OOH = C51O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C51OOH'; 
-fC51OOH(i)=fC51OOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC51OOH(i)=fC51OOH(i)-1; fC51O(i)=fC51O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C51OOH =  + CO2C3CHO + HCHO + HO2 + OH';
+Rnames{i} = 'C51OOH = C51O + OH';
 k(:,i) = J22;
 Gstr{i,1} = 'C51OOH'; 
-fC51OOH(i)=fC51OOH(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC51OOH(i)=fC51OOH(i)-1; fC51O(i)=fC51O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + C51OOH = HO1CO24C5 + OH';
@@ -3343,16 +3810,22 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'C51OOH';
 fOH(i)=fOH(i)-1; fC51OOH(i)=fC51OOH(i)-1; fHO1CO24C5(i)=fHO1CO24C5(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C51NO3 =  + CO2C3CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'C51NO3 = C51O + NO2';
 k(:,i) = J22;
 Gstr{i,1} = 'C51NO3'; 
-fC51NO3(i)=fC51NO3(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC51NO3(i)=fC51NO3(i)-1; fC51O(i)=fC51O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + C51NO3 = HO1CO24C5 + NO2';
 k(:,i) = 1.55e-12;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'C51NO3'; 
 fOH(i)=fOH(i)-1; fC51NO3(i)=fC51NO3(i)-1; fHO1CO24C5(i)=fHO1CO24C5(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C51O = CO2C3CHO + HCHO + HO2';
+k(:,i) = 2.00e14.*exp(-6382./T);
+Gstr{i,1} = 'C51O'; 
+fC51O(i)=fC51O(i)-1; fCO2C3CHO(i)=fCO2C3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + C51OH = HO1CO24C5 + OH';
@@ -3379,10 +3852,10 @@ Gstr{i,1} = 'CH2CHCH2OOH'; Gstr{i,2} = 'OH';
 fCH2CHCH2OOH(i)=fCH2CHCH2OOH(i)-1; fOH(i)=fOH(i)-1; fACR(i)=fACR(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH2CHCH2OOH =  + ACR + HO2 + OH';
+Rnames{i} = 'CH2CHCH2OOH = CH2CHCH2O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'CH2CHCH2OOH'; 
-fCH2CHCH2OOH(i)=fCH2CHCH2OOH(i)-1; fACR(i)=fACR(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fCH2CHCH2OOH(i)=fCH2CHCH2OOH(i)-1; fCH2CHCH2O(i)=fCH2CHCH2O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH2CHCH2NO3 + OH = ACR + NO2';
@@ -3391,10 +3864,16 @@ Gstr{i,1} = 'CH2CHCH2NO3'; Gstr{i,2} = 'OH';
 fCH2CHCH2NO3(i)=fCH2CHCH2NO3(i)-1; fOH(i)=fOH(i)-1; fACR(i)=fACR(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CH2CHCH2NO3 =  + ACR + HO2 + NO2';
+Rnames{i} = 'CH2CHCH2NO3 = CH2CHCH2O + NO2';
 k(:,i) = J53;
 Gstr{i,1} = 'CH2CHCH2NO3'; 
-fCH2CHCH2NO3(i)=fCH2CHCH2NO3(i)-1; fACR(i)=fACR(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fCH2CHCH2NO3(i)=fCH2CHCH2NO3(i)-1; fCH2CHCH2O(i)=fCH2CHCH2O(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2CHCH2O = ACR + HO2';
+k(:,i) = KROPRIM.*.21.*M;
+Gstr{i,1} = 'CH2CHCH2O'; 
+fCH2CHCH2O(i)=fCH2CHCH2O(i)-1; fACR(i)=fACR(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ACR + NO3 = ACO3 + HNO3';
@@ -3439,22 +3918,28 @@ Gstr{i,1} = 'ACR';
 fACR(i)=fACR(i)-1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ACR =  + 0.24CH2OO + 0.40CO + 0.36HO2 + 0.36CO + 0.36OH + GLYOX';
+Rnames{i} = 'O3 + ACR = CH2OOB + GLYOX';
 k(:,i) = 0.5.*2.9E-19;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ACR'; 
-fO3(i)=fO3(i)-1; fACR(i)=fACR(i)-1; fCH2OO(i)=fCH2OO(i)+0.24; fCO(i)=fCO(i)+0.40; fHO2(i)=fHO2(i)+0.36; fCO(i)=fCO(i)+0.36; fOH(i)=fOH(i)+0.36; fGLYOX(i)=fGLYOX(i)+1; 
+fO3(i)=fO3(i)-1; fACR(i)=fACR(i)-1; fCH2OOB(i)=fCH2OOB(i)+1; fGLYOX(i)=fGLYOX(i)+1; 
 
 i=i+1;
-Rnames{i} = 'O3 + ACR =  + 0.24GLYOO + 0.20HCHO + 0.20HO2 + 0.20HO2 + 0.20CO + 0.36OH + 0.36CO + 0.36CO + 0.36HO2 + HCHO';
+Rnames{i} = 'O3 + ACR = GLYOOB + HCHO';
 k(:,i) = 0.5.*2.9E-19;
 Gstr{i,1} = 'O3'; Gstr{i,2} = 'ACR'; 
-fO3(i)=fO3(i)-1; fACR(i)=fACR(i)-1; fGLYOO(i)=fGLYOO(i)+0.24; fHCHO(i)=fHCHO(i)+0.20; fHO2(i)=fHO2(i)+0.20; fHO2(i)=fHO2(i)+0.20; fCO(i)=fCO(i)+0.20; fOH(i)=fOH(i)+0.36; fCO(i)=fCO(i)+0.36; fCO(i)=fCO(i)+0.36; fHO2(i)=fHO2(i)+0.36; fHCHO(i)=fHCHO(i)+1; 
+fO3(i)=fO3(i)-1; fACR(i)=fACR(i)-1; fGLYOOB(i)=fGLYOOB(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + ALLYLOH = ACR + HO2';
 k(:,i) = 2.59e-11;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'ALLYLOH'; 
 fOH(i)=fOH(i)-1; fALLYLOH(i)=fALLYLOH(i)-1; fACR(i)=fACR(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ISOPAO = C524O2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'ISOPAO'; 
+fISOPAO(i)=fISOPAO(i)-1; fC524O2(i)=fC524O2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C527O2 + HO2 = C527OOH';
@@ -3469,22 +3954,22 @@ Gstr{i,1} = 'C527O2'; Gstr{i,2} = 'NO';
 fC527O2(i)=fC527O2(i)-1; fNO(i)=fNO(i)-1; fC527NO3(i)=fC527NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C527O2 + NO =  + GLYOX + ACETOL + OH + NO2';
+Rnames{i} = 'C527O2 + NO = C527O + NO2';
 k(:,i) = KRO2NO.*0.935;
 Gstr{i,1} = 'C527O2'; Gstr{i,2} = 'NO'; 
-fC527O2(i)=fC527O2(i)-1; fNO(i)=fNO(i)-1; fGLYOX(i)=fGLYOX(i)+1; fACETOL(i)=fACETOL(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC527O2(i)=fC527O2(i)-1; fNO(i)=fNO(i)-1; fC527O(i)=fC527O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C527O2 + NO3 =  + GLYOX + ACETOL + OH + NO2';
+Rnames{i} = 'C527O2 + NO3 = C527O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C527O2'; Gstr{i,2} = 'NO3'; 
-fC527O2(i)=fC527O2(i)-1; fNO3(i)=fNO3(i)-1; fGLYOX(i)=fGLYOX(i)+1; fACETOL(i)=fACETOL(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC527O2(i)=fC527O2(i)-1; fNO3(i)=fNO3(i)-1; fC527O(i)=fC527O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C527O2 =  + GLYOX + ACETOL + OH';
+Rnames{i} = 'C527O2 = C527O';
 k(:,i) = 8.80e-13;
 Gstr{i,1} = 'C527O2'; Gstr{i,2} = 'RO2';
-fC527O2(i)=fC527O2(i)-1; fGLYOX(i)=fGLYOX(i)+1; fACETOL(i)=fACETOL(i)+1; fOH(i)=fOH(i)+1; 
+fC527O2(i)=fC527O2(i)-1; fC527O(i)=fC527O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C527O2 = MACROOH + CO + OH';
@@ -3499,10 +3984,10 @@ Gstr{i,1} = 'M3F'; Gstr{i,2} = 'NO3';
 fM3F(i)=fM3F(i)-1; fNO3(i)=fNO3(i)-1; fC4MDIAL(i)=fC4MDIAL(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'M3F + O3 =  + 0.6C531O2 + 0.6OH + 0.4M3FOO';
+Rnames{i} = 'M3F + O3 = M3FOOA';
 k(:,i) = 2.00e-17;
 Gstr{i,1} = 'M3F'; Gstr{i,2} = 'O3'; 
-fM3F(i)=fM3F(i)-1; fO3(i)=fO3(i)-1; fC531O2(i)=fC531O2(i)+0.6; fOH(i)=fOH(i)+0.6; fM3FOO(i)=fM3FOO(i)+0.4; 
+fM3F(i)=fM3F(i)-1; fO3(i)=fO3(i)-1; fM3FOOA(i)=fM3FOOA(i)+1; 
 
 i=i+1;
 Rnames{i} = 'M3F + OH = C4MDIAL + HO2';
@@ -3545,6 +4030,12 @@ Rnames{i} = 'GAOO = HOCH2CO2H';
 k(:,i) = 1.0e-17.*H2O;
 Gstr{i,1} = 'GAOO'; 
 fGAOO(i)=fGAOO(i)-1; fHOCH2CO2H(i)=fHOCH2CO2H(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH3COCH2O = CH3CO3 + HCHO';
+k(:,i) = KDEC;
+Gstr{i,1} = 'CH3COCH2O'; 
+fCH3COCH2O(i)=fCH3COCH2O(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HOCH2CO3 + HO2 = HO2 + HCHO + OH';
@@ -3625,10 +4116,10 @@ Gstr{i,1} = 'NC3OO';
 fNC3OO(i)=fNC3OO(i)-1; fNOA(i)=fNOA(i)+1; fH2O2(i)=fH2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INCOOH =  + NOA + HO2 + HOCH2CHO + OH';
+Rnames{i} = 'INCOOH = INCO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'INCOOH'; 
-fINCOOH(i)=fINCOOH(i)-1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; 
+fINCOOH(i)=fINCOOH(i)-1; fINCO(i)=fINCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + INCOOH = INCCO + OH';
@@ -3661,10 +4152,16 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'INCNO3';
 fOH(i)=fOH(i)-1; fINCNO3(i)=fINCNO3(i)-1; fNOA(i)=fNOA(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INCCO =  + ACETOL + HOCH2CO3 + NO2';
+Rnames{i} = 'INCO = NOA + HO2 + HOCH2CHO';
+k(:,i) = KDEC;
+Gstr{i,1} = 'INCO'; 
+fINCO(i)=fINCO(i)-1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'INCCO = C59O + NO2';
 k(:,i) = J56.*0.91;
 Gstr{i,1} = 'INCCO'; 
-fINCCO(i)=fINCCO(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fINCCO(i)=fINCCO(i)-1; fC59O(i)=fC59O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + INCCO = INCGLYOX + HO2';
@@ -3775,10 +4272,34 @@ Gstr{i,1} = 'NOAOO';
 fNOAOO(i)=fNOAOO(i)-1; fNOA(i)=fNOA(i)+1; fH2O2(i)=fH2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C510OOH =  + NOA + GLYOX + HO2 + OH';
+Rnames{i} = 'HCOCO = CO + CO + HO2';
+k(:,i) = 7.00D11.*exp(-3160./T);
+Gstr{i,1} = 'HCOCO'; 
+fHCOCO(i)=fHCOCO(i)-1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HCOCO = CO + CO + HO2';
+k(:,i) = 5.00e-12.*.21.*M;
+Gstr{i,1} = 'HCOCO'; 
+fHCOCO(i)=fHCOCO(i)-1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HCOCO = CO + OH';
+k(:,i) = 5.00e-12.*.21.*M.*3.2.*(1-exp(-550./T));
+Gstr{i,1} = 'HCOCO'; 
+fHCOCO(i)=fHCOCO(i)-1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HCOCO = HCOCO3';
+k(:,i) = 5.00e-12.*.21.*M.*3.2.*exp(-550./T);
+Gstr{i,1} = 'HCOCO'; 
+fHCOCO(i)=fHCOCO(i)-1; fHCOCO3(i)=fHCOCO3(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C510OOH = C510O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C510OOH'; 
-fC510OOH(i)=fC510OOH(i)-1; fNOA(i)=fNOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC510OOH(i)=fC510OOH(i)-1; fC510O(i)=fC510O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + C510OOH = C510O2';
@@ -3787,10 +4308,16 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'C510OOH';
 fOH(i)=fOH(i)-1; fC510OOH(i)=fC510OOH(i)-1; fC510O2(i)=fC510O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + C510OH =  + NOA + GLYOX + HO2';
+Rnames{i} = 'C510O = NOA + GLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C510O'; 
+fC510O(i)=fC510O(i)-1; fNOA(i)=fNOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'OH + C510OH = C510O';
 k(:,i) = 2.69e-11;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'C510OH'; 
-fOH(i)=fOH(i)-1; fC510OH(i)=fC510OH(i)-1; fNOA(i)=fNOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fOH(i)=fOH(i)-1; fC510OH(i)=fC510OH(i)-1; fC510O(i)=fC510O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + HMML = CH3CO3 + HCOOH';
@@ -3979,10 +4506,22 @@ Gstr{i,1} = 'PR1O2HNO3'; Gstr{i,2} = 'OH';
 fPR1O2HNO3(i)=fPR1O2HNO3(i)-1; fOH(i)=fOH(i)-1; fPRONO3AO2(i)=fPRONO3AO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PR1O2HNO3 =  + CHOPRNO3 + HO2 + HCHO + CH3CHO + NO2 + OH';
+Rnames{i} = 'PR1O2HNO3 = PRONO3AO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'PR1O2HNO3'; 
-fPR1O2HNO3(i)=fPR1O2HNO3(i)-1; fCHOPRNO3(i)=fCHOPRNO3(i)+1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fCH3CHO(i)=fCH3CHO(i)+1; fNO2(i)=fNO2(i)+1; fOH(i)=fOH(i)+1; 
+fPR1O2HNO3(i)=fPR1O2HNO3(i)-1; fPRONO3AO(i)=fPRONO3AO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'PRONO3AO = CHOPRNO3 + HO2';
+k(:,i) = KROPRIM.*.21.*M;
+Gstr{i,1} = 'PRONO3AO'; 
+fPRONO3AO(i)=fPRONO3AO(i)-1; fCHOPRNO3(i)=fCHOPRNO3(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'PRONO3AO = HCHO + CH3CHO + NO2';
+k(:,i) = 7.00e03;
+Gstr{i,1} = 'PRONO3AO'; 
+fPRONO3AO(i)=fPRONO3AO(i)-1; fHCHO(i)=fHCHO(i)+1; fCH3CHO(i)=fCH3CHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CHOPRNO3 + NO3 = PRNO3CO3 + HNO3';
@@ -3997,10 +4536,10 @@ Gstr{i,1} = 'CHOPRNO3'; Gstr{i,2} = 'OH';
 fCHOPRNO3(i)=fCHOPRNO3(i)-1; fOH(i)=fOH(i)-1; fPRNO3CO3(i)=fPRNO3CO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CHOPRNO3 =  + CH3CHO + HO2 + CO + NO2';
+Rnames{i} = 'CHOPRNO3 = PROPALO + NO2';
 k(:,i) = J56.*10;
 Gstr{i,1} = 'CHOPRNO3'; 
-fCHOPRNO3(i)=fCHOPRNO3(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fNO2(i)=fNO2(i)+1; 
+fCHOPRNO3(i)=fCHOPRNO3(i)-1; fPROPALO(i)=fPROPALO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PROPOLNO3 + OH = ACETOL + NO2';
@@ -4021,10 +4560,22 @@ Gstr{i,1} = 'PR2O2HNO3'; Gstr{i,2} = 'OH';
 fPR2O2HNO3(i)=fPR2O2HNO3(i)-1; fOH(i)=fOH(i)-1; fPRONO3BO2(i)=fPRONO3BO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PR2O2HNO3 =  + CH3CHO + HCHO + NO2 + NOA + HO2 + OH';
+Rnames{i} = 'PR2O2HNO3 = PRONO3BO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'PR2O2HNO3'; 
-fPR2O2HNO3(i)=fPR2O2HNO3(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fPR2O2HNO3(i)=fPR2O2HNO3(i)-1; fPRONO3BO(i)=fPRONO3BO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'PRONO3BO = CH3CHO + HCHO + NO2';
+k(:,i) = 7.00e03;
+Gstr{i,1} = 'PRONO3BO'; 
+fPRONO3BO(i)=fPRONO3BO(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'PRONO3BO = NOA + HO2';
+k(:,i) = KROSEC.*.21.*M;
+Gstr{i,1} = 'PRONO3BO'; 
+fPRONO3BO(i)=fPRONO3BO(i)-1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PROLNO3 + OH = CH3CHOHCHO + NO2';
@@ -4039,16 +4590,16 @@ Gstr{i,1} = 'HCOCH2O2'; Gstr{i,2} = 'HO2';
 fHCOCH2O2(i)=fHCOCH2O2(i)-1; fHO2(i)=fHO2(i)-1; fHCOCH2OOH(i)=fHCOCH2OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HCOCH2O2 + NO = NO2 +  + HCHO + CO + HO2';
+Rnames{i} = 'HCOCH2O2 + NO = NO2 + HCOCH2O';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'HCOCH2O2'; Gstr{i,2} = 'NO'; 
-fHCOCH2O2(i)=fHCOCH2O2(i)-1; fNO(i)=fNO(i)-1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+fHCOCH2O2(i)=fHCOCH2O2(i)-1; fNO(i)=fNO(i)-1; fNO2(i)=fNO2(i)+1; fHCOCH2O(i)=fHCOCH2O(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HCOCH2O2 + NO3 =  + HCHO + CO + HO2 + NO2';
+Rnames{i} = 'HCOCH2O2 + NO3 = HCOCH2O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HCOCH2O2'; Gstr{i,2} = 'NO3'; 
-fHCOCH2O2(i)=fHCOCH2O2(i)-1; fNO3(i)=fNO3(i)-1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHCOCH2O2(i)=fHCOCH2O2(i)-1; fNO3(i)=fNO3(i)-1; fHCOCH2O(i)=fHCOCH2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HCOCH2O2 = GLYOX';
@@ -4057,10 +4608,10 @@ Gstr{i,1} = 'HCOCH2O2'; Gstr{i,2} = 'RO2';
 fHCOCH2O2(i)=fHCOCH2O2(i)-1; fGLYOX(i)=fGLYOX(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HCOCH2O2 =  + HCHO + CO + HO2';
+Rnames{i} = 'HCOCH2O2 = HCOCH2O';
 k(:,i) = 2.00e-12.*0.6;
 Gstr{i,1} = 'HCOCH2O2'; Gstr{i,2} = 'RO2';
-fHCOCH2O2(i)=fHCOCH2O2(i)-1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+fHCOCH2O2(i)=fHCOCH2O2(i)-1; fHCOCH2O(i)=fHCOCH2O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HCOCH2O2 = HOCH2CHO';
@@ -4129,10 +4680,16 @@ Gstr{i,1} = 'HYPROPO2H'; Gstr{i,2} = 'OH';
 fHYPROPO2H(i)=fHYPROPO2H(i)-1; fOH(i)=fOH(i)-1; fHYPROPO2(i)=fHYPROPO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HYPROPO2H =  + CH3CHO + HCHO + HO2 + OH';
+Rnames{i} = 'HYPROPO2H = HYPROPO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HYPROPO2H'; 
-fHYPROPO2H(i)=fHYPROPO2H(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fHYPROPO2H(i)=fHYPROPO2H(i)-1; fHYPROPO(i)=fHYPROPO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HYPROPO = CH3CHO + HCHO + HO2';
+k(:,i) = 2.00e14.*exp(-6410./T);
+Gstr{i,1} = 'HYPROPO'; 
+fHYPROPO(i)=fHYPROPO(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PROPGLY + OH = ACETOL + HO2';
@@ -4159,10 +4716,16 @@ Gstr{i,1} = 'IPROPOLO2H'; Gstr{i,2} = 'OH';
 fIPROPOLO2H(i)=fIPROPOLO2H(i)-1; fOH(i)=fOH(i)-1; fIPROPOLO2(i)=fIPROPOLO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'IPROPOLO2H =  + CH3CHO + HCHO + HO2 + OH';
+Rnames{i} = 'IPROPOLO2H = IPROPOLO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'IPROPOLO2H'; 
-fIPROPOLO2H(i)=fIPROPOLO2H(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fIPROPOLO2H(i)=fIPROPOLO2H(i)-1; fIPROPOLO(i)=fIPROPOLO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'IPROPOLO = CH3CHO + HCHO + HO2';
+k(:,i) = 2.00e14.*exp(-5505./T);
+Gstr{i,1} = 'IPROPOLO'; 
+fIPROPOLO(i)=fIPROPOLO(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CH3CHOHCHO + NO3 = CH3CHOHCO3 + HNO3';
@@ -4249,10 +4812,10 @@ Gstr{i,1} = 'CO23C3CHO';
 fCO23C3CHO(i)=fCO23C3CHO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'CO23C3CHO = CH3CO3 +  + CO + CO + HO2 + CO + CO + HO2 + CO + OH + HCOCO3';
+Rnames{i} = 'CO23C3CHO = CH3CO3 + HCOCO';
 k(:,i) = J35;
 Gstr{i,1} = 'CO23C3CHO'; 
-fCO23C3CHO(i)=fCO23C3CHO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; fHCOCO3(i)=fHCOCO3(i)+1; 
+fCO23C3CHO(i)=fCO23C3CHO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCOCO(i)=fHCOCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NO3 + CO23C3CHO = CH3CO3 + CO + CO + HNO3';
@@ -4315,6 +4878,30 @@ Gstr{i,1} = 'ACO3'; Gstr{i,2} = 'RO2';
 fACO3(i)=fACO3(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'HMGLOOA = HMGLOO';
+k(:,i) = KDEC.*0.24;
+Gstr{i,1} = 'HMGLOOA'; 
+fHMGLOOA(i)=fHMGLOOA(i)-1; fHMGLOO(i)=fHMGLOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HMGLOOA = HOCH2CHO';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'HMGLOOA'; 
+fHMGLOOA(i)=fHMGLOOA(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HMGLOOA = HOCH2CO3 + HO2';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'HMGLOOA'; 
+fHMGLOOA(i)=fHMGLOOA(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HMGLOOA = OH + CO + HOCH2CO3';
+k(:,i) = KDEC.*0.36;
+Gstr{i,1} = 'HMGLOOA'; 
+fHMGLOOA(i)=fHMGLOOA(i)-1; fOH(i)=fOH(i)+1; fCO(i)=fCO(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; 
+
+i=i+1;
 Rnames{i} = 'HOCH2COCHO = HOCH2CO3 + CO + HO2';
 k(:,i) = J34;
 Gstr{i,1} = 'HOCH2COCHO'; 
@@ -4345,16 +4932,16 @@ Gstr{i,1} = 'MVKOHAO2'; Gstr{i,2} = 'NO';
 fMVKOHAO2(i)=fMVKOHAO2(i)-1; fNO(i)=fNO(i)-1; fMVKOHANO3(i)=fMVKOHANO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHAO2 + NO =  + HOCH2COCHO + HCHO + HO2 + NO2';
+Rnames{i} = 'MVKOHAO2 + NO = MVKOHAO + NO2';
 k(:,i) = KRO2NO.*0.983;
 Gstr{i,1} = 'MVKOHAO2'; Gstr{i,2} = 'NO'; 
-fMVKOHAO2(i)=fMVKOHAO2(i)-1; fNO(i)=fNO(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fMVKOHAO2(i)=fMVKOHAO2(i)-1; fNO(i)=fNO(i)-1; fMVKOHAO(i)=fMVKOHAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHAO2 + NO3 =  + HOCH2COCHO + HCHO + HO2 + NO2';
+Rnames{i} = 'MVKOHAO2 + NO3 = MVKOHAO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'MVKOHAO2'; Gstr{i,2} = 'NO3'; 
-fMVKOHAO2(i)=fMVKOHAO2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fMVKOHAO2(i)=fMVKOHAO2(i)-1; fNO3(i)=fNO3(i)-1; fMVKOHAO(i)=fMVKOHAO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MVKOHAO2 = H13CO2CHO';
@@ -4363,10 +4950,10 @@ Gstr{i,1} = 'MVKOHAO2'; Gstr{i,2} = 'RO2';
 fMVKOHAO2(i)=fMVKOHAO2(i)-1; fH13CO2CHO(i)=fH13CO2CHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHAO2 =  + HOCH2COCHO + HCHO + HO2';
+Rnames{i} = 'MVKOHAO2 = MVKOHAO';
 k(:,i) = 2.00e-12.*0.6;
 Gstr{i,1} = 'MVKOHAO2'; Gstr{i,2} = 'RO2';
-fMVKOHAO2(i)=fMVKOHAO2(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fMVKOHAO2(i)=fMVKOHAO2(i)-1; fMVKOHAO(i)=fMVKOHAO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MVKOHAO2 = MVKOHAOH';
@@ -4381,16 +4968,16 @@ Gstr{i,1} = 'MVKOHBO2'; Gstr{i,2} = 'HO2';
 fMVKOHBO2(i)=fMVKOHBO2(i)-1; fHO2(i)=fHO2(i)-1; fMVKOHBOOH(i)=fMVKOHBOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHBO2 + NO =  + HOCH2CHO + HOCH2CO3 + NO2';
+Rnames{i} = 'MVKOHBO2 + NO = MVKOHBO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'MVKOHBO2'; Gstr{i,2} = 'NO'; 
-fMVKOHBO2(i)=fMVKOHBO2(i)-1; fNO(i)=fNO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fMVKOHBO2(i)=fMVKOHBO2(i)-1; fNO(i)=fNO(i)-1; fMVKOHBO(i)=fMVKOHBO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHBO2 + NO3 =  + HOCH2CHO + HOCH2CO3 + NO2';
+Rnames{i} = 'MVKOHBO2 + NO3 = MVKOHBO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'MVKOHBO2'; Gstr{i,2} = 'NO3'; 
-fMVKOHBO2(i)=fMVKOHBO2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fMVKOHBO2(i)=fMVKOHBO2(i)-1; fNO3(i)=fNO3(i)-1; fMVKOHBO(i)=fMVKOHBO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MVKOHBO2 = H14CO23C4';
@@ -4405,10 +4992,10 @@ Gstr{i,1} = 'MVKOHBO2'; Gstr{i,2} = 'RO2';
 fMVKOHBO2(i)=fMVKOHBO2(i)-1; fMVKOHAOH(i)=fMVKOHAOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHBO2 =  + HOCH2CHO + HOCH2CO3';
+Rnames{i} = 'MVKOHBO2 = MVKOHBO';
 k(:,i) = 8.80e-13.*0.6;
 Gstr{i,1} = 'MVKOHBO2'; Gstr{i,2} = 'RO2';
-fMVKOHBO2(i)=fMVKOHBO2(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; 
+fMVKOHBO2(i)=fMVKOHBO2(i)-1; fMVKOHBO(i)=fMVKOHBO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + IEPOXA = IEACHO + HO2';
@@ -4429,28 +5016,52 @@ Gstr{i,1} = 'C526O2'; Gstr{i,2} = 'NO';
 fC526O2(i)=fC526O2(i)-1; fNO(i)=fNO(i)-1; fC526NO3(i)=fC526NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C526O2 + NO =  + MGLYOX + HOCH2CHO + OH + NO2';
+Rnames{i} = 'C526O2 + NO = C526O + NO2';
 k(:,i) = KRO2NO.*0.935;
 Gstr{i,1} = 'C526O2'; Gstr{i,2} = 'NO'; 
-fC526O2(i)=fC526O2(i)-1; fNO(i)=fNO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC526O2(i)=fC526O2(i)-1; fNO(i)=fNO(i)-1; fC526O(i)=fC526O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C526O2 + NO3 =  + MGLYOX + HOCH2CHO + OH + NO2';
+Rnames{i} = 'C526O2 + NO3 = C526O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C526O2'; Gstr{i,2} = 'NO3'; 
-fC526O2(i)=fC526O2(i)-1; fNO3(i)=fNO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC526O2(i)=fC526O2(i)-1; fNO3(i)=fNO3(i)-1; fC526O(i)=fC526O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C526O2 =  + MGLYOX + HOCH2CHO + OH';
+Rnames{i} = 'C526O2 = C526O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'C526O2'; Gstr{i,2} = 'RO2';
-fC526O2(i)=fC526O2(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; 
+fC526O2(i)=fC526O2(i)-1; fC526O(i)=fC526O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C526O2 = HMVKBOOH + CO + OH';
 k(:,i) = K14ISOM1;
 Gstr{i,1} = 'C526O2'; 
 fC526O2(i)=fC526O2(i)-1; fHMVKBOOH(i)=fHMVKBOOH(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC2OOA = NC2OO';
+k(:,i) = KDEC.*0.11;
+Gstr{i,1} = 'NC2OOA'; 
+fNC2OOA(i)=fNC2OOA(i)-1; fNC2OO(i)=fNC2OO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC2OOA = OH + NO2 + GLYOX';
+k(:,i) = KDEC.*0.89;
+Gstr{i,1} = 'NC2OOA'; 
+fNC2OOA(i)=fNC2OOA(i)-1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; fGLYOX(i)=fGLYOX(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ACLOOA = ACLOO';
+k(:,i) = KDEC.*0.11;
+Gstr{i,1} = 'ACLOOA'; 
+fACLOOA(i)=fACLOOA(i)-1; fACLOO(i)=fACLOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ACLOOA = OH + HO2 + MGLYOX';
+k(:,i) = KDEC.*0.89;
+Gstr{i,1} = 'ACLOOA'; 
+fACLOOA(i)=fACLOOA(i)-1; fOH(i)=fOH(i)+1; fHO2(i)=fHO2(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NO3CH2CHO + NO3 = NO3CH2CO3 + HNO3';
@@ -4465,10 +5076,10 @@ Gstr{i,1} = 'NO3CH2CHO'; Gstr{i,2} = 'OH';
 fNO3CH2CHO(i)=fNO3CH2CHO(i)-1; fOH(i)=fOH(i)-1; fNO3CH2CO3(i)=fNO3CH2CO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NO3CH2CHO = NO2 +  + HCHO + CO + HO2';
+Rnames{i} = 'NO3CH2CHO = NO2 + HCOCH2O';
 k(:,i) = J56.*4.3;
 Gstr{i,1} = 'NO3CH2CHO'; 
-fNO3CH2CHO(i)=fNO3CH2CHO(i)-1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+fNO3CH2CHO(i)=fNO3CH2CHO(i)-1; fNO2(i)=fNO2(i)+1; fHCOCH2O(i)=fHCOCH2O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C536OOH + OH = DHPMEK + CO + OH';
@@ -4493,6 +5104,12 @@ Rnames{i} = 'C536OOH = MGLYOX + HCOCH2OOH + OH + OH';
 k(:,i) = J41.*2;
 Gstr{i,1} = 'C536OOH'; 
 fC536OOH(i)=fC536OOH(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCOCH2OOH(i)=fHCOCH2OOH(i)+1; fOH(i)=fOH(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C536O = MGLYOX + HCOCH2OOH + OH';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C536O'; 
+fC536O(i)=fC536O(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCOCH2OOH(i)=fHCOCH2OOH(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'DHPMEK + OH = BIACETOOH + OH';
@@ -4525,16 +5142,16 @@ Gstr{i,1} = 'DHPMEK';
 fDHPMEK(i)=fDHPMEK(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C5PACALD1 + O3 =  + 0.11GLYOO + 0.89OH + 0.89HO2 + 0.89CO + 0.89CO + CH3COCO3H';
+Rnames{i} = 'C5PACALD1 + O3 = GLYOOC + CH3COCO3H';
 k(:,i) = 2.40e-17.*0.27;
 Gstr{i,1} = 'C5PACALD1'; Gstr{i,2} = 'O3'; 
-fC5PACALD1(i)=fC5PACALD1(i)-1; fO3(i)=fO3(i)-1; fGLYOO(i)=fGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fCO(i)=fCO(i)+0.89; fCO(i)=fCO(i)+0.89; fCH3COCO3H(i)=fCH3COCO3H(i)+1; 
+fC5PACALD1(i)=fC5PACALD1(i)-1; fO3(i)=fO3(i)-1; fGLYOOC(i)=fGLYOOC(i)+1; fCH3COCO3H(i)=fCH3COCO3H(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C5PACALD1 + O3 = GLYOX +  + CH3COCO3 + OH';
+Rnames{i} = 'C5PACALD1 + O3 = GLYOX + PPACLOOA';
 k(:,i) = 2.40e-17.*0.73;
 Gstr{i,1} = 'C5PACALD1'; Gstr{i,2} = 'O3'; 
-fC5PACALD1(i)=fC5PACALD1(i)-1; fO3(i)=fO3(i)-1; fGLYOX(i)=fGLYOX(i)+1; fCH3COCO3(i)=fCH3COCO3(i)+1; fOH(i)=fOH(i)+1; 
+fC5PACALD1(i)=fC5PACALD1(i)-1; fO3(i)=fO3(i)-1; fGLYOX(i)=fGLYOX(i)+1; fPPACLOOA(i)=fPPACLOOA(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C5PACALD1 + OH = C534O2';
@@ -4549,6 +5166,18 @@ Gstr{i,1} = 'C5PACALD1';
 fC5PACALD1(i)=fC5PACALD1(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fGLYOX(i)=fGLYOX(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
+Rnames{i} = 'MGLYOOA = MGLYOO';
+k(:,i) = KDEC.*0.11;
+Gstr{i,1} = 'MGLYOOA'; 
+fMGLYOOA(i)=fMGLYOOA(i)-1; fMGLYOO(i)=fMGLYOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MGLYOOA = OH + CO + CH3CO3';
+k(:,i) = KDEC.*0.89;
+Gstr{i,1} = 'MGLYOOA'; 
+fMGLYOOA(i)=fMGLYOOA(i)-1; fOH(i)=fOH(i)+1; fCO(i)=fCO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; 
+
+i=i+1;
 Rnames{i} = 'HCOCH2OOH + OH = GLYOX + OH';
 k(:,i) = 2.91e-11;
 Gstr{i,1} = 'HCOCH2OOH'; Gstr{i,2} = 'OH'; 
@@ -4561,10 +5190,10 @@ Gstr{i,1} = 'HCOCH2OOH'; Gstr{i,2} = 'OH';
 fHCOCH2OOH(i)=fHCOCH2OOH(i)-1; fOH(i)=fOH(i)-1; fHCOCH2O2(i)=fHCOCH2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HCOCH2OOH =  + HCHO + CO + HO2 + OH';
+Rnames{i} = 'HCOCH2OOH = HCOCH2O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HCOCH2OOH'; 
-fHCOCH2OOH(i)=fHCOCH2OOH(i)-1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fHCOCH2OOH(i)=fHCOCH2OOH(i)-1; fHCOCH2O(i)=fHCOCH2O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HCOCH2OOH = HO2 + CO + HCHO + OH';
@@ -4573,16 +5202,22 @@ Gstr{i,1} = 'HCOCH2OOH';
 fHCOCH2OOH(i)=fHCOCH2OOH(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
+Rnames{i} = 'PGAOOB = GLYOX + OH + OH';
+k(:,i) = KDEC;
+Gstr{i,1} = 'PGAOOB'; 
+fPGAOOB(i)=fPGAOOB(i)-1; fGLYOX(i)=fGLYOX(i)+1; fOH(i)=fOH(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
 Rnames{i} = 'C4MALOHOOH + OH = CO2H3CHO + CO + OH';
 k(:,i) = 4.58e-11;
 Gstr{i,1} = 'C4MALOHOOH'; Gstr{i,2} = 'OH'; 
 fC4MALOHOOH(i)=fC4MALOHOOH(i)-1; fOH(i)=fOH(i)-1; fCO2H3CHO(i)=fCO2H3CHO(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4MALOHOOH =  + GLYOX + MGLYOX + HO2 + OH';
+Rnames{i} = 'C4MALOHOOH = C4M2ALOHO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C4MALOHOOH'; 
-fC4MALOHOOH(i)=fC4MALOHOOH(i)-1; fGLYOX(i)=fGLYOX(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC4MALOHOOH(i)=fC4MALOHOOH(i)-1; fC4M2ALOHO(i)=fC4M2ALOHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C4MALOHOOH = CO2H3CHO + HO2 + CO + OH';
@@ -4603,16 +5238,16 @@ Gstr{i,1} = 'C4MDIAL'; Gstr{i,2} = 'NO3';
 fC4MDIAL(i)=fC4MDIAL(i)-1; fNO3(i)=fNO3(i)-1; fMC3CODBCO3(i)=fMC3CODBCO3(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4MDIAL + O3 =  + 0.11MGLYOO + 0.89OH + 0.89CO + 0.89CH3CO3 + GLYOX';
+Rnames{i} = 'C4MDIAL + O3 = MGLYOOA + GLYOX';
 k(:,i) = 5.00e-18.*0.50;
 Gstr{i,1} = 'C4MDIAL'; Gstr{i,2} = 'O3'; 
-fC4MDIAL(i)=fC4MDIAL(i)-1; fO3(i)=fO3(i)-1; fMGLYOO(i)=fMGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fCO(i)=fCO(i)+0.89; fCH3CO3(i)=fCH3CO3(i)+0.89; fGLYOX(i)=fGLYOX(i)+1; 
+fC4MDIAL(i)=fC4MDIAL(i)-1; fO3(i)=fO3(i)-1; fMGLYOOA(i)=fMGLYOOA(i)+1; fGLYOX(i)=fGLYOX(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4MDIAL + O3 = MGLYOX +  + 0.11GLYOO + 0.89OH + 0.89HO2 + 0.89CO + 0.89CO';
+Rnames{i} = 'C4MDIAL + O3 = MGLYOX + GLYOOC';
 k(:,i) = 5.00e-18.*0.50;
 Gstr{i,1} = 'C4MDIAL'; Gstr{i,2} = 'O3'; 
-fC4MDIAL(i)=fC4MDIAL(i)-1; fO3(i)=fO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fGLYOO(i)=fGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fHO2(i)=fHO2(i)+0.89; fCO(i)=fCO(i)+0.89; fCO(i)=fCO(i)+0.89; 
+fC4MDIAL(i)=fC4MDIAL(i)-1; fO3(i)=fO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fGLYOOC(i)=fGLYOOC(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C4MDIAL + OH = C3MCODBCO3';
@@ -4729,22 +5364,22 @@ Gstr{i,1} = 'C58AO2'; Gstr{i,2} = 'NO';
 fC58AO2(i)=fC58AO2(i)-1; fNO(i)=fNO(i)-1; fC58ANO3(i)=fC58ANO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C58AO2 + NO =  + ACETOL + GLYOX + HO2 + NO2';
+Rnames{i} = 'C58AO2 + NO = C58AO + NO2';
 k(:,i) = KRO2NO.*0.935;
 Gstr{i,1} = 'C58AO2'; Gstr{i,2} = 'NO'; 
-fC58AO2(i)=fC58AO2(i)-1; fNO(i)=fNO(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC58AO2(i)=fC58AO2(i)-1; fNO(i)=fNO(i)-1; fC58AO(i)=fC58AO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C58AO2 + NO3 =  + ACETOL + GLYOX + HO2 + NO2';
+Rnames{i} = 'C58AO2 + NO3 = C58AO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C58AO2'; Gstr{i,2} = 'NO3'; 
-fC58AO2(i)=fC58AO2(i)-1; fNO3(i)=fNO3(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC58AO2(i)=fC58AO2(i)-1; fNO3(i)=fNO3(i)-1; fC58AO(i)=fC58AO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C58AO2 =  + ACETOL + GLYOX + HO2';
+Rnames{i} = 'C58AO2 = C58AO';
 k(:,i) = 8.80e-13;
 Gstr{i,1} = 'C58AO2'; Gstr{i,2} = 'RO2';
-fC58AO2(i)=fC58AO2(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC58AO2(i)=fC58AO2(i)-1; fC58AO(i)=fC58AO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C58AO2 = MACROH + CO + OH';
@@ -4783,6 +5418,30 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'IEPOXB';
 fOH(i)=fOH(i)-1; fIEPOXB(i)=fIEPOXB(i)-1; fIEB4CHO(i)=fIEB4CHO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'MACRNOOA = ACETOL + NO2 + CO + OH';
+k(:,i) = KDEC.*0.36;
+Gstr{i,1} = 'MACRNOOA'; 
+fMACRNOOA(i)=fMACRNOOA(i)-1; fACETOL(i)=fACETOL(i)+1; fNO2(i)=fNO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACRNOOA = ACETOL + NO2 + HO2';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'MACRNOOA'; 
+fMACRNOOA(i)=fMACRNOOA(i)-1; fACETOL(i)=fACETOL(i)+1; fNO2(i)=fNO2(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACRNOOA = MACRNOO';
+k(:,i) = KDEC.*0.24;
+Gstr{i,1} = 'MACRNOOA'; 
+fMACRNOOA(i)=fMACRNOOA(i)-1; fMACRNOO(i)=fMACRNOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MACRNOOA = PROPOLNO3';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'MACRNOOA'; 
+fMACRNOOA(i)=fMACRNOOA(i)-1; fPROPOLNO3(i)=fPROPOLNO3(i)+1; 
+
+i=i+1;
 Rnames{i} = 'INB1O2 + HO2 = INB1OOH';
 k(:,i) = KRO2HO2.*0.706;
 Gstr{i,1} = 'INB1O2'; Gstr{i,2} = 'HO2'; 
@@ -4795,16 +5454,16 @@ Gstr{i,1} = 'INB1O2'; Gstr{i,2} = 'NO';
 fINB1O2(i)=fINB1O2(i)-1; fNO(i)=fNO(i)-1; fINB1NO3(i)=fINB1NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INB1O2 + NO =  + HOCH2CHO + ACETOL + NO2 + NO2';
+Rnames{i} = 'INB1O2 + NO = INB1O + NO2';
 k(:,i) = KRO2NO.*0.896;
 Gstr{i,1} = 'INB1O2'; Gstr{i,2} = 'NO'; 
-fINB1O2(i)=fINB1O2(i)-1; fNO(i)=fNO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fACETOL(i)=fACETOL(i)+1; fNO2(i)=fNO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fINB1O2(i)=fINB1O2(i)-1; fNO(i)=fNO(i)-1; fINB1O(i)=fINB1O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INB1O2 + NO3 =  + HOCH2CHO + ACETOL + NO2 + NO2';
+Rnames{i} = 'INB1O2 + NO3 = INB1O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'INB1O2'; Gstr{i,2} = 'NO3'; 
-fINB1O2(i)=fINB1O2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fACETOL(i)=fACETOL(i)+1; fNO2(i)=fNO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fINB1O2(i)=fINB1O2(i)-1; fNO3(i)=fNO3(i)-1; fINB1O(i)=fINB1O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INB1O2 = INB1CO';
@@ -4813,10 +5472,10 @@ Gstr{i,1} = 'INB1O2'; Gstr{i,2} = 'RO2';
 fINB1O2(i)=fINB1O2(i)-1; fINB1CO(i)=fINB1CO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INB1O2 =  + HOCH2CHO + ACETOL + NO2';
+Rnames{i} = 'INB1O2 = INB1O';
 k(:,i) = 2.90e-12.*0.8;
 Gstr{i,1} = 'INB1O2'; Gstr{i,2} = 'RO2';
-fINB1O2(i)=fINB1O2(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fACETOL(i)=fACETOL(i)+1; fNO2(i)=fNO2(i)+1; 
+fINB1O2(i)=fINB1O2(i)-1; fINB1O(i)=fINB1O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INB1O2 = INB1OH';
@@ -4837,10 +5496,10 @@ Gstr{i,1} = 'INB2O2'; Gstr{i,2} = 'NO';
 fINB2O2(i)=fINB2O2(i)-1; fNO(i)=fNO(i)-1; fINANO3(i)=fINANO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INB2O2 + NO =  + C57NO3 + HO2 + NO2';
+Rnames{i} = 'INB2O2 + NO = INB2O + NO2';
 k(:,i) = KRO2NO.*0.913;
 Gstr{i,1} = 'INB2O2'; Gstr{i,2} = 'NO'; 
-fINB2O2(i)=fINB2O2(i)-1; fNO(i)=fNO(i)-1; fC57NO3(i)=fC57NO3(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fINB2O2(i)=fINB2O2(i)-1; fNO(i)=fNO(i)-1; fINB2O(i)=fINB2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INB2O2 = C58NO3';
@@ -4855,10 +5514,10 @@ Gstr{i,1} = 'INB2O2'; Gstr{i,2} = 'RO2';
 fINB2O2(i)=fINB2O2(i)-1; fINB1OH(i)=fINB1OH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INB2O2 =  + C57NO3 + HO2';
+Rnames{i} = 'INB2O2 = INB2O';
 k(:,i) = 8.80e-13.*0.6;
 Gstr{i,1} = 'INB2O2'; Gstr{i,2} = 'RO2';
-fINB2O2(i)=fINB2O2(i)-1; fC57NO3(i)=fC57NO3(i)+1; fHO2(i)=fHO2(i)+1; 
+fINB2O2(i)=fINB2O2(i)-1; fINB2O(i)=fINB2O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + IEPOXC =  C59O2';
@@ -4897,6 +5556,12 @@ Gstr{i,1} = 'C537OOH';
 fC537OOH(i)=fC537OOH(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fOH(i)=fOH(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
+Rnames{i} = 'C537O = GLYOX + HYPERACET + OH';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C537O'; 
+fC537O(i)=fC537O(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
 Rnames{i} = 'DHPMPAL + OH = C3MDIALOOH + OH';
 k(:,i) = 3.77e-11.*0.32;
 Gstr{i,1} = 'DHPMPAL'; Gstr{i,2} = 'OH'; 
@@ -4927,16 +5592,16 @@ Gstr{i,1} = 'DHPMPAL';
 fDHPMPAL(i)=fDHPMPAL(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fOH(i)=fOH(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C5PACALD2 + O3 =  + 0.11MGLYOO + 0.89OH + 0.89CO + 0.89CH3CO3 + HCOCO3H';
+Rnames{i} = 'C5PACALD2 + O3 = MGLYOOA + HCOCO3H';
 k(:,i) = 2.40e-17.*0.73;
 Gstr{i,1} = 'C5PACALD2'; Gstr{i,2} = 'O3'; 
-fC5PACALD2(i)=fC5PACALD2(i)-1; fO3(i)=fO3(i)-1; fMGLYOO(i)=fMGLYOO(i)+0.11; fOH(i)=fOH(i)+0.89; fCO(i)=fCO(i)+0.89; fCH3CO3(i)=fCH3CO3(i)+0.89; fHCOCO3H(i)=fHCOCO3H(i)+1; 
+fC5PACALD2(i)=fC5PACALD2(i)-1; fO3(i)=fO3(i)-1; fMGLYOOA(i)=fMGLYOOA(i)+1; fHCOCO3H(i)=fHCOCO3H(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C5PACALD2 + O3 = MGLYOX +  + HCOCO3 + OH';
+Rnames{i} = 'C5PACALD2 + O3 = MGLYOX + PPGAOOB';
 k(:,i) = 2.40e-17.*0.27;
 Gstr{i,1} = 'C5PACALD2'; Gstr{i,2} = 'O3'; 
-fC5PACALD2(i)=fC5PACALD2(i)-1; fO3(i)=fO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHCOCO3(i)=fHCOCO3(i)+1; fOH(i)=fOH(i)+1; 
+fC5PACALD2(i)=fC5PACALD2(i)-1; fO3(i)=fO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fPPGAOOB(i)=fPPGAOOB(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C5PACALD2 + OH = C535O2';
@@ -4969,10 +5634,16 @@ Gstr{i,1} = 'HYPERACET';
 fHYPERACET(i)=fHYPERACET(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HYPERACET =  + CH3CO3 + HCHO + OH';
+Rnames{i} = 'HYPERACET = CH3COCH2O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HYPERACET'; 
-fHYPERACET(i)=fHYPERACET(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
+fHYPERACET(i)=fHYPERACET(i)-1; fCH3COCH2O(i)=fCH3COCH2O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'PACLOOA = MGLYOX + OH + OH';
+k(:,i) = KDEC;
+Gstr{i,1} = 'PACLOOA'; 
+fPACLOOA(i)=fPACLOOA(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fOH(i)=fOH(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HPC52O2 + HO2 = HPC52OOH';
@@ -4981,22 +5652,22 @@ Gstr{i,1} = 'HPC52O2'; Gstr{i,2} = 'HO2';
 fHPC52O2(i)=fHPC52O2(i)-1; fHO2(i)=fHO2(i)-1; fHPC52OOH(i)=fHPC52OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HPC52O2 + NO =  + GLYOX + HYPERACET + HO2 + NO2';
+Rnames{i} = 'HPC52O2 + NO = HPC52O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'HPC52O2'; Gstr{i,2} = 'NO'; 
-fHPC52O2(i)=fHPC52O2(i)-1; fNO(i)=fNO(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHPC52O2(i)=fHPC52O2(i)-1; fNO(i)=fNO(i)-1; fHPC52O(i)=fHPC52O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HPC52O2 + NO3 =  + GLYOX + HYPERACET + HO2 + NO2';
+Rnames{i} = 'HPC52O2 + NO3 = HPC52O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HPC52O2'; Gstr{i,2} = 'NO3'; 
-fHPC52O2(i)=fHPC52O2(i)-1; fNO3(i)=fNO3(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHPC52O2(i)=fHPC52O2(i)-1; fNO3(i)=fNO3(i)-1; fHPC52O(i)=fHPC52O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HPC52O2 =  + GLYOX + HYPERACET + HO2';
+Rnames{i} = 'HPC52O2 = HPC52O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'HPC52O2'; Gstr{i,2} = 'RO2';
-fHPC52O2(i)=fHPC52O2(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fHO2(i)=fHO2(i)+1; 
+fHPC52O2(i)=fHPC52O2(i)-1; fHPC52O(i)=fHPC52O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HC4CCO3 + HO2 = CH3CO3 + HOCH2CHO + OH';
@@ -5059,10 +5730,10 @@ Gstr{i,1} = 'C57AO2'; Gstr{i,2} = 'HO2';
 fC57AO2(i)=fC57AO2(i)-1; fHO2(i)=fHO2(i)-1; fC57AOOH(i)=fC57AOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C57AO2 + NO =  + HOCH2CHO + MGLYOX + HO2 + NO2';
+Rnames{i} = 'C57AO2 + NO = C57AO + NO2';
 k(:,i) = KRO2NO.*0.935;
 Gstr{i,1} = 'C57AO2'; Gstr{i,2} = 'NO'; 
-fC57AO2(i)=fC57AO2(i)-1; fNO(i)=fNO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC57AO2(i)=fC57AO2(i)-1; fNO(i)=fNO(i)-1; fC57AO(i)=fC57AO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C57AO2 + NO = INDHCHO';
@@ -5071,16 +5742,16 @@ Gstr{i,1} = 'C57AO2'; Gstr{i,2} = 'NO';
 fC57AO2(i)=fC57AO2(i)-1; fNO(i)=fNO(i)-1; fINDHCHO(i)=fINDHCHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C57AO2 + NO3 =  + HOCH2CHO + MGLYOX + HO2 + NO2';
+Rnames{i} = 'C57AO2 + NO3 = C57AO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C57AO2'; Gstr{i,2} = 'NO3'; 
-fC57AO2(i)=fC57AO2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC57AO2(i)=fC57AO2(i)-1; fNO3(i)=fNO3(i)-1; fC57AO(i)=fC57AO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C57AO2 =  + HOCH2CHO + MGLYOX + HO2';
+Rnames{i} = 'C57AO2 = C57AO';
 k(:,i) = 8.80e-13;
 Gstr{i,1} = 'C57AO2'; Gstr{i,2} = 'RO2';
-fC57AO2(i)=fC57AO2(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC57AO2(i)=fC57AO2(i)-1; fC57AO(i)=fC57AO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C57O2 + HO2 = C57OOH';
@@ -5095,22 +5766,22 @@ Gstr{i,1} = 'C57O2'; Gstr{i,2} = 'NO';
 fC57O2(i)=fC57O2(i)-1; fNO(i)=fNO(i)-1; fC57NO3(i)=fC57NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C57O2 + NO =  + MGLYOX + HOCH2CHO + HO2 + NO2';
+Rnames{i} = 'C57O2 + NO = C57O + NO2';
 k(:,i) = KRO2NO.*0.981;
 Gstr{i,1} = 'C57O2'; Gstr{i,2} = 'NO'; 
-fC57O2(i)=fC57O2(i)-1; fNO(i)=fNO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC57O2(i)=fC57O2(i)-1; fNO(i)=fNO(i)-1; fC57O(i)=fC57O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C57O2 + NO3 =  + MGLYOX + HOCH2CHO + HO2 + NO2';
+Rnames{i} = 'C57O2 + NO3 = C57O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C57O2'; Gstr{i,2} = 'NO3'; 
-fC57O2(i)=fC57O2(i)-1; fNO3(i)=fNO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC57O2(i)=fC57O2(i)-1; fNO3(i)=fNO3(i)-1; fC57O(i)=fC57O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C57O2 =  + MGLYOX + HOCH2CHO + HO2';
+Rnames{i} = 'C57O2 = C57O';
 k(:,i) = 9.20e-14.*0.7;
 Gstr{i,1} = 'C57O2'; Gstr{i,2} = 'RO2';
-fC57O2(i)=fC57O2(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fC57O2(i)=fC57O2(i)-1; fC57O(i)=fC57O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C57O2 = C57OH';
@@ -5125,6 +5796,18 @@ Gstr{i,1} = 'C57O2';
 fC57O2(i)=fC57O2(i)-1; fHO12CO3C4(i)=fHO12CO3C4(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
+Rnames{i} = 'NC4OOA = NC4OO';
+k(:,i) = KDEC.*0.18;
+Gstr{i,1} = 'NC4OOA'; 
+fNC4OOA(i)=fNC4OOA(i)-1; fNC4OO(i)=fNC4OO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC4OOA = OH + NO2 + BIACETOH';
+k(:,i) = KDEC.*0.82;
+Gstr{i,1} = 'NC4OOA'; 
+fNC4OOA(i)=fNC4OOA(i)-1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; fBIACETOH(i)=fBIACETOH(i)+1; 
+
+i=i+1;
 Rnames{i} = 'INDO2 + HO2 = INDOOH';
 k(:,i) = KRO2HO2.*0.706;
 Gstr{i,1} = 'INDO2'; Gstr{i,2} = 'HO2'; 
@@ -5137,22 +5820,22 @@ Gstr{i,1} = 'INDO2'; Gstr{i,2} = 'NO';
 fINDO2(i)=fINDO2(i)-1; fNO(i)=fNO(i)-1; fINB1NO3(i)=fINB1NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INDO2 + NO =  + ACETOL + HOCH2CHO + NO2 + HCHO + HO2 + MVKNO3 + NO2';
+Rnames{i} = 'INDO2 + NO = INDO + NO2';
 k(:,i) = KRO2NO.*0.896;
 Gstr{i,1} = 'INDO2'; Gstr{i,2} = 'NO'; 
-fINDO2(i)=fINDO2(i)-1; fNO(i)=fNO(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fMVKNO3(i)=fMVKNO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fINDO2(i)=fINDO2(i)-1; fNO(i)=fNO(i)-1; fINDO(i)=fINDO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INDO2 + NO3 =  + ACETOL + HOCH2CHO + NO2 + HCHO + HO2 + MVKNO3 + NO2';
+Rnames{i} = 'INDO2 + NO3 = INDO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'INDO2'; Gstr{i,2} = 'NO3'; 
-fINDO2(i)=fINDO2(i)-1; fNO3(i)=fNO3(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fMVKNO3(i)=fMVKNO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fINDO2(i)=fINDO2(i)-1; fNO3(i)=fNO3(i)-1; fINDO(i)=fINDO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INDO2 =  + ACETOL + HOCH2CHO + NO2 + HCHO + HO2 + MVKNO3';
+Rnames{i} = 'INDO2 = INDO';
 k(:,i) = 8.00e-13.*0.8;
 Gstr{i,1} = 'INDO2'; Gstr{i,2} = 'RO2';
-fINDO2(i)=fINDO2(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fMVKNO3(i)=fMVKNO3(i)+1; 
+fINDO2(i)=fINDO2(i)-1; fINDO(i)=fINDO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INDO2 = INDOH';
@@ -5167,28 +5850,28 @@ Gstr{i,1} = 'C59O2'; Gstr{i,2} = 'HO2';
 fC59O2(i)=fC59O2(i)-1; fHO2(i)=fHO2(i)-1; fC59OOH(i)=fC59OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C59O2 + NO =  + ACETOL + HOCH2CO3 + NO2';
+Rnames{i} = 'C59O2 + NO = C59O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C59O2'; Gstr{i,2} = 'NO'; 
-fC59O2(i)=fC59O2(i)-1; fNO(i)=fNO(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fC59O2(i)=fC59O2(i)-1; fNO(i)=fNO(i)-1; fC59O(i)=fC59O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C59O2 + NO3 =  + ACETOL + HOCH2CO3 + NO2';
+Rnames{i} = 'C59O2 + NO3 = C59O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C59O2'; Gstr{i,2} = 'NO3'; 
-fC59O2(i)=fC59O2(i)-1; fNO3(i)=fNO3(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fC59O2(i)=fC59O2(i)-1; fNO3(i)=fNO3(i)-1; fC59O(i)=fC59O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C59O2 =  + ACETOL + HOCH2CO3';
+Rnames{i} = 'C59O2 = C59O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'C59O2'; Gstr{i,2} = 'RO2';
-fC59O2(i)=fC59O2(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; 
+fC59O2(i)=fC59O2(i)-1; fC59O(i)=fC59O(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INAOOH =  + ACETOL + NO3CH2CHO + HO2 + OH';
+Rnames{i} = 'INAOOH = INAO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'INAOOH'; 
-fINAOOH(i)=fINAOOH(i)-1; fACETOL(i)=fACETOL(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fINAOOH(i)=fINAOOH(i)-1; fINAO(i)=fINAO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + INAOOH = INAHPCHO + HO2';
@@ -5231,6 +5914,12 @@ Rnames{i} = 'OH + INANO3 = INANCO + HO2';
 k(:,i) = 2.00e-12.*0.14;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'INANO3'; 
 fOH(i)=fOH(i)-1; fINANO3(i)=fINANO3(i)-1; fINANCO(i)=fINANCO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'INAO = ACETOL + NO3CH2CHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'INAO'; 
+fINAO(i)=fINAO(i)-1; fACETOL(i)=fACETOL(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + INAOH = INAHCHO + HO2';
@@ -5281,10 +5970,10 @@ Gstr{i,1} = 'NC41OO';
 fNC41OO(i)=fNC41OO(i)-1; fHMVKANO3(i)=fHMVKANO3(i)+1; fH2O2(i)=fH2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C58OOH =  + ACETOL + GLYOX + HO2 + OH';
+Rnames{i} = 'C58OOH = C58O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C58OOH'; 
-fC58OOH(i)=fC58OOH(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC58OOH(i)=fC58OOH(i)-1; fC58O(i)=fC58O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + C58OOH = C4MALOHOOH + HO2';
@@ -5305,10 +5994,16 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'C58NO3';
 fOH(i)=fOH(i)-1; fC58NO3(i)=fC58NO3(i)-1; fC58NO3CO3(i)=fC58NO3CO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + C58OH =  + ACETOL + GLYOX + HO2';
+Rnames{i} = 'C58O = ACETOL + GLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C58O'; 
+fC58O(i)=fC58O(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'OH + C58OH = C58O';
 k(:,i) = 3.04e-11;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'C58OH'; 
-fOH(i)=fOH(i)-1; fC58OH(i)=fC58OH(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fOH(i)=fOH(i)-1; fC58OH(i)=fC58OH(i)-1; fC58O(i)=fC58O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HC4CO3H + OH =  HC4CO3';
@@ -5371,10 +6066,10 @@ Gstr{i,1} = 'C4CO2OOH'; Gstr{i,2} = 'OH';
 fC4CO2OOH(i)=fC4CO2OOH(i)-1; fOH(i)=fOH(i)-1; fCO23C3CHO(i)=fCO23C3CHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4CO2OOH =  + 0.5GLYOX + 0.5CH3CO3 + 0.5MGLYOX + 0.5HO2 + 0.5CO + OH';
+Rnames{i} = 'C4CO2OOH = C4CO2O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C4CO2OOH'; 
-fC4CO2OOH(i)=fC4CO2OOH(i)-1; fGLYOX(i)=fGLYOX(i)+0.5; fCH3CO3(i)=fCH3CO3(i)+0.5; fMGLYOX(i)=fMGLYOX(i)+0.5; fHO2(i)=fHO2(i)+0.5; fCO(i)=fCO(i)+0.5; fOH(i)=fOH(i)+1; 
+fC4CO2OOH(i)=fC4CO2OOH(i)-1; fC4CO2O(i)=fC4CO2O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C4CO2OOH = CH3CO3 + GLYOX + OH';
@@ -5387,6 +6082,18 @@ Rnames{i} = 'C4CO2OOH = HO2 + CO + MGLYOX + OH';
 k(:,i) = J17;
 Gstr{i,1} = 'C4CO2OOH'; 
 fC4CO2OOH(i)=fC4CO2OOH(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C4CO2O = GLYOX + CH3CO3';
+k(:,i) = KDEC.*0.5;
+Gstr{i,1} = 'C4CO2O'; 
+fC4CO2O(i)=fC4CO2O(i)-1; fGLYOX(i)=fGLYOX(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C4CO2O = MGLYOX + HO2 + CO';
+k(:,i) = KDEC.*0.5;
+Gstr{i,1} = 'C4CO2O'; 
+fC4CO2O(i)=fC4CO2O(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'CO2C3CO2H + OH = CH3COCH2O2';
@@ -5419,22 +6126,22 @@ Gstr{i,1} = 'ACRO2'; Gstr{i,2} = 'HO2';
 fACRO2(i)=fACRO2(i)-1; fHO2(i)=fHO2(i)-1; fHOCHOCOOH(i)=fHOCHOCOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ACRO2 + NO =  + HOCH2CHO + HO2 + CO + NO2';
+Rnames{i} = 'ACRO2 + NO = CHOCOHCO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'ACRO2'; Gstr{i,2} = 'NO'; 
-fACRO2(i)=fACRO2(i)-1; fNO(i)=fNO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fNO2(i)=fNO2(i)+1; 
+fACRO2(i)=fACRO2(i)-1; fNO(i)=fNO(i)-1; fCHOCOHCO(i)=fCHOCOHCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ACRO2 + NO3 =  + HOCH2CHO + HO2 + CO + NO2';
+Rnames{i} = 'ACRO2 + NO3 = CHOCOHCO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'ACRO2'; Gstr{i,2} = 'NO3'; 
-fACRO2(i)=fACRO2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fNO2(i)=fNO2(i)+1; 
+fACRO2(i)=fACRO2(i)-1; fNO3(i)=fNO3(i)-1; fCHOCOHCO(i)=fCHOCOHCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ACRO2 =  + HOCH2CHO + HO2 + CO';
+Rnames{i} = 'ACRO2 = CHOCOHCO';
 k(:,i) = 8.8e-13.*0.6;
 Gstr{i,1} = 'ACRO2'; Gstr{i,2} = 'RO2';
-fACRO2(i)=fACRO2(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
+fACRO2(i)=fACRO2(i)-1; fCHOCOHCO(i)=fCHOCOHCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ACRO2 = HOCH2CHO + CO + OH';
@@ -5473,10 +6180,10 @@ Gstr{i,1} = 'OCCOHCO2'; Gstr{i,2} = 'NO';
 fOCCOHCO2(i)=fOCCOHCO2(i)-1; fNO(i)=fNO(i)-1; fC42AOH(i)=fC42AOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OCCOHCO2 + NO =  + HCHO + GLYOX + HO2 + NO2';
+Rnames{i} = 'OCCOHCO2 + NO = OCCOHCO + NO2';
 k(:,i) = 0.95.*KRO2NO;
 Gstr{i,1} = 'OCCOHCO2'; Gstr{i,2} = 'NO'; 
-fOCCOHCO2(i)=fOCCOHCO2(i)-1; fNO(i)=fNO(i)-1; fHCHO(i)=fHCHO(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fOCCOHCO2(i)=fOCCOHCO2(i)-1; fNO(i)=fNO(i)-1; fOCCOHCO(i)=fOCCOHCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OCCOHCO2 + NO3 = C42AOH + NO2';
@@ -5491,10 +6198,10 @@ Gstr{i,1} = 'OCCOHCO2'; Gstr{i,2} = 'RO2';
 fOCCOHCO2(i)=fOCCOHCO2(i)-1; fC32OH13CO(i)=fC32OH13CO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OCCOHCO2 =  + HCHO + GLYOX + HO2';
+Rnames{i} = 'OCCOHCO2 = OCCOHCO';
 k(:,i) = 2.0e-12.*0.6;
 Gstr{i,1} = 'OCCOHCO2'; Gstr{i,2} = 'RO2';
-fOCCOHCO2(i)=fOCCOHCO2(i)-1; fHCHO(i)=fHCHO(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fOCCOHCO2(i)=fOCCOHCO2(i)-1; fOCCOHCO(i)=fOCCOHCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OCCOHCO2 = OCCOHCOH';
@@ -5509,16 +6216,40 @@ Gstr{i,1} = 'C2H4'; Gstr{i,2} = 'NO3';
 fC2H4(i)=fC2H4(i)-1; fNO3(i)=fNO3(i)-1; fETHENO3O2(i)=fETHENO3O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C2H4 + O3 = HCHO +  + 0.37CH2OO + 0.50CO + 0.13HO2 + 0.13CO + 0.13OH';
+Rnames{i} = 'C2H4 + O3 = HCHO + CH2OOA';
 k(:,i) = 9.1e-15.*exp(-2580./T);
 Gstr{i,1} = 'C2H4'; Gstr{i,2} = 'O3'; 
-fC2H4(i)=fC2H4(i)-1; fO3(i)=fO3(i)-1; fHCHO(i)=fHCHO(i)+1; fCH2OO(i)=fCH2OO(i)+0.37; fCO(i)=fCO(i)+0.50; fHO2(i)=fHO2(i)+0.13; fCO(i)=fCO(i)+0.13; fOH(i)=fOH(i)+0.13; 
+fC2H4(i)=fC2H4(i)-1; fO3(i)=fO3(i)-1; fHCHO(i)=fHCHO(i)+1; fCH2OOA(i)=fCH2OOA(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C2H4 + OH = HOCH2CH2O2';
 k(:,i) = KMT15;
 Gstr{i,1} = 'C2H4'; Gstr{i,2} = 'OH'; 
 fC2H4(i)=fC2H4(i)-1; fOH(i)=fOH(i)-1; fHOCH2CH2O2(i)=fHOCH2CH2O2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'GLYOOB = GLYOO';
+k(:,i) = KDEC.*0.24;
+Gstr{i,1} = 'GLYOOB'; 
+fGLYOOB(i)=fGLYOOB(i)-1; fGLYOO(i)=fGLYOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'GLYOOB = HCHO';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'GLYOOB'; 
+fGLYOOB(i)=fGLYOOB(i)-1; fHCHO(i)=fHCHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'GLYOOB = HO2 + HO2 + CO';
+k(:,i) = KDEC.*0.20;
+Gstr{i,1} = 'GLYOOB'; 
+fGLYOOB(i)=fGLYOOB(i)-1; fHO2(i)=fHO2(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'GLYOOB = OH + CO + CO + HO2';
+k(:,i) = KDEC.*0.36;
+Gstr{i,1} = 'GLYOOB'; 
+fGLYOOB(i)=fGLYOOB(i)-1; fOH(i)=fOH(i)+1; fCO(i)=fCO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C524O2 + HO2 = C524OOH';
@@ -5533,16 +6264,16 @@ Gstr{i,1} = 'C524O2'; Gstr{i,2} = 'NO';
 fC524O2(i)=fC524O2(i)-1; fNO(i)=fNO(i)-1; fC524NO3(i)=fC524NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C524O2 + NO =  + HMACR + HCHO + HO2 + NO2';
+Rnames{i} = 'C524O2 + NO = C524O + NO2';
 k(:,i) = KRO2NO.*0.896;
 Gstr{i,1} = 'C524O2'; Gstr{i,2} = 'NO'; 
-fC524O2(i)=fC524O2(i)-1; fNO(i)=fNO(i)-1; fHMACR(i)=fHMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC524O2(i)=fC524O2(i)-1; fNO(i)=fNO(i)-1; fC524O(i)=fC524O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C524O2 + NO3 =  + HMACR + HCHO + HO2 + NO2';
+Rnames{i} = 'C524O2 + NO3 = C524O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C524O2'; Gstr{i,2} = 'NO3'; 
-fC524O2(i)=fC524O2(i)-1; fNO3(i)=fNO3(i)-1; fHMACR(i)=fHMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC524O2(i)=fC524O2(i)-1; fNO3(i)=fNO3(i)-1; fC524O(i)=fC524O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C524O2 = C524CO';
@@ -5551,10 +6282,10 @@ Gstr{i,1} = 'C524O2'; Gstr{i,2} = 'RO2';
 fC524O2(i)=fC524O2(i)-1; fC524CO(i)=fC524CO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C524O2 =  + HMACR + HCHO + HO2';
+Rnames{i} = 'C524O2 = C524O';
 k(:,i) = 2.90e-12.*0.8;
 Gstr{i,1} = 'C524O2'; Gstr{i,2} = 'RO2';
-fC524O2(i)=fC524O2(i)-1; fHMACR(i)=fHMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fC524O2(i)=fC524O2(i)-1; fC524O(i)=fC524O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C524O2 = C524OH';
@@ -5593,10 +6324,28 @@ Gstr{i,1} = 'C527NO3'; Gstr{i,2} = 'OH';
 fC527NO3(i)=fC527NO3(i)-1; fOH(i)=fOH(i)-1; fMACROOH(i)=fMACROOH(i)+1; fCO(i)=fCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C527NO3 =  + GLYOX + ACETOL + OH + NO2';
+Rnames{i} = 'C527NO3 = C527O + NO2';
 k(:,i) = J56.*10;
 Gstr{i,1} = 'C527NO3'; 
-fC527NO3(i)=fC527NO3(i)-1; fGLYOX(i)=fGLYOX(i)+1; fACETOL(i)=fACETOL(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC527NO3(i)=fC527NO3(i)-1; fC527O(i)=fC527O(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C527O = GLYOX + ACETOL + OH';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C527O'; 
+fC527O(i)=fC527O(i)-1; fGLYOX(i)=fGLYOX(i)+1; fACETOL(i)=fACETOL(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'M3FOOA = C531O2 + OH';
+k(:,i) = KDEC.*0.6;
+Gstr{i,1} = 'M3FOOA'; 
+fM3FOOA(i)=fM3FOOA(i)-1; fC531O2(i)=fC531O2(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'M3FOOA = M3FOO';
+k(:,i) = KDEC.*0.4;
+Gstr{i,1} = 'M3FOOA'; 
+fM3FOOA(i)=fM3FOOA(i)-1; fM3FOO(i)=fM3FOO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HOCH2CO2H + OH = HCHO + HO2';
@@ -5645,6 +6394,12 @@ Rnames{i} = 'INCNCHO = GLYOX + NOA + HO2 + NO2';
 k(:,i) = J56.*10;
 Gstr{i,1} = 'INCNCHO'; 
 fINCNCHO(i)=fINCNCHO(i)-1; fGLYOX(i)=fGLYOX(i)+1; fNOA(i)=fNOA(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C59O = ACETOL + HOCH2CO3';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C59O'; 
+fC59O(i)=fC59O(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INCGLYOX = MACRNBCO3 + CO + HO2';
@@ -5977,6 +6732,18 @@ Gstr{i,1} = 'PRNO3CO3'; Gstr{i,2} = 'RO2';
 fPRNO3CO3(i)=fPRNO3CO3(i)-1; fPRNO3CO2H(i)=fPRNO3CO2H(i)+1; 
 
 i=i+1;
+Rnames{i} = 'PROPALO = CH3CHO + HO2 + CO';
+k(:,i) = KDEC;
+Gstr{i,1} = 'PROPALO'; 
+fPROPALO(i)=fPROPALO(i)-1; fCH3CHO(i)=fCH3CHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HCOCH2O = HCHO + CO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'HCOCH2O'; 
+fHCOCH2O(i)=fHCOCH2O(i)-1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
 Rnames{i} = 'CH3CHOHCO3 + HO2 = CH3CHO + HO2 + OH';
 k(:,i) = KAPHO2.*0.44;
 Gstr{i,1} = 'CH3CHOHCO3'; Gstr{i,2} = 'HO2'; 
@@ -6157,22 +6924,28 @@ Gstr{i,1} = 'MVKOHAOOH'; Gstr{i,2} = 'OH';
 fMVKOHAOOH(i)=fMVKOHAOOH(i)-1; fOH(i)=fOH(i)-1; fH13CO2CHO(i)=fH13CO2CHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHAOOH =  + HOCH2COCHO + HCHO + HO2 + OH';
+Rnames{i} = 'MVKOHAOOH = MVKOHAO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'MVKOHAOOH'; 
-fMVKOHAOOH(i)=fMVKOHAOOH(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fMVKOHAOOH(i)=fMVKOHAOOH(i)-1; fMVKOHAO(i)=fMVKOHAO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHAOOH =  + HOCH2COCHO + HCHO + HO2 + OH';
+Rnames{i} = 'MVKOHAOOH = MVKOHAO + OH';
 k(:,i) = J22;
 Gstr{i,1} = 'MVKOHAOOH'; 
-fMVKOHAOOH(i)=fMVKOHAOOH(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fMVKOHAOOH(i)=fMVKOHAOOH(i)-1; fMVKOHAO(i)=fMVKOHAO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MVKOHANO3 + OH = H13CO2CHO + NO2';
 k(:,i) = 4.37e-12;
 Gstr{i,1} = 'MVKOHANO3'; Gstr{i,2} = 'OH'; 
 fMVKOHANO3(i)=fMVKOHANO3(i)-1; fOH(i)=fOH(i)-1; fH13CO2CHO(i)=fH13CO2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MVKOHAO = HOCH2COCHO + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'MVKOHAO'; 
+fMVKOHAO(i)=fMVKOHAO(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'H13CO2CHO = HOCH2CHO + CO + HO2 + HO2';
@@ -6217,10 +6990,16 @@ Gstr{i,1} = 'MVKOHBOOH';
 fMVKOHBOOH(i)=fMVKOHBOOH(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MVKOHBOOH =  + HOCH2CHO + HOCH2CO3 + OH';
+Rnames{i} = 'MVKOHBOOH = MVKOHBO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'MVKOHBOOH'; 
-fMVKOHBOOH(i)=fMVKOHBOOH(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fOH(i)=fOH(i)+1; 
+fMVKOHBOOH(i)=fMVKOHBOOH(i)-1; fMVKOHBO(i)=fMVKOHBO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MVKOHBO = HOCH2CHO + HOCH2CO3';
+k(:,i) = KDEC;
+Gstr{i,1} = 'MVKOHBO'; 
+fMVKOHBO(i)=fMVKOHBO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; 
 
 i=i+1;
 Rnames{i} = 'H14CO23C4 + OH = H1CO23CHO + HO2';
@@ -6283,10 +7062,16 @@ Gstr{i,1} = 'C526NO3'; Gstr{i,2} = 'OH';
 fC526NO3(i)=fC526NO3(i)-1; fOH(i)=fOH(i)-1; fHMVKBOOH(i)=fHMVKBOOH(i)+1; fCO(i)=fCO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C526NO3 =  + MGLYOX + HOCH2CHO + OH + NO2';
+Rnames{i} = 'C526NO3 = C526O + NO2';
 k(:,i) = J56.*10;
 Gstr{i,1} = 'C526NO3'; 
-fC526NO3(i)=fC526NO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; fNO2(i)=fNO2(i)+1; 
+fC526NO3(i)=fC526NO3(i)-1; fC526O(i)=fC526O(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C526O = MGLYOX + HOCH2CHO + OH';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C526O'; 
+fC526O(i)=fC526O(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NC2OO + CO = NO3CH2CHO';
@@ -6409,10 +7194,10 @@ Gstr{i,1} = 'C3MDIALOOH'; Gstr{i,2} = 'OH';
 fC3MDIALOOH(i)=fC3MDIALOOH(i)-1; fOH(i)=fOH(i)-1; fC3MDIALO2(i)=fC3MDIALO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3MDIALOOH =  + MGLYOX + CO + HO2 + OH';
+Rnames{i} = 'C3MDIALOOH = C3MDIALO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C3MDIALOOH'; 
-fC3MDIALOOH(i)=fC3MDIALOOH(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC3MDIALOOH(i)=fC3MDIALOOH(i)-1; fC3MDIALO(i)=fC3MDIALO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C3MDIALOOH = MGLYOX + OH + HO2 + CO';
@@ -6421,16 +7206,16 @@ Gstr{i,1} = 'C3MDIALOOH';
 fC3MDIALOOH(i)=fC3MDIALOOH(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fOH(i)=fOH(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'BIACETOOH =  + CH3CO3 + HCHO + CO + OH';
+Rnames{i} = 'BIACETOOH = BIACETO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'BIACETOOH'; 
-fBIACETOOH(i)=fBIACETOOH(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+fBIACETOOH(i)=fBIACETOOH(i)-1; fBIACETO(i)=fBIACETO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'BIACETOOH =  + CH3CO3 + HCHO + CO + OH';
+Rnames{i} = 'BIACETOOH = BIACETO + OH';
 k(:,i) = J35;
 Gstr{i,1} = 'BIACETOOH'; 
-fBIACETOOH(i)=fBIACETOOH(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+fBIACETOOH(i)=fBIACETOOH(i)-1; fBIACETO(i)=fBIACETO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + BIACETOOH = BIACETO2';
@@ -6463,34 +7248,46 @@ Gstr{i,1} = 'CH3COCO3H';
 fCH3COCO3H(i)=fCH3COCO3H(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
+Rnames{i} = 'PPACLOOA = CH3COCO3 + OH';
+k(:,i) = KDEC;
+Gstr{i,1} = 'PPACLOOA'; 
+fPPACLOOA(i)=fPPACLOOA(i)-1; fCH3COCO3(i)=fCH3COCO3(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
 Rnames{i} = 'C534O2 + HO2 = C534OOH';
 k(:,i) = KRO2HO2.*0.706;
 Gstr{i,1} = 'C534O2'; Gstr{i,2} = 'HO2'; 
 fC534O2(i)=fC534O2(i)-1; fHO2(i)=fHO2(i)-1; fC534OOH(i)=fC534OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C534O2 + NO =  + CH3COCO3H + GLYOX + HO2 + NO2';
+Rnames{i} = 'C534O2 + NO = C534O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C534O2'; Gstr{i,2} = 'NO'; 
-fC534O2(i)=fC534O2(i)-1; fNO(i)=fNO(i)-1; fCH3COCO3H(i)=fCH3COCO3H(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC534O2(i)=fC534O2(i)-1; fNO(i)=fNO(i)-1; fC534O(i)=fC534O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C534O2 + NO3 =  + CH3COCO3H + GLYOX + HO2 + NO2';
+Rnames{i} = 'C534O2 + NO3 = C534O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C534O2'; Gstr{i,2} = 'NO3'; 
-fC534O2(i)=fC534O2(i)-1; fNO3(i)=fNO3(i)-1; fCH3COCO3H(i)=fCH3COCO3H(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC534O2(i)=fC534O2(i)-1; fNO3(i)=fNO3(i)-1; fC534O(i)=fC534O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C534O2 =  + CH3COCO3H + GLYOX + HO2';
+Rnames{i} = 'C534O2 = C534O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'C534O2'; Gstr{i,2} = 'RO2';
-fC534O2(i)=fC534O2(i)-1; fCH3COCO3H(i)=fCH3COCO3H(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC534O2(i)=fC534O2(i)-1; fC534O(i)=fC534O(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3MCODBCO3 + HO2 =  + 0.35MGLYOX + 0.35HO2 + 0.35CO + 0.65MMALANHY + 0.65HO2 + OH';
+Rnames{i} = 'C4M2ALOHO = GLYOX + MGLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C4M2ALOHO'; 
+fC4M2ALOHO(i)=fC4M2ALOHO(i)-1; fGLYOX(i)=fGLYOX(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C3MCODBCO3 + HO2 = C3MCODBCO2 + OH';
 k(:,i) = KAPHO2.*0.44;
 Gstr{i,1} = 'C3MCODBCO3'; Gstr{i,2} = 'HO2'; 
-fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fHO2(i)=fHO2(i)-1; fMGLYOX(i)=fMGLYOX(i)+0.35; fHO2(i)=fHO2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; fOH(i)=fOH(i)+1; 
+fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fHO2(i)=fHO2(i)-1; fC3MCODBCO2(i)=fC3MCODBCO2(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C3MCODBCO3 + HO2 = C5PACALD1';
@@ -6499,10 +7296,10 @@ Gstr{i,1} = 'C3MCODBCO3'; Gstr{i,2} = 'HO2';
 fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fHO2(i)=fHO2(i)-1; fC5PACALD1(i)=fC5PACALD1(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3MCODBCO3 + NO =  + 0.35MGLYOX + 0.35HO2 + 0.35CO + 0.65MMALANHY + 0.65HO2 + NO2';
+Rnames{i} = 'C3MCODBCO3 + NO = C3MCODBCO2 + NO2';
 k(:,i) = KAPNO;
 Gstr{i,1} = 'C3MCODBCO3'; Gstr{i,2} = 'NO'; 
-fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fNO(i)=fNO(i)-1; fMGLYOX(i)=fMGLYOX(i)+0.35; fHO2(i)=fHO2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; fNO2(i)=fNO2(i)+1; 
+fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fNO(i)=fNO(i)-1; fC3MCODBCO2(i)=fC3MCODBCO2(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C3MCODBCO3 + NO2 = C3MCODBPAN';
@@ -6511,16 +7308,16 @@ Gstr{i,1} = 'C3MCODBCO3'; Gstr{i,2} = 'NO2';
 fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fNO2(i)=fNO2(i)-1; fC3MCODBPAN(i)=fC3MCODBPAN(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3MCODBCO3 + NO3 = NO2 +  + 0.35MGLYOX + 0.35HO2 + 0.35CO + 0.65MMALANHY + 0.65HO2';
+Rnames{i} = 'C3MCODBCO3 + NO3 = NO2 + C3MCODBCO2';
 k(:,i) = KRO2NO3.*1.74;
 Gstr{i,1} = 'C3MCODBCO3'; Gstr{i,2} = 'NO3'; 
-fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fNO3(i)=fNO3(i)-1; fNO2(i)=fNO2(i)+1; fMGLYOX(i)=fMGLYOX(i)+0.35; fHO2(i)=fHO2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; 
+fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fNO3(i)=fNO3(i)-1; fNO2(i)=fNO2(i)+1; fC3MCODBCO2(i)=fC3MCODBCO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3MCODBCO3 =  + 0.35MGLYOX + 0.35HO2 + 0.35CO + 0.65MMALANHY + 0.65HO2';
+Rnames{i} = 'C3MCODBCO3 = C3MCODBCO2';
 k(:,i) = 1.00e-11;
 Gstr{i,1} = 'C3MCODBCO3'; Gstr{i,2} = 'RO2';
-fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+0.35; fHO2(i)=fHO2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; 
+fC3MCODBCO3(i)=fC3MCODBCO3(i)-1; fC3MCODBCO2(i)=fC3MCODBCO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MC3CODBCO3 + HO2 = C5PACALD2';
@@ -6529,10 +7326,10 @@ Gstr{i,1} = 'MC3CODBCO3'; Gstr{i,2} = 'HO2';
 fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fHO2(i)=fHO2(i)-1; fC5PACALD2(i)=fC5PACALD2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MC3CODBCO3 + HO2 =  + 0.35GLYOX + 0.35CH3O2 + 0.35CO + 0.65MMALANHY + 0.65HO2 + OH';
+Rnames{i} = 'MC3CODBCO3 + HO2 = MC3CODBCO2 + OH';
 k(:,i) = KAPHO2.*0.44;
 Gstr{i,1} = 'MC3CODBCO3'; Gstr{i,2} = 'HO2'; 
-fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fHO2(i)=fHO2(i)-1; fGLYOX(i)=fGLYOX(i)+0.35; fCH3O2(i)=fCH3O2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; fOH(i)=fOH(i)+1; 
+fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fHO2(i)=fHO2(i)-1; fMC3CODBCO2(i)=fMC3CODBCO2(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MC3CODBCO3 + HO2 = MC3ODBCO2H + O3';
@@ -6541,10 +7338,10 @@ Gstr{i,1} = 'MC3CODBCO3'; Gstr{i,2} = 'HO2';
 fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fHO2(i)=fHO2(i)-1; fMC3ODBCO2H(i)=fMC3ODBCO2H(i)+1; fO3(i)=fO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MC3CODBCO3 + NO =  + 0.35GLYOX + 0.35CH3O2 + 0.35CO + 0.65MMALANHY + 0.65HO2 + NO2';
+Rnames{i} = 'MC3CODBCO3 + NO = MC3CODBCO2 + NO2';
 k(:,i) = KAPNO;
 Gstr{i,1} = 'MC3CODBCO3'; Gstr{i,2} = 'NO'; 
-fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fNO(i)=fNO(i)-1; fGLYOX(i)=fGLYOX(i)+0.35; fCH3O2(i)=fCH3O2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; fNO2(i)=fNO2(i)+1; 
+fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fNO(i)=fNO(i)-1; fMC3CODBCO2(i)=fMC3CODBCO2(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MC3CODBCO3 + NO2 = MC3CODBPAN';
@@ -6553,16 +7350,16 @@ Gstr{i,1} = 'MC3CODBCO3'; Gstr{i,2} = 'NO2';
 fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fNO2(i)=fNO2(i)-1; fMC3CODBPAN(i)=fMC3CODBPAN(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MC3CODBCO3 + NO3 =  + 0.35GLYOX + 0.35CH3O2 + 0.35CO + 0.65MMALANHY + 0.65HO2 + NO2';
+Rnames{i} = 'MC3CODBCO3 + NO3 = MC3CODBCO2 + NO2';
 k(:,i) = KRO2NO3.*1.74;
 Gstr{i,1} = 'MC3CODBCO3'; Gstr{i,2} = 'NO3'; 
-fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fNO3(i)=fNO3(i)-1; fGLYOX(i)=fGLYOX(i)+0.35; fCH3O2(i)=fCH3O2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; fNO2(i)=fNO2(i)+1; 
+fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fNO3(i)=fNO3(i)-1; fMC3CODBCO2(i)=fMC3CODBCO2(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MC3CODBCO3 =  + 0.35GLYOX + 0.35CH3O2 + 0.35CO + 0.65MMALANHY + 0.65HO2';
+Rnames{i} = 'MC3CODBCO3 = MC3CODBCO2';
 k(:,i) = 1.00e-11.*0.70;
 Gstr{i,1} = 'MC3CODBCO3'; Gstr{i,2} = 'RO2';
-fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fGLYOX(i)=fGLYOX(i)+0.35; fCH3O2(i)=fCH3O2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; 
+fMC3CODBCO3(i)=fMC3CODBCO3(i)-1; fMC3CODBCO2(i)=fMC3CODBCO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MC3CODBCO3 = MC3ODBCO2H';
@@ -6577,16 +7374,16 @@ Gstr{i,1} = 'C4M2ALOHO2'; Gstr{i,2} = 'HO2';
 fC4M2ALOHO2(i)=fC4M2ALOHO2(i)-1; fHO2(i)=fHO2(i)-1; fC4MALOHOOH(i)=fC4MALOHOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4M2ALOHO2 + NO =  + GLYOX + MGLYOX + HO2 + NO2';
+Rnames{i} = 'C4M2ALOHO2 + NO = C4M2ALOHO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C4M2ALOHO2'; Gstr{i,2} = 'NO'; 
-fC4M2ALOHO2(i)=fC4M2ALOHO2(i)-1; fNO(i)=fNO(i)-1; fGLYOX(i)=fGLYOX(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC4M2ALOHO2(i)=fC4M2ALOHO2(i)-1; fNO(i)=fNO(i)-1; fC4M2ALOHO(i)=fC4M2ALOHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4M2ALOHO2 + NO3 =  + GLYOX + MGLYOX + HO2 + NO2';
+Rnames{i} = 'C4M2ALOHO2 + NO3 = C4M2ALOHO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C4M2ALOHO2'; Gstr{i,2} = 'NO3'; 
-fC4M2ALOHO2(i)=fC4M2ALOHO2(i)-1; fNO3(i)=fNO3(i)-1; fGLYOX(i)=fGLYOX(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC4M2ALOHO2(i)=fC4M2ALOHO2(i)-1; fNO3(i)=fNO3(i)-1; fC4M2ALOHO(i)=fC4M2ALOHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C4M2ALOHO2 = C4M2AL2OH';
@@ -6595,10 +7392,10 @@ Gstr{i,1} = 'C4M2ALOHO2'; Gstr{i,2} = 'RO2';
 fC4M2ALOHO2(i)=fC4M2ALOHO2(i)-1; fC4M2AL2OH(i)=fC4M2AL2OH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4M2ALOHO2 =  + GLYOX + MGLYOX + HO2';
+Rnames{i} = 'C4M2ALOHO2 = C4M2ALOHO';
 k(:,i) = 9.20e-14.*0.70;
 Gstr{i,1} = 'C4M2ALOHO2'; Gstr{i,2} = 'RO2';
-fC4M2ALOHO2(i)=fC4M2ALOHO2(i)-1; fGLYOX(i)=fGLYOX(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC4M2ALOHO2(i)=fC4M2ALOHO2(i)-1; fC4M2ALOHO(i)=fC4M2ALOHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PXYFUONE + NO3 = NPXYFUO2';
@@ -6655,10 +7452,10 @@ Gstr{i,1} = 'C58AOOH'; Gstr{i,2} = 'OH';
 fC58AOOH(i)=fC58AOOH(i)-1; fOH(i)=fOH(i)-1; fMACROH(i)=fMACROH(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C58AOOH =  + ACETOL + GLYOX + HO2 + OH';
+Rnames{i} = 'C58AOOH = C58AO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C58AOOH'; 
-fC58AOOH(i)=fC58AOOH(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC58AOOH(i)=fC58AOOH(i)-1; fC58AO(i)=fC58AO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C58ANO3 + OH = C47CHO + HO2';
@@ -6671,6 +7468,12 @@ Rnames{i} = 'C58ANO3 = GLYOX + ACETOL + HO2 + NO2';
 k(:,i) = J56.*10;
 Gstr{i,1} = 'C58ANO3'; 
 fC58ANO3(i)=fC58ANO3(i)-1; fGLYOX(i)=fGLYOX(i)+1; fACETOL(i)=fACETOL(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C58AO = ACETOL + GLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C58AO'; 
+fC58AO(i)=fC58AO(i)-1; fACETOL(i)=fACETOL(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'IEB1CHO + OH = C4M2ALOHO2';
@@ -6739,10 +7542,10 @@ Gstr{i,1} = 'INB1OOH'; Gstr{i,2} = 'OH';
 fINB1OOH(i)=fINB1OOH(i)-1; fOH(i)=fOH(i)-1; fINB1O2(i)=fINB1O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INB1OOH =  + HOCH2CHO + ACETOL + NO2 + OH';
+Rnames{i} = 'INB1OOH = INB1O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'INB1OOH'; 
-fINB1OOH(i)=fINB1OOH(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fACETOL(i)=fACETOL(i)+1; fNO2(i)=fNO2(i)+1; fOH(i)=fOH(i)+1; 
+fINB1OOH(i)=fINB1OOH(i)-1; fINB1O(i)=fINB1O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INB1NO3 + OH = INB1NACHO + HO2';
@@ -6755,6 +7558,12 @@ Rnames{i} = 'INB1NO3 + OH = INB1NBCHO + HO2';
 k(:,i) = 1.63e-12.*0.50;
 Gstr{i,1} = 'INB1NO3'; Gstr{i,2} = 'OH'; 
 fINB1NO3(i)=fINB1NO3(i)-1; fOH(i)=fOH(i)-1; fINB1NBCHO(i)=fINB1NBCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'INB1O = HOCH2CHO + ACETOL + NO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'INB1O'; 
+fINB1O(i)=fINB1O(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fACETOL(i)=fACETOL(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INB1CO + OH = INB1GLYOX + HO2';
@@ -6793,10 +7602,16 @@ Gstr{i,1} = 'INB2OOH'; Gstr{i,2} = 'OH';
 fINB2OOH(i)=fINB2OOH(i)-1; fOH(i)=fOH(i)-1; fINB2O2(i)=fINB2O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INB2OOH =  + C57NO3 + HO2 + OH';
+Rnames{i} = 'INB2OOH = INB2O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'INB2OOH'; 
-fINB2OOH(i)=fINB2OOH(i)-1; fC57NO3(i)=fC57NO3(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fINB2OOH(i)=fINB2OOH(i)-1; fINB2O(i)=fINB2O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'INB2O = C57NO3 + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'INB2O'; 
+fINB2O(i)=fINB2O(i)-1; fC57NO3(i)=fC57NO3(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'IECCHO = MACRO2 + HO2 + CO';
@@ -6835,28 +7650,34 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'HCOCO3H';
 fOH(i)=fOH(i)-1; fHCOCO3H(i)=fHCOCO3H(i)-1; fHCOCO3(i)=fHCOCO3(i)+1; 
 
 i=i+1;
+Rnames{i} = 'PPGAOOB = HCOCO3 + OH';
+k(:,i) = KDEC;
+Gstr{i,1} = 'PPGAOOB'; 
+fPPGAOOB(i)=fPPGAOOB(i)-1; fHCOCO3(i)=fHCOCO3(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
 Rnames{i} = 'C535O2 + HO2 = C535OOH';
 k(:,i) = KRO2HO2.*0.706;
 Gstr{i,1} = 'C535O2'; Gstr{i,2} = 'HO2'; 
 fC535O2(i)=fC535O2(i)-1; fHO2(i)=fHO2(i)-1; fC535OOH(i)=fC535OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C535O2 + NO =  + HCOCO3H + MGLYOX + HO2 + NO2';
+Rnames{i} = 'C535O2 + NO = C535O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C535O2'; Gstr{i,2} = 'NO'; 
-fC535O2(i)=fC535O2(i)-1; fNO(i)=fNO(i)-1; fHCOCO3H(i)=fHCOCO3H(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC535O2(i)=fC535O2(i)-1; fNO(i)=fNO(i)-1; fC535O(i)=fC535O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C535O2 + NO3 =  + HCOCO3H + MGLYOX + HO2 + NO2';
+Rnames{i} = 'C535O2 + NO3 = C535O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C535O2'; Gstr{i,2} = 'NO3'; 
-fC535O2(i)=fC535O2(i)-1; fNO3(i)=fNO3(i)-1; fHCOCO3H(i)=fHCOCO3H(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC535O2(i)=fC535O2(i)-1; fNO3(i)=fNO3(i)-1; fC535O(i)=fC535O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C535O2 =  + HCOCO3H + MGLYOX + HO2';
+Rnames{i} = 'C535O2 = C535O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'C535O2'; Gstr{i,2} = 'RO2';
-fC535O2(i)=fC535O2(i)-1; fHCOCO3H(i)=fHCOCO3H(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC535O2(i)=fC535O2(i)-1; fC535O(i)=fC535O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HPC52OOH + OH = HPC52CO3';
@@ -6871,10 +7692,16 @@ Gstr{i,1} = 'HPC52OOH';
 fHPC52OOH(i)=fHPC52OOH(i)-1; fHO2(i)=fHO2(i)+1; fDHPMPAL(i)=fDHPMPAL(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HPC52OOH =  + GLYOX + HYPERACET + HO2 + OH';
+Rnames{i} = 'HPC52OOH = HPC52O + OH';
 k(:,i) = J41.*2;
 Gstr{i,1} = 'HPC52OOH'; 
-fHPC52OOH(i)=fHPC52OOH(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fHPC52OOH(i)=fHPC52OOH(i)-1; fHPC52O(i)=fHPC52O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HPC52O = GLYOX + HYPERACET + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'HPC52O'; 
+fHPC52O(i)=fHPC52O(i)-1; fGLYOX(i)=fGLYOX(i)+1; fHYPERACET(i)=fHYPERACET(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + HC4CCO2H = CH3CO3 + HOCH2CHO';
@@ -6913,10 +7740,16 @@ Gstr{i,1} = 'C57AOOH'; Gstr{i,2} = 'OH';
 fC57AOOH(i)=fC57AOOH(i)-1; fOH(i)=fOH(i)-1; fHMVKBOOH(i)=fHMVKBOOH(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C57AOOH =  + HOCH2CHO + MGLYOX + HO2 + OH';
+Rnames{i} = 'C57AOOH = C57AO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C57AOOH'; 
-fC57AOOH(i)=fC57AOOH(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC57AOOH(i)=fC57AOOH(i)-1; fC57AO(i)=fC57AO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C57AO = HOCH2CHO + MGLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C57AO'; 
+fC57AO(i)=fC57AO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INDHCHO + OH = INDHCO3';
@@ -6931,10 +7764,10 @@ Gstr{i,1} = 'INDHCHO';
 fINDHCHO(i)=fINDHCHO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C57OOH =  + MGLYOX + HOCH2CHO + HO2 + OH';
+Rnames{i} = 'C57OOH = C57O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C57OOH'; 
-fC57OOH(i)=fC57OOH(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC57OOH(i)=fC57OOH(i)-1; fC57O(i)=fC57O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OH + C57OOH = HO12CO3C4 + CO + OH';
@@ -6961,10 +7794,16 @@ Gstr{i,1} = 'C57NO3';
 fC57NO3(i)=fC57NO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OH + C57OH =  + MGLYOX + HOCH2CHO + HO2';
+Rnames{i} = 'C57O = MGLYOX + HOCH2CHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C57O'; 
+fC57O(i)=fC57O(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'OH + C57OH = C57O';
 k(:,i) = 3.04e-11;
 Gstr{i,1} = 'OH'; Gstr{i,2} = 'C57OH'; 
-fOH(i)=fOH(i)-1; fC57OH(i)=fC57OH(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fOH(i)=fOH(i)-1; fC57OH(i)=fC57OH(i)-1; fC57O(i)=fC57O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NC4OO + CO = MVKNO3';
@@ -7009,10 +7848,22 @@ Gstr{i,1} = 'INDOOH'; Gstr{i,2} = 'OH';
 fINDOOH(i)=fINDOOH(i)-1; fOH(i)=fOH(i)-1; fINDO2(i)=fINDO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'INDOOH =  + ACETOL + HOCH2CHO + NO2 + HCHO + HO2 + MVKNO3 + OH';
+Rnames{i} = 'INDOOH = INDO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'INDOOH'; 
-fINDOOH(i)=fINDOOH(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fMVKNO3(i)=fMVKNO3(i)+1; fOH(i)=fOH(i)+1; 
+fINDOOH(i)=fINDOOH(i)-1; fINDO(i)=fINDO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'INDO = ACETOL + HOCH2CHO + NO2';
+k(:,i) = 1.80e13.*(T./298).^1.7.*exp(-4733./T);
+Gstr{i,1} = 'INDO'; 
+fINDO(i)=fINDO(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'INDO = HCHO + HO2 + MVKNO3';
+k(:,i) = 1.80e13.*(T./298).^1.7.*exp(-4079./T);
+Gstr{i,1} = 'INDO'; 
+fINDO(i)=fINDO(i)-1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fMVKNO3(i)=fMVKNO3(i)+1; 
 
 i=i+1;
 Rnames{i} = 'INDOH + OH = INDHCHO + HO2';
@@ -7021,10 +7872,10 @@ Gstr{i,1} = 'INDOH'; Gstr{i,2} = 'OH';
 fINDOH(i)=fINDOH(i)-1; fOH(i)=fOH(i)-1; fINDHCHO(i)=fINDHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C59OOH =  + ACETOL + HOCH2CO3 + OH';
+Rnames{i} = 'C59OOH = C59O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C59OOH'; 
-fC59OOH(i)=fC59OOH(i)-1; fACETOL(i)=fACETOL(i)+1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fOH(i)=fOH(i)+1; 
+fC59OOH(i)=fC59OOH(i)-1; fC59O(i)=fC59O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C59OOH = HOCH2CO3 + ACETOL + OH';
@@ -7153,10 +8004,16 @@ Gstr{i,1} = 'HOCHOCOOH'; Gstr{i,2} = 'OH';
 fHOCHOCOOH(i)=fHOCHOCOOH(i)-1; fOH(i)=fOH(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HOCHOCOOH =  + HOCH2CHO + HO2 + CO + OH';
+Rnames{i} = 'HOCHOCOOH = CHOCOHCO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HOCHOCOOH'; 
-fHOCHOCOOH(i)=fHOCHOCOOH(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+fHOCHOCOOH(i)=fHOCHOCOOH(i)-1; fCHOCOHCO(i)=fCHOCOHCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CHOCOHCO = HOCH2CHO + HO2 + CO';
+k(:,i) = KDEC;
+Gstr{i,1} = 'CHOCOHCO'; 
+fCHOCOHCO(i)=fCHOCOHCO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'OCCOHCOH + OH = A2PANOO';
@@ -7183,10 +8040,10 @@ Gstr{i,1} = 'OCCOHCOOH'; Gstr{i,2} = 'OH';
 fOCCOHCOOH(i)=fOCCOHCOOH(i)-1; fOH(i)=fOH(i)-1; fOCCOHCO2(i)=fOCCOHCO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'OCCOHCOOH =  + HCHO + GLYOX + HO2 + OH';
+Rnames{i} = 'OCCOHCOOH = OCCOHCO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'OCCOHCOOH'; 
-fOCCOHCOOH(i)=fOCCOHCOOH(i)-1; fHCHO(i)=fHCHO(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fOCCOHCOOH(i)=fOCCOHCOOH(i)-1; fOCCOHCO(i)=fOCCOHCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C42AOH = HO2 + CO + HO2 + NO3CH2CHO';
@@ -7201,28 +8058,34 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'C42AOH';
 fOH(i)=fOH(i)-1; fC42AOH(i)=fC42AOH(i)-1; fNMGLYOX(i)=fNMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
+Rnames{i} = 'OCCOHCO = HCHO + GLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'OCCOHCO'; 
+fOCCOHCO(i)=fOCCOHCO(i)-1; fHCHO(i)=fHCHO(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
 Rnames{i} = 'ETHENO3O2 + HO2 = ETHO2HNO3';
 k(:,i) = KRO2HO2.*0.387;
 Gstr{i,1} = 'ETHENO3O2'; Gstr{i,2} = 'HO2'; 
 fETHENO3O2(i)=fETHENO3O2(i)-1; fHO2(i)=fHO2(i)-1; fETHO2HNO3(i)=fETHO2HNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ETHENO3O2 + NO =  + NO2 + HCHO + HCHO + NO3CH2CHO + HO2 + NO2';
+Rnames{i} = 'ETHENO3O2 + NO = ETHENO3O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'ETHENO3O2'; Gstr{i,2} = 'NO'; 
-fETHENO3O2(i)=fETHENO3O2(i)-1; fNO(i)=fNO(i)-1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fETHENO3O2(i)=fETHENO3O2(i)-1; fNO(i)=fNO(i)-1; fETHENO3O(i)=fETHENO3O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ETHENO3O2 + NO3 =  + NO2 + HCHO + HCHO + NO3CH2CHO + HO2 + NO2';
+Rnames{i} = 'ETHENO3O2 + NO3 = ETHENO3O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'ETHENO3O2'; Gstr{i,2} = 'NO3'; 
-fETHENO3O2(i)=fETHENO3O2(i)-1; fNO3(i)=fNO3(i)-1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fETHENO3O2(i)=fETHENO3O2(i)-1; fNO3(i)=fNO3(i)-1; fETHENO3O(i)=fETHENO3O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ETHENO3O2 =  + NO2 + HCHO + HCHO + NO3CH2CHO + HO2';
+Rnames{i} = 'ETHENO3O2 = ETHENO3O';
 k(:,i) = 6.00e-13.*0.6;
 Gstr{i,1} = 'ETHENO3O2'; Gstr{i,2} = 'RO2';
-fETHENO3O2(i)=fETHENO3O2(i)-1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fETHENO3O2(i)=fETHENO3O2(i)-1; fETHENO3O(i)=fETHENO3O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ETHENO3O2 = ETHOHNO3';
@@ -7237,6 +8100,24 @@ Gstr{i,1} = 'ETHENO3O2'; Gstr{i,2} = 'RO2';
 fETHENO3O2(i)=fETHENO3O2(i)-1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'CH2OOA = CH2OO';
+k(:,i) = KDEC.*0.37;
+Gstr{i,1} = 'CH2OOA'; 
+fCH2OOA(i)=fCH2OOA(i)-1; fCH2OO(i)=fCH2OO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOA = CO';
+k(:,i) = KDEC.*0.50;
+Gstr{i,1} = 'CH2OOA'; 
+fCH2OOA(i)=fCH2OOA(i)-1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'CH2OOA = HO2 + CO + OH';
+k(:,i) = KDEC.*0.13;
+Gstr{i,1} = 'CH2OOA'; 
+fCH2OOA(i)=fCH2OOA(i)-1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
 Rnames{i} = 'HOCH2CH2O2 + HO2 = HYETHO2H';
 k(:,i) = 1.53e-13.*exp(1300./T);
 Gstr{i,1} = 'HOCH2CH2O2'; Gstr{i,2} = 'HO2'; 
@@ -7249,16 +8130,16 @@ Gstr{i,1} = 'HOCH2CH2O2'; Gstr{i,2} = 'NO';
 fHOCH2CH2O2(i)=fHOCH2CH2O2(i)-1; fNO(i)=fNO(i)-1; fETHOHNO3(i)=fETHOHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HOCH2CH2O2 + NO =  + HO2 + HCHO + HCHO + HO2 + HOCH2CHO + NO2';
+Rnames{i} = 'HOCH2CH2O2 + NO = HOCH2CH2O + NO2';
 k(:,i) = KRO2NO.*0.995;
 Gstr{i,1} = 'HOCH2CH2O2'; Gstr{i,2} = 'NO'; 
-fHOCH2CH2O2(i)=fHOCH2CH2O2(i)-1; fNO(i)=fNO(i)-1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fHOCH2CH2O2(i)=fHOCH2CH2O2(i)-1; fNO(i)=fNO(i)-1; fHOCH2CH2O(i)=fHOCH2CH2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HOCH2CH2O2 + NO3 =  + HO2 + HCHO + HCHO + HO2 + HOCH2CHO + NO2';
+Rnames{i} = 'HOCH2CH2O2 + NO3 = HOCH2CH2O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HOCH2CH2O2'; Gstr{i,2} = 'NO3'; 
-fHOCH2CH2O2(i)=fHOCH2CH2O2(i)-1; fNO3(i)=fNO3(i)-1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fHOCH2CH2O2(i)=fHOCH2CH2O2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2CH2O(i)=fHOCH2CH2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HOCH2CH2O2 = ETHGLY';
@@ -7267,10 +8148,10 @@ Gstr{i,1} = 'HOCH2CH2O2'; Gstr{i,2} = 'RO2';
 fHOCH2CH2O2(i)=fHOCH2CH2O2(i)-1; fETHGLY(i)=fETHGLY(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HOCH2CH2O2 =  + HO2 + HCHO + HCHO + HO2 + HOCH2CHO';
+Rnames{i} = 'HOCH2CH2O2 = HOCH2CH2O';
 k(:,i) = 2.*(KCH3O2.*7.8e-14.*exp(1000./T)).^0.5.*0.6;
 Gstr{i,1} = 'HOCH2CH2O2'; Gstr{i,2} = 'RO2';
-fHOCH2CH2O2(i)=fHOCH2CH2O2(i)-1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
+fHOCH2CH2O2(i)=fHOCH2CH2O2(i)-1; fHOCH2CH2O(i)=fHOCH2CH2O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HOCH2CH2O2 = HOCH2CHO';
@@ -7297,10 +8178,10 @@ Gstr{i,1} = 'C524OOH'; Gstr{i,2} = 'OH';
 fC524OOH(i)=fC524OOH(i)-1; fOH(i)=fOH(i)-1; fHIEPOXB(i)=fHIEPOXB(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C524OOH =  + HMACR + HCHO + HO2 + OH';
+Rnames{i} = 'C524OOH = C524O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C524OOH'; 
-fC524OOH(i)=fC524OOH(i)-1; fHMACR(i)=fHMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC524OOH(i)=fC524OOH(i)-1; fC524O(i)=fC524O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C524NO3 + OH = NC524O2';
@@ -7309,10 +8190,16 @@ Gstr{i,1} = 'C524NO3'; Gstr{i,2} = 'OH';
 fC524NO3(i)=fC524NO3(i)-1; fOH(i)=fOH(i)-1; fNC524O2(i)=fNC524O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C524NO3 =  + HMACR + HCHO + HO2 + NO2';
+Rnames{i} = 'C524NO3 = C524O + NO2';
 k(:,i) = J54;
 Gstr{i,1} = 'C524NO3'; 
-fC524NO3(i)=fC524NO3(i)-1; fHMACR(i)=fHMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC524NO3(i)=fC524NO3(i)-1; fC524O(i)=fC524O(i)+1; fNO2(i)=fNO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C524O = HMACR + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C524O'; 
+fC524O(i)=fC524O(i)-1; fHMACR(i)=fHMACR(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C524CO + OH = C525O2';
@@ -7339,16 +8226,16 @@ Gstr{i,1} = 'HMACR'; Gstr{i,2} = 'NO3';
 fHMACR(i)=fHMACR(i)-1; fNO3(i)=fNO3(i)-1; fHMACO3(i)=fHMACO3(i)+1; fHNO3(i)=fHNO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMACR + O3 =  + 0.37CH2OO + 0.50CO + 0.13HO2 + 0.13CO + 0.13OH + HOCH2COCHO';
+Rnames{i} = 'HMACR + O3 = CH2OOA + HOCH2COCHO';
 k(:,i) = 7.80e-19.*0.5;
 Gstr{i,1} = 'HMACR'; Gstr{i,2} = 'O3'; 
-fHMACR(i)=fHMACR(i)-1; fO3(i)=fO3(i)-1; fCH2OO(i)=fCH2OO(i)+0.37; fCO(i)=fCO(i)+0.50; fHO2(i)=fHO2(i)+0.13; fCO(i)=fCO(i)+0.13; fOH(i)=fOH(i)+0.13; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; 
+fHMACR(i)=fHMACR(i)-1; fO3(i)=fO3(i)-1; fCH2OOA(i)=fCH2OOA(i)+1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMACR + O3 = HCHO +  + 0.18HMGLYOO + 0.82HOCH2CO3 + 0.82CO + 0.82HO2';
+Rnames{i} = 'HMACR + O3 = HCHO + HMGLYOOA';
 k(:,i) = 7.80e-19.*0.5;
 Gstr{i,1} = 'HMACR'; Gstr{i,2} = 'O3'; 
-fHMACR(i)=fHMACR(i)-1; fO3(i)=fO3(i)-1; fHCHO(i)=fHCHO(i)+1; fHMGLYOO(i)=fHMGLYOO(i)+0.18; fHOCH2CO3(i)=fHOCH2CO3(i)+0.82; fCO(i)=fCO(i)+0.82; fHO2(i)=fHO2(i)+0.82; 
+fHMACR(i)=fHMACR(i)-1; fO3(i)=fO3(i)-1; fHCHO(i)=fHCHO(i)+1; fHMGLYOOA(i)=fHMGLYOOA(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMACR + OH = HMACO3';
@@ -7369,22 +8256,22 @@ Gstr{i,1} = 'C531O2'; Gstr{i,2} = 'HO2';
 fC531O2(i)=fC531O2(i)-1; fHO2(i)=fHO2(i)-1; fC531OOH(i)=fC531OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C531O2 + NO =  + C31CO3 + HCHO + NO2';
+Rnames{i} = 'C531O2 + NO = C531O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C531O2'; Gstr{i,2} = 'NO'; 
-fC531O2(i)=fC531O2(i)-1; fNO(i)=fNO(i)-1; fC31CO3(i)=fC31CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fC531O2(i)=fC531O2(i)-1; fNO(i)=fNO(i)-1; fC531O(i)=fC531O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C531O2 + NO3 =  + C31CO3 + HCHO + NO2';
+Rnames{i} = 'C531O2 + NO3 = C531O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C531O2'; Gstr{i,2} = 'NO3'; 
-fC531O2(i)=fC531O2(i)-1; fNO3(i)=fNO3(i)-1; fC31CO3(i)=fC31CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fC531O2(i)=fC531O2(i)-1; fNO3(i)=fNO3(i)-1; fC531O(i)=fC531O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C531O2 =  + C31CO3 + HCHO';
+Rnames{i} = 'C531O2 = C531O';
 k(:,i) = 2.00e-12;
 Gstr{i,1} = 'C531O2'; Gstr{i,2} = 'RO2';
-fC531O2(i)=fC531O2(i)-1; fC31CO3(i)=fC31CO3(i)+1; fHCHO(i)=fHCHO(i)+1; 
+fC531O2(i)=fC531O2(i)-1; fC531O(i)=fC531O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'M3FOO + CO = C532CO';
@@ -7825,22 +8712,22 @@ Gstr{i,1} = 'C3MDIALO2'; Gstr{i,2} = 'HO2';
 fC3MDIALO2(i)=fC3MDIALO2(i)-1; fHO2(i)=fHO2(i)-1; fC3MDIALOOH(i)=fC3MDIALOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3MDIALO2 + NO =  + MGLYOX + CO + HO2 + NO2';
+Rnames{i} = 'C3MDIALO2 + NO = C3MDIALO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C3MDIALO2'; Gstr{i,2} = 'NO'; 
-fC3MDIALO2(i)=fC3MDIALO2(i)-1; fNO(i)=fNO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC3MDIALO2(i)=fC3MDIALO2(i)-1; fNO(i)=fNO(i)-1; fC3MDIALO(i)=fC3MDIALO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3MDIALO2 + NO3 =  + MGLYOX + CO + HO2 + NO2';
+Rnames{i} = 'C3MDIALO2 + NO3 = C3MDIALO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C3MDIALO2'; Gstr{i,2} = 'NO3'; 
-fC3MDIALO2(i)=fC3MDIALO2(i)-1; fNO3(i)=fNO3(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC3MDIALO2(i)=fC3MDIALO2(i)-1; fNO3(i)=fNO3(i)-1; fC3MDIALO(i)=fC3MDIALO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3MDIALO2 =  + MGLYOX + CO + HO2';
+Rnames{i} = 'C3MDIALO2 = C3MDIALO';
 k(:,i) = 9.20e-14.*0.7;
 Gstr{i,1} = 'C3MDIALO2'; Gstr{i,2} = 'RO2';
-fC3MDIALO2(i)=fC3MDIALO2(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+fC3MDIALO2(i)=fC3MDIALO2(i)-1; fC3MDIALO(i)=fC3MDIALO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C3MDIALO2 = C3MDIALOH';
@@ -7849,28 +8736,40 @@ Gstr{i,1} = 'C3MDIALO2'; Gstr{i,2} = 'RO2';
 fC3MDIALO2(i)=fC3MDIALO2(i)-1; fC3MDIALOH(i)=fC3MDIALOH(i)+1; 
 
 i=i+1;
+Rnames{i} = 'C3MDIALO = MGLYOX + CO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C3MDIALO'; 
+fC3MDIALO(i)=fC3MDIALO(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'BIACETO = CH3CO3 + HCHO + CO';
+k(:,i) = KDEC;
+Gstr{i,1} = 'BIACETO'; 
+fBIACETO(i)=fBIACETO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
 Rnames{i} = 'BIACETO2 + HO2 = BIACETOOH';
 k(:,i) = KRO2HO2.*0.625;
 Gstr{i,1} = 'BIACETO2'; Gstr{i,2} = 'HO2'; 
 fBIACETO2(i)=fBIACETO2(i)-1; fHO2(i)=fHO2(i)-1; fBIACETOOH(i)=fBIACETOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'BIACETO2 + NO =  + CH3CO3 + HCHO + CO + NO2';
+Rnames{i} = 'BIACETO2 + NO = BIACETO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'BIACETO2'; Gstr{i,2} = 'NO'; 
-fBIACETO2(i)=fBIACETO2(i)-1; fNO(i)=fNO(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fNO2(i)=fNO2(i)+1; 
+fBIACETO2(i)=fBIACETO2(i)-1; fNO(i)=fNO(i)-1; fBIACETO(i)=fBIACETO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'BIACETO2 + NO3 =  + CH3CO3 + HCHO + CO + NO2';
+Rnames{i} = 'BIACETO2 + NO3 = BIACETO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'BIACETO2'; Gstr{i,2} = 'NO3'; 
-fBIACETO2(i)=fBIACETO2(i)-1; fNO3(i)=fNO3(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; fNO2(i)=fNO2(i)+1; 
+fBIACETO2(i)=fBIACETO2(i)-1; fNO3(i)=fNO3(i)-1; fBIACETO(i)=fBIACETO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'BIACETO2 =  + CH3CO3 + HCHO + CO';
+Rnames{i} = 'BIACETO2 = BIACETO';
 k(:,i) = 2.00e-12.*0.6;
 Gstr{i,1} = 'BIACETO2'; Gstr{i,2} = 'RO2';
-fBIACETO2(i)=fBIACETO2(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fCO(i)=fCO(i)+1; 
+fBIACETO2(i)=fBIACETO2(i)-1; fBIACETO(i)=fBIACETO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'BIACETO2 = BIACETOH';
@@ -7927,22 +8826,40 @@ Gstr{i,1} = 'C534OOH'; Gstr{i,2} = 'OH';
 fC534OOH(i)=fC534OOH(i)-1; fOH(i)=fOH(i)-1; fC534O2(i)=fC534O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C534OOH =  + CH3COCO3H + GLYOX + HO2 + OH';
+Rnames{i} = 'C534OOH = C534O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C534OOH'; 
-fC534OOH(i)=fC534OOH(i)-1; fCH3COCO3H(i)=fCH3COCO3H(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC534OOH(i)=fC534OOH(i)-1; fC534O(i)=fC534O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C534OOH =  + CH3COCO3H + GLYOX + HO2 + OH';
+Rnames{i} = 'C534OOH = C534O + OH';
 k(:,i) = J15;
 Gstr{i,1} = 'C534OOH'; 
-fC534OOH(i)=fC534OOH(i)-1; fCH3COCO3H(i)=fCH3COCO3H(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC534OOH(i)=fC534OOH(i)-1; fC534O(i)=fC534O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C534OOH = CO2H3CHO + OH + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C534OOH'; 
 fC534OOH(i)=fC534OOH(i)-1; fCO2H3CHO(i)=fCO2H3CHO(i)+1; fOH(i)=fOH(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C534O = CH3COCO3H + GLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C534O'; 
+fC534O(i)=fC534O(i)-1; fCH3COCO3H(i)=fCH3COCO3H(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C3MCODBCO2 = MGLYOX + HO2 + CO';
+k(:,i) = KDEC.*0.35;
+Gstr{i,1} = 'C3MCODBCO2'; 
+fC3MCODBCO2(i)=fC3MCODBCO2(i)-1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C3MCODBCO2 = MMALANHY + HO2';
+k(:,i) = KDEC.*0.65;
+Gstr{i,1} = 'C3MCODBCO2'; 
+fC3MCODBCO2(i)=fC3MCODBCO2(i)-1; fMMALANHY(i)=fMMALANHY(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C3MCODBPAN + OH = MGLYOX + CO + CO + NO2';
@@ -7957,10 +8874,22 @@ Gstr{i,1} = 'C3MCODBPAN';
 fC3MCODBPAN(i)=fC3MCODBPAN(i)-1; fC3MCODBCO3(i)=fC3MCODBCO3(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MC3ODBCO2H + OH =  + 0.35GLYOX + 0.35CH3O2 + 0.35CO + 0.65MMALANHY + 0.65HO2';
+Rnames{i} = 'MC3CODBCO2 = GLYOX + CH3O2 + CO';
+k(:,i) = KDEC.*0.35;
+Gstr{i,1} = 'MC3CODBCO2'; 
+fMC3CODBCO2(i)=fMC3CODBCO2(i)-1; fGLYOX(i)=fGLYOX(i)+1; fCH3O2(i)=fCH3O2(i)+1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MC3CODBCO2 = MMALANHY + HO2';
+k(:,i) = KDEC.*0.65;
+Gstr{i,1} = 'MC3CODBCO2'; 
+fMC3CODBCO2(i)=fMC3CODBCO2(i)-1; fMMALANHY(i)=fMMALANHY(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MC3ODBCO2H + OH = MC3CODBCO2';
 k(:,i) = 4.38e-11;
 Gstr{i,1} = 'MC3ODBCO2H'; Gstr{i,2} = 'OH'; 
-fMC3ODBCO2H(i)=fMC3ODBCO2H(i)-1; fOH(i)=fOH(i)-1; fGLYOX(i)=fGLYOX(i)+0.35; fCH3O2(i)=fCH3O2(i)+0.35; fCO(i)=fCO(i)+0.35; fMMALANHY(i)=fMMALANHY(i)+0.65; fHO2(i)=fHO2(i)+0.65; 
+fMC3ODBCO2H(i)=fMC3ODBCO2H(i)-1; fOH(i)=fOH(i)-1; fMC3CODBCO2(i)=fMC3CODBCO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MC3ODBCO2H = CH3COCO2H + HO2 + CO + HO2 + CO';
@@ -7987,10 +8916,10 @@ Gstr{i,1} = 'MC3CODBPAN';
 fMC3CODBPAN(i)=fMC3CODBPAN(i)-1; fMC3CODBCO3(i)=fMC3CODBCO3(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C4M2AL2OH + OH =  + GLYOX + MGLYOX + HO2';
+Rnames{i} = 'C4M2AL2OH + OH = C4M2ALOHO';
 k(:,i) = 5.70e-11;
 Gstr{i,1} = 'C4M2AL2OH'; Gstr{i,2} = 'OH'; 
-fC4M2AL2OH(i)=fC4M2AL2OH(i)-1; fOH(i)=fOH(i)-1; fGLYOX(i)=fGLYOX(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC4M2AL2OH(i)=fC4M2AL2OH(i)-1; fOH(i)=fOH(i)-1; fC4M2ALOHO(i)=fC4M2ALOHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C4M2AL2OH = CO2H3CHO + HO2 + CO + HO2';
@@ -8005,22 +8934,22 @@ Gstr{i,1} = 'NPXYFUO2'; Gstr{i,2} = 'HO2';
 fNPXYFUO2(i)=fNPXYFUO2(i)-1; fHO2(i)=fHO2(i)-1; fNPXYFUOOH(i)=fNPXYFUOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NPXYFUO2 + NO =  + C23O3CCHO + NO2 + NO2';
+Rnames{i} = 'NPXYFUO2 + NO = NPXYFUO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'NPXYFUO2'; Gstr{i,2} = 'NO'; 
-fNPXYFUO2(i)=fNPXYFUO2(i)-1; fNO(i)=fNO(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fNO2(i)=fNO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fNPXYFUO2(i)=fNPXYFUO2(i)-1; fNO(i)=fNO(i)-1; fNPXYFUO(i)=fNPXYFUO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NPXYFUO2 + NO3 =  + C23O3CCHO + NO2 + NO2';
+Rnames{i} = 'NPXYFUO2 + NO3 = NPXYFUO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'NPXYFUO2'; Gstr{i,2} = 'NO3'; 
-fNPXYFUO2(i)=fNPXYFUO2(i)-1; fNO3(i)=fNO3(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fNO2(i)=fNO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fNPXYFUO2(i)=fNPXYFUO2(i)-1; fNO3(i)=fNO3(i)-1; fNPXYFUO(i)=fNPXYFUO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NPXYFUO2 =  + C23O3CCHO + NO2';
+Rnames{i} = 'NPXYFUO2 = NPXYFUO';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'NPXYFUO2'; Gstr{i,2} = 'RO2';
-fNPXYFUO2(i)=fNPXYFUO2(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fNO2(i)=fNO2(i)+1; 
+fNPXYFUO2(i)=fNPXYFUO2(i)-1; fNPXYFUO(i)=fNPXYFUO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MCOCOMOXO2 + HO2 = MCOCOMOOOH';
@@ -8029,22 +8958,22 @@ Gstr{i,1} = 'MCOCOMOXO2'; Gstr{i,2} = 'HO2';
 fMCOCOMOXO2(i)=fMCOCOMOXO2(i)-1; fHO2(i)=fHO2(i)-1; fMCOCOMOOOH(i)=fMCOCOMOOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MCOCOMOXO2 + NO =  + HCHO + CH3CO3 + NO2';
+Rnames{i} = 'MCOCOMOXO2 + NO = MCOCOMOXO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'MCOCOMOXO2'; Gstr{i,2} = 'NO'; 
-fMCOCOMOXO2(i)=fMCOCOMOXO2(i)-1; fNO(i)=fNO(i)-1; fHCHO(i)=fHCHO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fMCOCOMOXO2(i)=fMCOCOMOXO2(i)-1; fNO(i)=fNO(i)-1; fMCOCOMOXO(i)=fMCOCOMOXO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MCOCOMOXO2 + NO3 =  + HCHO + CH3CO3 + NO2';
+Rnames{i} = 'MCOCOMOXO2 + NO3 = MCOCOMOXO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'MCOCOMOXO2'; Gstr{i,2} = 'NO3'; 
-fMCOCOMOXO2(i)=fMCOCOMOXO2(i)-1; fNO3(i)=fNO3(i)-1; fHCHO(i)=fHCHO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fMCOCOMOXO2(i)=fMCOCOMOXO2(i)-1; fNO3(i)=fNO3(i)-1; fMCOCOMOXO(i)=fMCOCOMOXO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MCOCOMOXO2 =  + HCHO + CH3CO3';
+Rnames{i} = 'MCOCOMOXO2 = MCOCOMOXO';
 k(:,i) = 2.00e-12;
 Gstr{i,1} = 'MCOCOMOXO2'; Gstr{i,2} = 'RO2';
-fMCOCOMOXO2(i)=fMCOCOMOXO2(i)-1; fHCHO(i)=fHCHO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; 
+fMCOCOMOXO2(i)=fMCOCOMOXO2(i)-1; fMCOCOMOXO(i)=fMCOCOMOXO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PXYFUO2 + HO2 = PXYFUOOH';
@@ -8053,22 +8982,22 @@ Gstr{i,1} = 'PXYFUO2'; Gstr{i,2} = 'HO2';
 fPXYFUO2(i)=fPXYFUO2(i)-1; fHO2(i)=fHO2(i)-1; fPXYFUOOH(i)=fPXYFUOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PXYFUO2 + NO =  + C23O3CCHO + HO2 + NO2';
+Rnames{i} = 'PXYFUO2 + NO = PXYFUO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'PXYFUO2'; Gstr{i,2} = 'NO'; 
-fPXYFUO2(i)=fPXYFUO2(i)-1; fNO(i)=fNO(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fPXYFUO2(i)=fPXYFUO2(i)-1; fNO(i)=fNO(i)-1; fPXYFUO(i)=fPXYFUO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PXYFUO2 + NO3 =  + C23O3CCHO + HO2 + NO2';
+Rnames{i} = 'PXYFUO2 + NO3 = PXYFUO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'PXYFUO2'; Gstr{i,2} = 'NO3'; 
-fPXYFUO2(i)=fPXYFUO2(i)-1; fNO3(i)=fNO3(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fPXYFUO2(i)=fPXYFUO2(i)-1; fNO3(i)=fNO3(i)-1; fPXYFUO(i)=fPXYFUO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PXYFUO2 =  + C23O3CCHO + HO2';
+Rnames{i} = 'PXYFUO2 = PXYFUO';
 k(:,i) = 9.20e-14.*0.70;
 Gstr{i,1} = 'PXYFUO2'; Gstr{i,2} = 'RO2';
-fPXYFUO2(i)=fPXYFUO2(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fPXYFUO2(i)=fPXYFUO2(i)-1; fPXYFUO(i)=fPXYFUO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PXYFUO2 = PXYFUOH';
@@ -8185,16 +9114,22 @@ Gstr{i,1} = 'C535OOH';
 fC535OOH(i)=fC535OOH(i)-1; fC3MDIALOOH(i)=fC3MDIALOOH(i)+1; fOH(i)=fOH(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C535OOH =  + HCOCO3H + MGLYOX + HO2 + OH';
+Rnames{i} = 'C535OOH = C535O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C535OOH'; 
-fC535OOH(i)=fC535OOH(i)-1; fHCOCO3H(i)=fHCOCO3H(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC535OOH(i)=fC535OOH(i)-1; fC535O(i)=fC535O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C535OOH = CO2H3CO3H + OH + HO2 + CO';
 k(:,i) = J15;
 Gstr{i,1} = 'C535OOH'; 
 fC535OOH(i)=fC535OOH(i)-1; fCO2H3CO3H(i)=fCO2H3CO3H(i)+1; fOH(i)=fOH(i)+1; fHO2(i)=fHO2(i)+1; fCO(i)=fCO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C535O = HCOCO3H + MGLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C535O'; 
+fC535O(i)=fC535O(i)-1; fHCOCO3H(i)=fHCOCO3H(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HPC52CO3 + HO2 = HO2 + DHPMPAL + OH';
@@ -8539,10 +9474,10 @@ Gstr{i,1} = 'OH'; Gstr{i,2} = 'C58NO3PAN';
 fOH(i)=fOH(i)-1; fC58NO3PAN(i)=fC58NO3PAN(i)-1; fMMALNAPAN(i)=fMMALNAPAN(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'A2PANOO + HO2 =  + HOCH2CHO + HO2 + OH';
+Rnames{i} = 'A2PANOO + HO2 = A2PANO + OH';
 k(:,i) = KAPHO2.*0.44;
 Gstr{i,1} = 'A2PANOO'; Gstr{i,2} = 'HO2'; 
-fA2PANOO(i)=fA2PANOO(i)-1; fHO2(i)=fHO2(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fA2PANOO(i)=fA2PANOO(i)-1; fHO2(i)=fHO2(i)-1; fA2PANO(i)=fA2PANO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'A2PANOO + HO2 = C2OHOCO2H + O3';
@@ -8557,10 +9492,10 @@ Gstr{i,1} = 'A2PANOO'; Gstr{i,2} = 'HO2';
 fA2PANOO(i)=fA2PANOO(i)-1; fHO2(i)=fHO2(i)-1; fC2OHOCOOH(i)=fC2OHOCOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'A2PANOO + NO =  + HOCH2CHO + HO2 + NO2';
+Rnames{i} = 'A2PANOO + NO = A2PANO + NO2';
 k(:,i) = KAPNO;
 Gstr{i,1} = 'A2PANOO'; Gstr{i,2} = 'NO'; 
-fA2PANOO(i)=fA2PANOO(i)-1; fNO(i)=fNO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fA2PANOO(i)=fA2PANOO(i)-1; fNO(i)=fNO(i)-1; fA2PANO(i)=fA2PANO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'A2PANOO + NO2 = A2PAN';
@@ -8569,16 +9504,16 @@ Gstr{i,1} = 'A2PANOO'; Gstr{i,2} = 'NO2';
 fA2PANOO(i)=fA2PANOO(i)-1; fNO2(i)=fNO2(i)-1; fA2PAN(i)=fA2PAN(i)+1; 
 
 i=i+1;
-Rnames{i} = 'A2PANOO + NO3 =   + HOCH2CHO + HO2 + NO2';
+Rnames{i} = 'A2PANOO + NO3 =  A2PANO + NO2';
 k(:,i) = KRO2NO3.*1.74;
 Gstr{i,1} = 'A2PANOO'; Gstr{i,2} = 'NO3'; 
-fA2PANOO(i)=fA2PANOO(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fA2PANOO(i)=fA2PANOO(i)-1; fNO3(i)=fNO3(i)-1; fA2PANO(i)=fA2PANO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'A2PANOO =  + HOCH2CHO + HO2';
+Rnames{i} = 'A2PANOO = A2PANO';
 k(:,i) = 1.00E-11.*0.7;
 Gstr{i,1} = 'A2PANOO'; Gstr{i,2} = 'RO2';
-fA2PANOO(i)=fA2PANOO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fA2PANOO(i)=fA2PANOO(i)-1; fA2PANO(i)=fA2PANO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'A2PANOO = C2OHOCO2H';
@@ -8659,10 +9594,22 @@ Gstr{i,1} = 'ETHO2HNO3'; Gstr{i,2} = 'OH';
 fETHO2HNO3(i)=fETHO2HNO3(i)-1; fOH(i)=fOH(i)-1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'ETHO2HNO3 =  + NO2 + HCHO + HCHO + NO3CH2CHO + HO2 + OH';
+Rnames{i} = 'ETHO2HNO3 = ETHENO3O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'ETHO2HNO3'; 
-fETHO2HNO3(i)=fETHO2HNO3(i)-1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fETHO2HNO3(i)=fETHO2HNO3(i)-1; fETHENO3O(i)=fETHENO3O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ETHENO3O = NO2 + HCHO + HCHO';
+k(:,i) = 7.00e03;
+Gstr{i,1} = 'ETHENO3O'; 
+fETHENO3O(i)=fETHENO3O(i)-1; fNO2(i)=fNO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'ETHENO3O = NO3CH2CHO + HO2';
+k(:,i) = KROPRIM.*.21.*M;
+Gstr{i,1} = 'ETHENO3O'; 
+fETHENO3O(i)=fETHENO3O(i)-1; fNO3CH2CHO(i)=fNO3CH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ETHOHNO3 + OH = HOCH2CHO + NO2';
@@ -8683,10 +9630,22 @@ Gstr{i,1} = 'HYETHO2H'; Gstr{i,2} = 'OH';
 fHYETHO2H(i)=fHYETHO2H(i)-1; fOH(i)=fOH(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HYETHO2H =  + HO2 + HCHO + HCHO + HO2 + HOCH2CHO + OH';
+Rnames{i} = 'HYETHO2H = HOCH2CH2O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HYETHO2H'; 
-fHYETHO2H(i)=fHYETHO2H(i)-1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fOH(i)=fOH(i)+1; 
+fHYETHO2H(i)=fHYETHO2H(i)-1; fHOCH2CH2O(i)=fHOCH2CH2O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HOCH2CH2O = HO2 + HCHO + HCHO';
+k(:,i) = 9.50e13.*exp(-5988./T);
+Gstr{i,1} = 'HOCH2CH2O'; 
+fHOCH2CH2O(i)=fHOCH2CH2O(i)-1; fHO2(i)=fHO2(i)+1; fHCHO(i)=fHCHO(i)+1; fHCHO(i)=fHCHO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HOCH2CH2O = HO2 + HOCH2CHO';
+k(:,i) = KROPRIM.*.21.*M;
+Gstr{i,1} = 'HOCH2CH2O'; 
+fHOCH2CH2O(i)=fHOCH2CH2O(i)-1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'ETHGLY + OH = HOCH2CHO + HO2';
@@ -8719,22 +9678,22 @@ Gstr{i,1} = 'NC524O2'; Gstr{i,2} = 'NO';
 fNC524O2(i)=fNC524O2(i)-1; fNO(i)=fNO(i)-1; fNC524NO3(i)=fNC524NO3(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC524O2 + NO =  + HMVKNO3 + HCHO + HO2 + HOCH2CHO + NO2 + H13CO2C3 + NO2';
+Rnames{i} = 'NC524O2 + NO = NC524O + NO2';
 k(:,i) = KRO2NO.*0.928;
 Gstr{i,1} = 'NC524O2'; Gstr{i,2} = 'NO'; 
-fNC524O2(i)=fNC524O2(i)-1; fNO(i)=fNO(i)-1; fHMVKNO3(i)=fHMVKNO3(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; fNO2(i)=fNO2(i)+1; 
+fNC524O2(i)=fNC524O2(i)-1; fNO(i)=fNO(i)-1; fNC524O(i)=fNC524O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC524O2 + NO3 =  + HMVKNO3 + HCHO + HO2 + HOCH2CHO + NO2 + H13CO2C3 + NO2';
+Rnames{i} = 'NC524O2 + NO3 = NC524O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'NC524O2'; Gstr{i,2} = 'NO3'; 
-fNC524O2(i)=fNC524O2(i)-1; fNO3(i)=fNO3(i)-1; fHMVKNO3(i)=fHMVKNO3(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; fNO2(i)=fNO2(i)+1; 
+fNC524O2(i)=fNC524O2(i)-1; fNO3(i)=fNO3(i)-1; fNC524O(i)=fNC524O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC524O2 =  + HMVKNO3 + HCHO + HO2 + HOCH2CHO + NO2 + H13CO2C3';
+Rnames{i} = 'NC524O2 = NC524O';
 k(:,i) = 8.00e-13.*0.8;
 Gstr{i,1} = 'NC524O2'; Gstr{i,2} = 'RO2';
-fNC524O2(i)=fNC524O2(i)-1; fHMVKNO3(i)=fHMVKNO3(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; 
+fNC524O2(i)=fNC524O2(i)-1; fNC524O(i)=fNC524O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NC524O2 = NC524OH';
@@ -8749,22 +9708,22 @@ Gstr{i,1} = 'C525O2'; Gstr{i,2} = 'HO2';
 fC525O2(i)=fC525O2(i)-1; fHO2(i)=fHO2(i)-1; fC525OOH(i)=fC525OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C525O2 + NO =  + HOCH2CO3 + H13CO2C3 + NO2';
+Rnames{i} = 'C525O2 + NO = C525O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C525O2'; Gstr{i,2} = 'NO'; 
-fC525O2(i)=fC525O2(i)-1; fNO(i)=fNO(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; fNO2(i)=fNO2(i)+1; 
+fC525O2(i)=fC525O2(i)-1; fNO(i)=fNO(i)-1; fC525O(i)=fC525O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C525O2 + NO3 =  + HOCH2CO3 + H13CO2C3 + NO2';
+Rnames{i} = 'C525O2 + NO3 = C525O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C525O2'; Gstr{i,2} = 'NO3'; 
-fC525O2(i)=fC525O2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; fNO2(i)=fNO2(i)+1; 
+fC525O2(i)=fC525O2(i)-1; fNO3(i)=fNO3(i)-1; fC525O(i)=fC525O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C525O2 =  + HOCH2CO3 + H13CO2C3';
+Rnames{i} = 'C525O2 = C525O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'C525O2'; Gstr{i,2} = 'RO2';
-fC525O2(i)=fC525O2(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; 
+fC525O2(i)=fC525O2(i)-1; fC525O(i)=fC525O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMACO3 + HO2 = HMACO2H + O3';
@@ -8815,22 +9774,34 @@ Gstr{i,1} = 'HMACO3'; Gstr{i,2} = 'RO2';
 fHMACO3(i)=fHMACO3(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
+Rnames{i} = 'HMGLYOOA = HMGLYOO';
+k(:,i) = KDEC.*0.18;
+Gstr{i,1} = 'HMGLYOOA'; 
+fHMGLYOOA(i)=fHMGLYOOA(i)-1; fHMGLYOO(i)=fHMGLYOO(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HMGLYOOA = HOCH2CO3 + CO + HO2';
+k(:,i) = KDEC.*0.82;
+Gstr{i,1} = 'HMGLYOOA'; 
+fHMGLYOOA(i)=fHMGLYOOA(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
 Rnames{i} = 'HMACRO2 + HO2 = HMACROOH';
 k(:,i) = KRO2HO2.*0.625;
 Gstr{i,1} = 'HMACRO2'; Gstr{i,2} = 'HO2'; 
 fHMACRO2(i)=fHMACRO2(i)-1; fHO2(i)=fHO2(i)-1; fHMACROOH(i)=fHMACROOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMACRO2 + NO =  + H13CO2C3 + CO + HO2 + NO2';
+Rnames{i} = 'HMACRO2 + NO = HMACRO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'HMACRO2'; Gstr{i,2} = 'NO'; 
-fHMACRO2(i)=fHMACRO2(i)-1; fNO(i)=fNO(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHMACRO2(i)=fHMACRO2(i)-1; fNO(i)=fNO(i)-1; fHMACRO(i)=fHMACRO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMACRO2 + NO3 =  + H13CO2C3 + CO + HO2 + NO2';
+Rnames{i} = 'HMACRO2 + NO3 = HMACRO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HMACRO2'; Gstr{i,2} = 'NO3'; 
-fHMACRO2(i)=fHMACRO2(i)-1; fNO3(i)=fNO3(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHMACRO2(i)=fHMACRO2(i)-1; fNO3(i)=fNO3(i)-1; fHMACRO(i)=fHMACRO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMACRO2 = H13CO2C3 + CO + OH';
@@ -8839,10 +9810,10 @@ Gstr{i,1} = 'HMACRO2';
 fHMACRO2(i)=fHMACRO2(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMACRO2 =  + H13CO2C3 + CO + HO2';
+Rnames{i} = 'HMACRO2 = HMACRO';
 k(:,i) = 9.20e-14.*0.7;
 Gstr{i,1} = 'HMACRO2'; Gstr{i,2} = 'RO2';
-fHMACRO2(i)=fHMACRO2(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+fHMACRO2(i)=fHMACRO2(i)-1; fHMACRO(i)=fHMACRO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMACRO2 = HMACROH';
@@ -8857,16 +9828,22 @@ Gstr{i,1} = 'C531OOH'; Gstr{i,2} = 'OH';
 fC531OOH(i)=fC531OOH(i)-1; fOH(i)=fOH(i)-1; fC531CO(i)=fC531CO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C531OOH =  + C31CO3 + HCHO + OH';
+Rnames{i} = 'C531OOH = C531O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C531OOH'; 
-fC531OOH(i)=fC531OOH(i)-1; fC31CO3(i)=fC31CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
+fC531OOH(i)=fC531OOH(i)-1; fC531O(i)=fC531O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C531OOH =  + C31CO3 + HCHO + OH';
+Rnames{i} = 'C531OOH = C531O + OH';
 k(:,i) = J22;
 Gstr{i,1} = 'C531OOH'; 
-fC531OOH(i)=fC531OOH(i)-1; fC31CO3(i)=fC31CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
+fC531OOH(i)=fC531OOH(i)-1; fC531O(i)=fC531O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C531O = C31CO3 + HCHO';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C531O'; 
+fC531O(i)=fC531O(i)-1; fC31CO3(i)=fC31CO3(i)+1; fHCHO(i)=fHCHO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C532CO + OH = C533O2';
@@ -9031,10 +10008,16 @@ Gstr{i,1} = 'NPXYFUOOH'; Gstr{i,2} = 'OH';
 fNPXYFUOOH(i)=fNPXYFUOOH(i)-1; fOH(i)=fOH(i)-1; fNPXYFUO2(i)=fNPXYFUO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NPXYFUOOH =  + C23O3CCHO + NO2 + OH';
+Rnames{i} = 'NPXYFUOOH = NPXYFUO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'NPXYFUOOH'; 
-fNPXYFUOOH(i)=fNPXYFUOOH(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fNO2(i)=fNO2(i)+1; fOH(i)=fOH(i)+1; 
+fNPXYFUOOH(i)=fNPXYFUOOH(i)-1; fNPXYFUO(i)=fNPXYFUO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NPXYFUO = C23O3CCHO + NO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'NPXYFUO'; 
+fNPXYFUO(i)=fNPXYFUO(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MCOCOMOOOH + OH = MCOCOMOXO2';
@@ -9049,10 +10032,16 @@ Gstr{i,1} = 'MCOCOMOOOH';
 fMCOCOMOOOH(i)=fMCOCOMOOOH(i)-1; fCH3CO3(i)=fCH3CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MCOCOMOOOH =  + HCHO + CH3CO3 + OH';
+Rnames{i} = 'MCOCOMOOOH = MCOCOMOXO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'MCOCOMOOOH'; 
-fMCOCOMOOOH(i)=fMCOCOMOOOH(i)-1; fHCHO(i)=fHCHO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; fOH(i)=fOH(i)+1; 
+fMCOCOMOOOH(i)=fMCOCOMOOOH(i)-1; fMCOCOMOXO(i)=fMCOCOMOXO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MCOCOMOXO = HCHO + CH3CO3';
+k(:,i) = KDEC;
+Gstr{i,1} = 'MCOCOMOXO'; 
+fMCOCOMOXO(i)=fMCOCOMOXO(i)-1; fHCHO(i)=fHCHO(i)+1; fCH3CO3(i)=fCH3CO3(i)+1; 
 
 i=i+1;
 Rnames{i} = 'PXYFUOOH + OH = PXYFUO2';
@@ -9061,16 +10050,22 @@ Gstr{i,1} = 'PXYFUOOH'; Gstr{i,2} = 'OH';
 fPXYFUOOH(i)=fPXYFUOOH(i)-1; fOH(i)=fOH(i)-1; fPXYFUO2(i)=fPXYFUO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PXYFUOOH =  + C23O3CCHO + HO2 + OH';
+Rnames{i} = 'PXYFUOOH = PXYFUO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'PXYFUOOH'; 
-fPXYFUOOH(i)=fPXYFUOOH(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fPXYFUOOH(i)=fPXYFUOOH(i)-1; fPXYFUO(i)=fPXYFUO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'PXYFUOH + OH =  + C23O3CCHO + HO2';
+Rnames{i} = 'PXYFUO = C23O3CCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'PXYFUO'; 
+fPXYFUO(i)=fPXYFUO(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'PXYFUOH + OH = PXYFUO';
 k(:,i) = 2.44e-11;
 Gstr{i,1} = 'PXYFUOH'; Gstr{i,2} = 'OH'; 
-fPXYFUOH(i)=fPXYFUOH(i)-1; fOH(i)=fOH(i)-1; fC23O3CCHO(i)=fC23O3CCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fPXYFUOH(i)=fPXYFUOH(i)-1; fOH(i)=fOH(i)-1; fPXYFUO(i)=fPXYFUO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C47CO3 + HO2 = C47CO3H';
@@ -9685,6 +10680,12 @@ Gstr{i,1} = 'MMALNAPAN';
 fMMALNAPAN(i)=fMMALNAPAN(i)-1; fMMALNACO3(i)=fMMALNACO3(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
+Rnames{i} = 'A2PANO = HOCH2CHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'A2PANO'; 
+fA2PANO(i)=fA2PANO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
 Rnames{i} = 'C2OHOCO2H + OH = C3DIOLO2';
 k(:,i) = 1.867E-11;
 Gstr{i,1} = 'C2OHOCO2H'; Gstr{i,2} = 'OH'; 
@@ -9745,22 +10746,22 @@ Gstr{i,1} = 'HIEB1O2'; Gstr{i,2} = 'HO2';
 fHIEB1O2(i)=fHIEB1O2(i)-1; fHO2(i)=fHO2(i)-1; fHIEB1OOH(i)=fHIEB1OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HIEB1O2 + NO =  + HOCH2COCHO + HOCH2CHO + HO2 + NO2';
+Rnames{i} = 'HIEB1O2 + NO = HIEB1O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'HIEB1O2'; Gstr{i,2} = 'NO'; 
-fHIEB1O2(i)=fHIEB1O2(i)-1; fNO(i)=fNO(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHIEB1O2(i)=fHIEB1O2(i)-1; fNO(i)=fNO(i)-1; fHIEB1O(i)=fHIEB1O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HIEB1O2 + NO3 =  + HOCH2COCHO + HOCH2CHO + HO2 + NO2';
+Rnames{i} = 'HIEB1O2 + NO3 = HIEB1O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HIEB1O2'; Gstr{i,2} = 'NO3'; 
-fHIEB1O2(i)=fHIEB1O2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHIEB1O2(i)=fHIEB1O2(i)-1; fNO3(i)=fNO3(i)-1; fHIEB1O(i)=fHIEB1O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HIEB1O2 =  + HOCH2COCHO + HOCH2CHO + HO2';
+Rnames{i} = 'HIEB1O2 = HIEB1O';
 k(:,i) = 9.20e-14;
 Gstr{i,1} = 'HIEB1O2'; Gstr{i,2} = 'RO2';
-fHIEB1O2(i)=fHIEB1O2(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fHIEB1O2(i)=fHIEB1O2(i)-1; fHIEB1O(i)=fHIEB1O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HIEB2O2 + HO2 = HIEB2OOH';
@@ -9769,22 +10770,22 @@ Gstr{i,1} = 'HIEB2O2'; Gstr{i,2} = 'HO2';
 fHIEB2O2(i)=fHIEB2O2(i)-1; fHO2(i)=fHO2(i)-1; fHIEB2OOH(i)=fHIEB2OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HIEB2O2 + NO =  + H13CO2C3 + GLYOX + HO2 + NO2';
+Rnames{i} = 'HIEB2O2 + NO = HIEB2O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'HIEB2O2'; Gstr{i,2} = 'NO'; 
-fHIEB2O2(i)=fHIEB2O2(i)-1; fNO(i)=fNO(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHIEB2O2(i)=fHIEB2O2(i)-1; fNO(i)=fNO(i)-1; fHIEB2O(i)=fHIEB2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HIEB2O2 + NO3 =  + H13CO2C3 + GLYOX + HO2 + NO2';
+Rnames{i} = 'HIEB2O2 + NO3 = HIEB2O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'HIEB2O2'; Gstr{i,2} = 'NO3'; 
-fHIEB2O2(i)=fHIEB2O2(i)-1; fNO3(i)=fNO3(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fHIEB2O2(i)=fHIEB2O2(i)-1; fNO3(i)=fNO3(i)-1; fHIEB2O(i)=fHIEB2O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HIEB2O2 =  + H13CO2C3 + GLYOX + HO2';
+Rnames{i} = 'HIEB2O2 = HIEB2O';
 k(:,i) = 8.80e-13;
 Gstr{i,1} = 'HIEB2O2'; Gstr{i,2} = 'RO2';
-fHIEB2O2(i)=fHIEB2O2(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fHIEB2O2(i)=fHIEB2O2(i)-1; fHIEB2O(i)=fHIEB2O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NC524OOH + OH = HPNC524CO + HO2';
@@ -9799,16 +10800,28 @@ Gstr{i,1} = 'NC524OOH'; Gstr{i,2} = 'OH';
 fNC524OOH(i)=fNC524OOH(i)-1; fOH(i)=fOH(i)-1; fNC524O2(i)=fNC524O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'NC524OOH =  + HMVKNO3 + HCHO + HO2 + HOCH2CHO + NO2 + H13CO2C3 + OH';
+Rnames{i} = 'NC524OOH = NC524O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'NC524OOH'; 
-fNC524OOH(i)=fNC524OOH(i)-1; fHMVKNO3(i)=fHMVKNO3(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; fOH(i)=fOH(i)+1; 
+fNC524OOH(i)=fNC524OOH(i)-1; fNC524O(i)=fNC524O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NC524NO3 + OH = DNC524CO + HO2';
 k(:,i) = 2.43e-12;
 Gstr{i,1} = 'NC524NO3'; Gstr{i,2} = 'OH'; 
 fNC524NO3(i)=fNC524NO3(i)-1; fOH(i)=fOH(i)-1; fDNC524CO(i)=fDNC524CO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC524O = HMVKNO3 + HCHO + HO2';
+k(:,i) = 1.80e13.*(T./298).^1.7.*exp(-4079./T);
+Gstr{i,1} = 'NC524O'; 
+fNC524O(i)=fNC524O(i)-1; fHMVKNO3(i)=fHMVKNO3(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'NC524O = HOCH2CHO + NO2 + H13CO2C3';
+k(:,i) = 1.80e13.*(T./298).^1.7.*exp(-4733./T);
+Gstr{i,1} = 'NC524O'; 
+fNC524O(i)=fNC524O(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fNO2(i)=fNO2(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; 
 
 i=i+1;
 Rnames{i} = 'NC524OH + OH = HNC524CO + HO2';
@@ -9823,10 +10836,16 @@ Gstr{i,1} = 'C525OOH'; Gstr{i,2} = 'OH';
 fC525OOH(i)=fC525OOH(i)-1; fOH(i)=fOH(i)-1; fC525O2(i)=fC525O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C525OOH =  + HOCH2CO3 + H13CO2C3 + OH';
+Rnames{i} = 'C525OOH = C525O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C525OOH'; 
-fC525OOH(i)=fC525OOH(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; fOH(i)=fOH(i)+1; 
+fC525OOH(i)=fC525OOH(i)-1; fC525O(i)=fC525O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C525O = HOCH2CO3 + H13CO2C3';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C525O'; 
+fC525O(i)=fC525O(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fH13CO2C3(i)=fH13CO2C3(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMACO2H + OH = HOCH2CO3 + HCHO';
@@ -9907,10 +10926,16 @@ Gstr{i,1} = 'HMACROOH';
 fHMACROOH(i)=fHMACROOH(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMACROOH =  + H13CO2C3 + CO + HO2 + OH';
+Rnames{i} = 'HMACROOH = HMACRO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HMACROOH'; 
-fHMACROOH(i)=fHMACROOH(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fHMACROOH(i)=fHMACROOH(i)-1; fHMACRO(i)=fHMACRO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HMACRO = H13CO2C3 + CO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'HMACRO'; 
+fHMACRO(i)=fHMACRO(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'H13CO2C3 + OH = HOCH2COCHO + HO2';
@@ -9925,10 +10950,10 @@ Gstr{i,1} = 'H13CO2C3';
 fH13CO2C3(i)=fH13CO2C3(i)-1; fHOCH2CO3(i)=fHOCH2CO3(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HMACROH + OH =  + H13CO2C3 + CO + HO2';
+Rnames{i} = 'HMACROH + OH = HMACRO';
 k(:,i) = 3.82e-11;
 Gstr{i,1} = 'HMACROH'; Gstr{i,2} = 'OH'; 
-fHMACROH(i)=fHMACROH(i)-1; fOH(i)=fOH(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fCO(i)=fCO(i)+1; fHO2(i)=fHO2(i)+1; 
+fHMACROH(i)=fHMACROH(i)-1; fOH(i)=fOH(i)-1; fHMACRO(i)=fHMACRO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMACROH = H13CO2C3 + CO + HO2 + HO2';
@@ -9991,22 +11016,22 @@ Gstr{i,1} = 'C533O2'; Gstr{i,2} = 'HO2';
 fC533O2(i)=fC533O2(i)-1; fHO2(i)=fHO2(i)-1; fC533OOH(i)=fC533OOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C533O2 + NO =  + CHOOCHO + MGLYOX + HO2 + NO2';
+Rnames{i} = 'C533O2 + NO = C533O + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C533O2'; Gstr{i,2} = 'NO'; 
-fC533O2(i)=fC533O2(i)-1; fNO(i)=fNO(i)-1; fCHOOCHO(i)=fCHOOCHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC533O2(i)=fC533O2(i)-1; fNO(i)=fNO(i)-1; fC533O(i)=fC533O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C533O2 + NO3 =  + CHOOCHO + MGLYOX + HO2 + NO2';
+Rnames{i} = 'C533O2 + NO3 = C533O + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C533O2'; Gstr{i,2} = 'NO3'; 
-fC533O2(i)=fC533O2(i)-1; fNO3(i)=fNO3(i)-1; fCHOOCHO(i)=fCHOOCHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC533O2(i)=fC533O2(i)-1; fNO3(i)=fNO3(i)-1; fC533O(i)=fC533O(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C533O2 =  + CHOOCHO + MGLYOX + HO2';
+Rnames{i} = 'C533O2 = C533O';
 k(:,i) = 8.80e-13;
 Gstr{i,1} = 'C533O2'; Gstr{i,2} = 'RO2';
-fC533O2(i)=fC533O2(i)-1; fCHOOCHO(i)=fCHOOCHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
+fC533O2(i)=fC533O2(i)-1; fC533O(i)=fC533O(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MMALANHYO2 + HO2 = MMALNHYOOH';
@@ -10015,22 +11040,22 @@ Gstr{i,1} = 'MMALANHYO2'; Gstr{i,2} = 'HO2';
 fMMALANHYO2(i)=fMMALANHYO2(i)-1; fHO2(i)=fHO2(i)-1; fMMALNHYOOH(i)=fMMALNHYOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MMALANHYO2 + NO =  + CO2H3CO3 + NO2';
+Rnames{i} = 'MMALANHYO2 + NO = MMALANHYO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'MMALANHYO2'; Gstr{i,2} = 'NO'; 
-fMMALANHYO2(i)=fMMALANHYO2(i)-1; fNO(i)=fNO(i)-1; fCO2H3CO3(i)=fCO2H3CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fMMALANHYO2(i)=fMMALANHYO2(i)-1; fNO(i)=fNO(i)-1; fMMALANHYO(i)=fMMALANHYO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MMALANHYO2 + NO3 =  + CO2H3CO3 + NO2';
+Rnames{i} = 'MMALANHYO2 + NO3 = MMALANHYO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'MMALANHYO2'; Gstr{i,2} = 'NO3'; 
-fMMALANHYO2(i)=fMMALANHYO2(i)-1; fNO3(i)=fNO3(i)-1; fCO2H3CO3(i)=fCO2H3CO3(i)+1; fNO2(i)=fNO2(i)+1; 
+fMMALANHYO2(i)=fMMALANHYO2(i)-1; fNO3(i)=fNO3(i)-1; fMMALANHYO(i)=fMMALANHYO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MMALANHYO2 =  + CO2H3CO3';
+Rnames{i} = 'MMALANHYO2 = MMALANHYO';
 k(:,i) = 9.20e-14.*0.70;
 Gstr{i,1} = 'MMALANHYO2'; Gstr{i,2} = 'RO2';
-fMMALANHYO2(i)=fMMALANHYO2(i)-1; fCO2H3CO3(i)=fCO2H3CO3(i)+1; 
+fMMALANHYO2(i)=fMMALANHYO2(i)-1; fMMALANHYO(i)=fMMALANHYO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MMALANHYO2 = MMALNHY2OH';
@@ -10297,22 +11322,22 @@ Gstr{i,1} = 'C3DIOLO2'; Gstr{i,2} = 'HO2';
 fC3DIOLO2(i)=fC3DIOLO2(i)-1; fHO2(i)=fHO2(i)-1; fC3DIOLOOH(i)=fC3DIOLOOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3DIOLO2 + NO =  + HOCH2CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'C3DIOLO2 + NO = C3DIOLO + NO2';
 k(:,i) = KRO2NO;
 Gstr{i,1} = 'C3DIOLO2'; Gstr{i,2} = 'NO'; 
-fC3DIOLO2(i)=fC3DIOLO2(i)-1; fNO(i)=fNO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC3DIOLO2(i)=fC3DIOLO2(i)-1; fNO(i)=fNO(i)-1; fC3DIOLO(i)=fC3DIOLO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3DIOLO2 + NO3 =  + HOCH2CHO + HCHO + HO2 + NO2';
+Rnames{i} = 'C3DIOLO2 + NO3 = C3DIOLO + NO2';
 k(:,i) = KRO2NO3;
 Gstr{i,1} = 'C3DIOLO2'; Gstr{i,2} = 'NO3'; 
-fC3DIOLO2(i)=fC3DIOLO2(i)-1; fNO3(i)=fNO3(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fNO2(i)=fNO2(i)+1; 
+fC3DIOLO2(i)=fC3DIOLO2(i)-1; fNO3(i)=fNO3(i)-1; fC3DIOLO(i)=fC3DIOLO(i)+1; fNO2(i)=fNO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3DIOLO2 =  + HOCH2CHO + HCHO + HO2';
+Rnames{i} = 'C3DIOLO2 = C3DIOLO';
 k(:,i) = 2.00e-12;
 Gstr{i,1} = 'C3DIOLO2'; Gstr{i,2} = 'RO2';
-fC3DIOLO2(i)=fC3DIOLO2(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
+fC3DIOLO2(i)=fC3DIOLO2(i)-1; fC3DIOLO(i)=fC3DIOLO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HIEB1OOH + OH = MVKOHAOH + CO + OH';
@@ -10321,10 +11346,10 @@ Gstr{i,1} = 'HIEB1OOH'; Gstr{i,2} = 'OH';
 fHIEB1OOH(i)=fHIEB1OOH(i)-1; fOH(i)=fOH(i)-1; fMVKOHAOH(i)=fMVKOHAOH(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HIEB1OOH =  + HOCH2COCHO + HOCH2CHO + HO2 + OH';
+Rnames{i} = 'HIEB1OOH = HIEB1O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HIEB1OOH'; 
-fHIEB1OOH(i)=fHIEB1OOH(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fHIEB1OOH(i)=fHIEB1OOH(i)-1; fHIEB1O(i)=fHIEB1O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HIEB1OOH = MVKOHAOH + CO + OH + HO2';
@@ -10333,22 +11358,34 @@ Gstr{i,1} = 'HIEB1OOH';
 fHIEB1OOH(i)=fHIEB1OOH(i)-1; fMVKOHAOH(i)=fMVKOHAOH(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
+Rnames{i} = 'HIEB1O = HOCH2COCHO + HOCH2CHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'HIEB1O'; 
+fHIEB1O(i)=fHIEB1O(i)-1; fHOCH2COCHO(i)=fHOCH2COCHO(i)+1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
 Rnames{i} = 'HIEB2OOH + OH = HMACROH + CO + OH';
 k(:,i) = 5.74e-11;
 Gstr{i,1} = 'HIEB2OOH'; Gstr{i,2} = 'OH'; 
 fHIEB2OOH(i)=fHIEB2OOH(i)-1; fOH(i)=fOH(i)-1; fHMACROH(i)=fHMACROH(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'HIEB2OOH =  + H13CO2C3 + GLYOX + HO2 + OH';
+Rnames{i} = 'HIEB2OOH = HIEB2O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'HIEB2OOH'; 
-fHIEB2OOH(i)=fHIEB2OOH(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fHIEB2OOH(i)=fHIEB2OOH(i)-1; fHIEB2O(i)=fHIEB2O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HIEB2OOH = HMACROH + CO + OH + HO2';
 k(:,i) = J15;
 Gstr{i,1} = 'HIEB2OOH'; 
 fHIEB2OOH(i)=fHIEB2OOH(i)-1; fHMACROH(i)=fHMACROH(i)+1; fCO(i)=fCO(i)+1; fOH(i)=fOH(i)+1; fHO2(i)=fHO2(i)+1; 
+
+i=i+1;
+Rnames{i} = 'HIEB2O = H13CO2C3 + GLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'HIEB2O'; 
+fHIEB2O(i)=fHIEB2O(i)-1; fH13CO2C3(i)=fH13CO2C3(i)+1; fGLYOX(i)=fGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HPNC524CO + OH = HMVKNO3 + CO + OH';
@@ -10435,16 +11472,22 @@ Gstr{i,1} = 'C533OOH'; Gstr{i,2} = 'OH';
 fC533OOH(i)=fC533OOH(i)-1; fOH(i)=fOH(i)-1; fC533O2(i)=fC533O2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C533OOH =  + CHOOCHO + MGLYOX + HO2 + OH';
+Rnames{i} = 'C533OOH = C533O + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C533OOH'; 
-fC533OOH(i)=fC533OOH(i)-1; fCHOOCHO(i)=fCHOOCHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC533OOH(i)=fC533OOH(i)-1; fC533O(i)=fC533O(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C533OOH =  + CHOOCHO + MGLYOX + HO2 + OH';
+Rnames{i} = 'C533OOH = C533O + OH';
 k(:,i) = J22;
 Gstr{i,1} = 'C533OOH'; 
-fC533OOH(i)=fC533OOH(i)-1; fCHOOCHO(i)=fCHOOCHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC533OOH(i)=fC533OOH(i)-1; fC533O(i)=fC533O(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C533O = CHOOCHO + MGLYOX + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C533O'; 
+fC533O(i)=fC533O(i)-1; fCHOOCHO(i)=fCHOOCHO(i)+1; fMGLYOX(i)=fMGLYOX(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'MMALNHYOOH + OH = MMALANHYO2';
@@ -10453,16 +11496,22 @@ Gstr{i,1} = 'MMALNHYOOH'; Gstr{i,2} = 'OH';
 fMMALNHYOOH(i)=fMMALNHYOOH(i)-1; fOH(i)=fOH(i)-1; fMMALANHYO2(i)=fMMALANHYO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MMALNHYOOH =  + CO2H3CO3 + OH';
+Rnames{i} = 'MMALNHYOOH = MMALANHYO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'MMALNHYOOH'; 
-fMMALNHYOOH(i)=fMMALNHYOOH(i)-1; fCO2H3CO3(i)=fCO2H3CO3(i)+1; fOH(i)=fOH(i)+1; 
+fMMALNHYOOH(i)=fMMALNHYOOH(i)-1; fMMALANHYO(i)=fMMALANHYO(i)+1; fOH(i)=fOH(i)+1; 
 
 i=i+1;
-Rnames{i} = 'MMALNHY2OH + OH =  + CO2H3CO3';
+Rnames{i} = 'MMALANHYO = CO2H3CO3';
+k(:,i) = KDEC;
+Gstr{i,1} = 'MMALANHYO'; 
+fMMALANHYO(i)=fMMALANHYO(i)-1; fCO2H3CO3(i)=fCO2H3CO3(i)+1; 
+
+i=i+1;
+Rnames{i} = 'MMALNHY2OH + OH = MMALANHYO';
 k(:,i) = 1.34e-11;
 Gstr{i,1} = 'MMALNHY2OH'; Gstr{i,2} = 'OH'; 
-fMMALNHY2OH(i)=fMMALNHY2OH(i)-1; fOH(i)=fOH(i)-1; fCO2H3CO3(i)=fCO2H3CO3(i)+1; 
+fMMALNHY2OH(i)=fMMALNHY2OH(i)-1; fOH(i)=fOH(i)-1; fMMALANHYO(i)=fMMALANHYO(i)+1; 
 
 i=i+1;
 Rnames{i} = 'C23O3CCO3 + HO2 = C23O3CCO2H + O3';
@@ -10519,10 +11568,16 @@ Gstr{i,1} = 'C3DIOLOOH'; Gstr{i,2} = 'OH';
 fC3DIOLOOH(i)=fC3DIOLOOH(i)-1; fOH(i)=fOH(i)-1; fC3DIOLO2(i)=fC3DIOLO2(i)+1; 
 
 i=i+1;
-Rnames{i} = 'C3DIOLOOH =  + HOCH2CHO + HCHO + HO2 + OH';
+Rnames{i} = 'C3DIOLOOH = C3DIOLO + OH';
 k(:,i) = J41;
 Gstr{i,1} = 'C3DIOLOOH'; 
-fC3DIOLOOH(i)=fC3DIOLOOH(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; fOH(i)=fOH(i)+1; 
+fC3DIOLOOH(i)=fC3DIOLOOH(i)-1; fC3DIOLO(i)=fC3DIOLO(i)+1; fOH(i)=fOH(i)+1; 
+
+i=i+1;
+Rnames{i} = 'C3DIOLO = HOCH2CHO + HCHO + HO2';
+k(:,i) = KDEC;
+Gstr{i,1} = 'C3DIOLO'; 
+fC3DIOLO(i)=fC3DIOLO(i)-1; fHOCH2CHO(i)=fHOCH2CHO(i)+1; fHCHO(i)=fHCHO(i)+1; fHO2(i)=fHO2(i)+1; 
 
 i=i+1;
 Rnames{i} = 'HMVKNGLYOX + OH = CO + CO + HOCH2CHO + NO2';
